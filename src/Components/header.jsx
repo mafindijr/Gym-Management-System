@@ -3,12 +3,12 @@ import React from 'react'
 export default function Header() {
   return (
     <>
-    <header className='flex items-center justify-between pr-20 pl-20'>
+    <header className='flex items-center justify-between py-2 pr-20 pl-20 border-b-2 border-bColor z-12'>
         <div className=''>
-            <h1>Fitness Hub</h1>
+            <h1 className='font-poppins'>Fitness Hub</h1>
         </div>
         <div>
-            <div className='flex gap-2'>
+            <div className='flex gap-8 flex-1 ml-170 font-montserrat'>
                 <a href="#">Home</a>
                 <a href="#">About</a>
                 <a href="#">Services</a>
