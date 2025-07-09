@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-     --*: initial;
-     --bg-color: #0f1a24;
+     --bg-homebg: #0f1a24;
      --text-color: #ffffff;
      --btn-primary: #0a80ed;
      --btn-secondary: #21364a;
@@ -11,4 +10,5 @@
      --percentage-color: #0ad95c;
      --bg-dashb-card: #243647;
      --admin-smtext: #91adc9;
+     --border-bColor: #e5e8eb;
 }
