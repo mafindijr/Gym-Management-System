@@ -50,22 +50,3 @@ export default function LandingPage() {
      </>
   )
 }
-// <div className="relative flex min-h-[480px] flex-col items-center justify-center p-4 gap-6 @[480px]:gap-8 @[480px]:rounded-xl overflow-hidden">
-//   {/* Background image */}
-//   <div
-//     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-//     style={{
-//       backgroundImage: `url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVSfQjnl6BaffyeGRIujBvjuoL2Z2NQ8RkRIaka2FStPNfmKzYdhpHf8g8HM1ZaeJ6KOMoQA4D8am2SEbub3fpiU-_ldw7JeQOZTcjcu0E6qy5IUd4NZ52nwRy0JSUv26gO7b4VNmaMhy8lumLqVYgqc3aeoTG3xuIwjBvXLlSCAXkLCUCRLBhOePo3DAJpfVf-7QOWnO9tL9sYccLuWGpMavF7KjhMgxxAei4_LxaYC7MkzuSW9LLezsOg0NuMlBWQj61efqc68o")`,
-//     }}
-//   ></div>
-
-//   {/* Gradient overlay */}
-//   <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40"></div>
-
-//   {/* Your actual content */}
-//   <div className="relative z-10 text-white text-center">
-//     {/* Replace this with your real content */}
-//     <h1 className="text-2xl font-semibold">Your Title Here</h1>
-//     <p className="mt-2">Some description or call-to-action.</p>
-//   </div>
-// </div>
