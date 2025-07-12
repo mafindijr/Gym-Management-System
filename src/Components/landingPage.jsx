@@ -15,16 +15,16 @@ export default function LandingPage() {
                 >
                   <div className="flex flex-col gap-2 text-center">
                     <h1
-                      className="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                      className="text-white text-4xl font-black font-Montserrat leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
                     >
                       Welcome to Fitness Hub
                     </h1>
-                    <h2 className="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    <h2 className="text-white text-sm font-Montserrat font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                       Please select your role to log in.
                     </h2>
                   </div>
                   <button
-                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0b80ee] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
+                    className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0b80ee] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal font-Poppins @[480px]:tracking-[0.015em]"
                   >
                     <span className="truncate">Staff Login</span>
                   </button>
@@ -34,12 +34,12 @@ export default function LandingPage() {
             <div className="flex justify-center">
               <div className="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-4 py-3">
                 <button
-                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-bold leading-normal tracking-[0.015em] w-full"
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
                 >
                   <span className="truncate">Student Login</span>
                 </button>
                 <button
-                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-bold leading-normal tracking-[0.015em] w-full"
+                  className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
                 >
                   <span className="truncate">Admin Login</span>
                 </button>
