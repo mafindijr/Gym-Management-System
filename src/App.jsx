@@ -1,3 +1,4 @@
+import Footer from "./Components/footer";
 import Header from "./Components/header";
 import LandingPage from './Components/landingPage';
 
@@ -7,6 +8,7 @@ function App() {
     <>
         <Header />
         <LandingPage />
+        <Footer />
     </>
   )
 }
