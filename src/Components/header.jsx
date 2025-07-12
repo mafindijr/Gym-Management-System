@@ -4,7 +4,7 @@ import React from 'react'
 export default function Header() {
   return (
     <>
-    <header className='flex items-center justify-between whitespace-nowrap py-2 pr-20 pl-20 border-b-bColor border-solid z-12'>
+    <header className='flex items-center justify-between whitespace-nowrap py-2 pr-20 pl-20 border-b border-solid border-bColor z-12'>
         <div className=''>
             <h1 className='font-poppins text-lg font-bold leading-tight tracking-[-0.015em]'>Fitness Hub</h1>
         </div>
