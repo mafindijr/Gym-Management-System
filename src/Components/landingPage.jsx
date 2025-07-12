@@ -10,7 +10,7 @@ export default function LandingPage() {
                 <div
                   className="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
                  style={{
-                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAVSfQjnl6BaffyeGRIujBvjuoL2Z2NQ8RkRIaka2FStPNfmKzYdhpHf8g8HM1ZaeJ6KOMoQA4D8am2SEbub3fpiU-_ldw7JeQOZTcjcu0E6qy5IUd4NZ52nwRy0JSUv26gO7b4VNmaMhy8lumLqVYgqc3aeoTG3xuIwjBvXLlSCAXkLCUCRLBhOePo3DAJpfVf-7QOWnO9tL9sYccLuWGpMavF7KjhMgxxAei4_LxaYC7MkzuSW9LLezsOg0NuMlBWQj61efqc68o")`
+                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("/gymlandingimg.png")`
                 }}
                 >
                   <div className="flex flex-col gap-2 text-center">
