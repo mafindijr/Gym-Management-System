@@ -12,14 +12,14 @@ export default function Footer() {
     <>
         <div className='flex items-top justify-between'>
             <div><a href="#">Privacy Policy</a></div>
-            <div className='flex inline-block justify-center'>
+            <div className='flex inline-block items-center text-center justify-center'>
                 <div><a href="#">Terms of services</a></div>
-                <div>
+                <div className="flex items-center space-x-4 justify-center">
                    {svgIcons.map((handle, index) => (
                         <a
                             href="#"
                             key={index}
-                           
+                            className="m-4"
                         >
                             <img
                                 src={handle.icon}
