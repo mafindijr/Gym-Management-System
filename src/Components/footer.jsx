@@ -12,9 +12,15 @@ export default function Footer() {
                 <div><a href="#">Terms of services</a></div>
                 <div className="flex items-center space-x-4 justify-center">
 
-                   <Twitter size={24} />
-                   <Facebook size={24} />
-                   <Instagram size={24} />
+                  <div>
+                    <a href="#"><Twitter size={24} /></a>
+                   </div>
+                   <div className='border-2 p-1 rounded-full'>
+                    <a href="#"><Facebook size={20} /></a>
+                   </div>
+                   <div>
+                    <a href="#"><Instagram size={24} /></a>
+                   </div>
 
                 </div>
                 <div><p>&copy; 2025 FitnessHub. All rights reserved</p></div>
