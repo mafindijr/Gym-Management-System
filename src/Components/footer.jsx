@@ -1,36 +1,23 @@
-import FacebookIcon from "../assets/Svgs/facebook.svg";
-import TwitterIcon from "../assets/Svgs/twitter.svg";
+import { Twitter, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
 
-    const svgIcons = [
-        { icon: FacebookIcon, label: 'go to our facebook page' },
-        { icon: TwitterIcon, label: 'go to out twitter page' }
-    ]
+   
 
   return (
     <>
-        <div className='flex items-top justify-between'>
+        <div className='flex items-center font-montserrat text-footertext justify-between h-[200px] px-20'>
             <div><a href="#">Privacy Policy</a></div>
-            <div className='flex inline-block items-center text-center justify-center'>
+            <div className='flex flex-col items-center gap-4 text-center justify-center'>
                 <div><a href="#">Terms of services</a></div>
                 <div className="flex items-center space-x-4 justify-center">
-                   {svgIcons.map((handle, index) => (
-                        <a
-                            href="#"
-                            key={index}
-                            className="m-4"
-                        >
-                            <img
-                                src={handle.icon}
-                                alt={handle.label}
-                                className="w-8 h-8"
-                            />
-                        
-                        </a>
-                    ))}
+
+                   <Twitter size={24} />
+                   <Facebook size={24} />
+                   <Instagram size={24} />
+
                 </div>
-                <div><a href="#">&copy; 2025 FitnessHub. All rights reserved</a></div>
+                <div><p>&copy; 2025 FitnessHub. All rights reserved</p></div>
             </div>
             <div><a href="#">Contact Us</a></div>
         </div>
