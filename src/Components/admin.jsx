@@ -13,7 +13,7 @@ export default function Admin() {
 
   return (
     <div>
-        <div className='grid grid-cols-3 col-2-span-2'>
+        <div className='grid grid-cols-5 col-2-span-2 m-4 w-full'>
             <nav className=''>
                 <div>
                     <h1>Nyame GymHall</h1>
@@ -35,22 +35,41 @@ export default function Admin() {
                 </div>
             </nav>
 
-            <main className=''>
+            <main className='flex flex-col col-span-4 gap-8 w-full'>
                 <div>
-                    <h1>Dashboard</h1>
+                    <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Dashboard</h1>
+                </div>
+
+                <div className='flex gap-4 w-full'>
+                    <div className='w-[300px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                        <p className='font-semibold text-[16px] leading-[24px]'>Total Members</p>
+                        <p className='font-bold text-[24px] leading-[30px]'>250</p>
+                    </div>
+                    <div className='w-[300px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                        <p className='font-semibold text-[16px] leading-[24px]'>Active Classes</p>
+                        <p className='font-bold text-[24px] leading-[30px]'>15</p>
+                    </div>
+                    <div className='w-[300px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                        <p className='font-semibold text-[16px] leading-[24px]'>Trainers</p>
+                        <p className='font-bold text-[24px] leading-[30px]'>8</p>
+                    </div>
                 </div>
 
                 <div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-
-                <div>
-                    <div>quikck actions</div>
-                    <div>buttons</div>
-                    <div>gym overview</div>
-                    <div>the obvverview insight cards here</div>
+                    <div>
+                        <h2 className='text-[22px] leading-[28px] font-bold pb-4'>Quick Actions</h2>
+                    </div>
+                    <div className='flex gap-2 py-2'>
+                        <button className='bg-btnprimary w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center'>Add Member</button>
+                        <button className='bg-[#223649] w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center'>Schedule Class</button>
+                    </div>
+                    <div>
+                        <h2 className='text-[22px] leading-[28px] font-bold py-4'>Gym Overview</h2>
+                    </div>
+                    <div className='flex gap-4 mt-4'>
+                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]"></div>
+                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]"></div>
+                    </div>
                 </div>
             </main>
         </div>
