@@ -60,8 +60,8 @@ export default function Admin() {
                         <h2 className='text-[22px] leading-[28px] font-bold pb-4'>Quick Actions</h2>
                     </div>
                     <div className='flex gap-2 py-2'>
-                        <button className='bg-btnprimary w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center'>Add Member</button>
-                        <button className='bg-[#223649] w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center'>Schedule Class</button>
+                        <button className='bg-btnprimary w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
+                        <button className='bg-[#223649] w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Schedule Class</button>
                     </div>
                     <div>
                         <h2 className='text-[22px] leading-[28px] font-bold py-4'>Gym Overview</h2>
