@@ -3,12 +3,12 @@ import React from 'react'
 export default function Admin() {
 
         const navs = [
-            { name: "Dashboard", icon: ""},
-            { name: "Members", icon: ""},
-            { name: "Classes", icon: ""},
-            { name: "Trainers", icon: ""},
-            { name: "Billing", icon: ""},
-            { name: "Settings", icon: ""}
+            { name: "Dashboard", icon: "X"},
+            { name: "Members", icon: "X"},
+            { name: "Classes", icon: "X"},
+            { name: "Trainers", icon: "X"},
+            { name: "Billing", icon: "X"},
+            { name: "Settings", icon: "X"}
         ];
 
   return (
