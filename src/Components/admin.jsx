@@ -14,10 +14,10 @@ export default function Admin() {
   return (
     <div>
         <div className='grid grid-cols-5 col-2-span-2 m-4 w-full'>
-            <nav className=''>
+            <nav className='flex flex-col gap-2 pl-4'>
                 <div>
-                    <h1>Nyame GymHall</h1>
-                    <p>Admin</p>
+                    <h2 className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</h2>
+                    <p className='text-[14px] text-adminsmtext'>Admin</p>
                 </div>
                 <div>
                     <ul>
