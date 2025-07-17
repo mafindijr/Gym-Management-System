@@ -20,7 +20,7 @@ export default function Admin() {
                     <p className='text-[14px] text-adminsmtext'>Admin</p>
                 </div>
                 <div>
-                    <ul>
+                    <ul className='flex'>
                       {
                         navs.map((nav, index ) => {
                             return (
@@ -67,8 +67,28 @@ export default function Admin() {
                         <h2 className='text-[22px] leading-[28px] font-bold py-4'>Gym Overview</h2>
                     </div>
                     <div className='flex gap-4 mt-4'>
-                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]"></div>
-                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]"></div>
+                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]">
+                            <div>
+                                <h2>Member Growth</h2>
+                                <h2>+15%</h2>
+                                <p>Last Month <span>+15%</span></p>
+                            </div>
+
+                            <div>
+
+                            </div>
+                        </div>
+                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]">
+                            <div>
+                                <h2>Class Attendance</h2>
+                                <h2>+10%</h2>
+                                <p>Last Week <span>+10%</span></p>
+                            </div>
+
+                            <div>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </main>
