@@ -17,7 +17,7 @@ export default function Admin() {
             <nav className='flex flex-col gap-4 pl-4'>
                 <div>
                     <h2 className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</h2>
-                    <p className='text-[14px] text-adminsmtext'>Admin</p>
+                    <p className='text-[14px] leading-6 text-adminsmtext'>Admin</p>
                 </div>
                 <div>
                     <ul className='flex flex-col gap-4'>
@@ -67,22 +67,22 @@ export default function Admin() {
                         <h2 className='text-[22px] leading-[28px] font-bold py-4'>Gym Overview</h2>
                     </div>
                     <div className='flex gap-4 mt-4'>
-                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]">
+                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
                             <div>
                                 <h2>Member Growth</h2>
-                                <h2>+15%</h2>
-                                <p>Last Month <span>+15%</span></p>
+                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>+15%</h2>
+                                <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Month <span className='text-percentage font-bold'>+15%</span></p>
                             </div>
 
                             <div>
 
                             </div>
                         </div>
-                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px]">
+                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
                             <div>
                                 <h2>Class Attendance</h2>
-                                <h2>+10%</h2>
-                                <p>Last Week <span>+10%</span></p>
+                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>+10%</h2>
+                                <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Week <span className='text-percentage font-bold'>+10%</span></p>
                             </div>
 
                             <div>
