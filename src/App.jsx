@@ -1,7 +1,7 @@
 import Header from "./Components/header";
 import LandingPage from './Components/landingPage';
 import Footer from "./Components/footer";
-import Admin from "./Components/admin-dashboard";
+import MembersDashboard from "./Components/members";
 
 function App() {
 
@@ -10,7 +10,7 @@ function App() {
         <Header />
         <LandingPage />
         <Footer />
-        <Admin />
+        <MembersDashboard />
     </>
   )
 }
