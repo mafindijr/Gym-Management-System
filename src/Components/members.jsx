@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchBar from './search-input';
 
 export default function MembersDashboard() {
 
@@ -43,7 +44,7 @@ export default function MembersDashboard() {
                 </div>
 
                 <div className='flex gap-4 w-full'>
-                    <input type='text' placeholder='Search' className='bg-[#223649] w-[928px] outline-0 p-4 rounded-2xl text-[18px]'/>
+                   <SearchBar />
                 </div>
 
                     <div className='flex gap-4 mt-4'>
