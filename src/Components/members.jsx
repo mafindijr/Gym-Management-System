@@ -47,8 +47,49 @@ export default function MembersDashboard() {
                 </div>
 
                     <div className='flex gap-4 mt-4'>
-                        <div className="w-[928px] h-[480px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
-                           
+                        <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px] p-4 divide-y">
+                                <div className='flex justify-around items-center p-4'>
+                                    <div><span>Name</span></div>
+                                    <div><span>Membership</span></div>
+                                    <div><span>Status</span></div>
+                                    <div>Last Visit</div>
+                                    <div>Action</div>
+                                </div>
+                                <div className='flex justify-around items-center p-4'>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                </div>
+                                <div className='flex justify-around items-center p-4'>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                </div>
+                                <div className='flex justify-around items-center p-4'>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                </div>
+                                <div className='flex justify-around items-center p-4'>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                </div>
+                                <div className='flex justify-around items-center p-4'>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                    <div>rows</div>
+                                </div>
                         </div>
                         
                     </div>
