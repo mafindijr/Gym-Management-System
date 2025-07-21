@@ -116,13 +116,13 @@ export default function Admin() {
                                     <div className="grid min-h-[180px] grid-flow-col gap-6 grid-rows-[1fr_auto] items-end justify-items-center px-3">
                   <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full h-[60%]"></div>
                   <p className="text-[#92aec9] text-[13px] font-bold leading-normal tracking-[0.015em]">Mon</p>
-                  <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full" style="height: 80%;"></div>
+                  <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full h-[80%]"></div>
                   <p className="text-[#92aec9] text-[13px] font-bold leading-normal tracking-[0.015em]">Tue</p>
                   <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full h-[40%]"></div>
                   <p className="text-[#92aec9] text-[13px] font-bold leading-normal tracking-[0.015em]">Wed</p>
-                  <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full" style="height: 30%;"></div>
-                  <p class="text-[#92aec9] text-[13px] font-bold leading-normal tracking-[0.015em]">Thu</p>
-                  <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full" style="height: 30%;"></div>
+                  <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full h-[30%]"></div>
+                  <p className="text-[#92aec9] text-[13px] font-bold leading-normal tracking-[0.015em]">Thu</p>
+                  <div className="border-[#92aec9] bg-[#233648] border-t-2 w-full h-[30%]"></div>
                   <p className="text-[#92aec9] text-[13px] font-bold leading-normal tracking-[0.015em]">Fri</p>
                 </div>
                             </div>
