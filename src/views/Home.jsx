@@ -1,10 +1,9 @@
-import LandingPage from '../Components/landingPage'
-import Layout from '../layout/layout'
-import LandingPage from './Components/landingPage';
-import MembersDashboard from "./Components/members";
-import Admin from "./Components/admin-dashboard";
+import LandingPage from '../Components/landingPage';
+import Layout from '../layout/layout';
+import MembersDashboard from "../Components/members";
+import Admin from "../Components/admin-dashboard";
 
-export default function () {
+export default function Home() {
   return (
     <Layout>
 
