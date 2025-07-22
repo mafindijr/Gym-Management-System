@@ -1,16 +1,17 @@
 import Header from '../Components/header';
 import Footer from '../Components/footer';
 
-export default function Home( { Children } ) {
+export default function Home( { children } ) {
+
   return (
     <div>
         <Header />
 
         <main>
-            {Children}
+            {children}
         </main>
 
-        <footer />
+        <Footer />
 
     </div>
   )
