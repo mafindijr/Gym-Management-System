@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function LandingPage() {
+  
   return (
     <>
          <div className="px-40 flex flex-1 justify-center py-5">
