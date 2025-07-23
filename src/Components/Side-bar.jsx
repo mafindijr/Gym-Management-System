@@ -3,6 +3,8 @@ import {
   Home,
   Users,
   Settings,
+  Wallet,
+  Calendar
 } from "lucide-react";
 
 export default function SideBar() {
@@ -10,9 +12,9 @@ export default function SideBar() {
     const navs = [
             { to: "/admin",   name: "Dashboard", icon: <Home />},
             { to: "/member",   name: "Members",   icon: <Users />},
-            { to: "/classes",  name: "Classes",   icon: "X"},
-            { to: "/trainers", name: "Trainers",  icon: "X"},
-            { to: "/billling", name: "Billing",   icon: "X"},
+            { to: "/classes",  name: "Classes",   icon: <Calendar />},
+            { to: "/trainers", name: "Trainers",  icon: <Users />},
+            { to: "/billling", name: "Billing",   icon: <Wallet />},
             { to: "/settings", name: "Settings",  icon: <Settings />}
         ];
 
