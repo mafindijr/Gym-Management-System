@@ -1,14 +1,19 @@
 import { NavLink } from "react-router-dom";
+import {
+  Home,
+  Users,
+  Settings,
+} from "lucide-react";
 
 export default function SideBar() {
 
     const navs = [
-            { to: "/admin",   name: "Dashboard", icon: "X"},
-            { to: "/member",   name: "Members",   icon: "X"},
+            { to: "/admin",   name: "Dashboard", icon: <Home />},
+            { to: "/member",   name: "Members",   icon: <Users />},
             { to: "/classes",  name: "Classes",   icon: "X"},
             { to: "/trainers", name: "Trainers",  icon: "X"},
             { to: "/billling", name: "Billing",   icon: "X"},
-            { to: "/settings", name: "Settings",  icon: "X"}
+            { to: "/settings", name: "Settings",  icon: <Settings />}
         ];
 
 
