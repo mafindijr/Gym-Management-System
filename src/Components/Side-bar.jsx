@@ -31,7 +31,7 @@ export default function SideBar() {
                       {
                         navs.map((nav, index ) => {
                             return (
-                                <NavLink to={nav.to} className={({ isActive }) => `flex gap-2 w-full leading-5.4 text-[14px]  font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#223649] ${isActive? "bg-[#223649]" : "" }`} key={index}>
+                                <NavLink to={nav.to} className={({ isActive }) => `flex gap-2 w-full leading-5.4 text-[14px] text-center  font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#223649] ${isActive? "bg-[#223649]" : "" }`} key={index}>
                                     <span>{ nav.icon }</span>
                                     <a href="#">{ nav.name }</a>
                                 </NavLink>
