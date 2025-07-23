@@ -15,7 +15,7 @@ export default function MembersDashboard() {
 
   return (
     <div>
-        <div className='grid grid-cols-5 col-2-span-2 gap-8 m-4 w-full'>
+        {/* <div className='grid grid-cols-5 col-2-span-2 gap-8 m-4 w-full'>
             <nav className='flex flex-col gap-4 pl-4'>
                 <div>
                     <h2 className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</h2>
@@ -35,7 +35,7 @@ export default function MembersDashboard() {
                       }  
                     </ul>
                 </div>
-            </nav>
+            </nav> */}
 
             <main className='flex flex-col col-span-4 gap-8 w-full'>
                 <div className='flex justify-between items-center'>
@@ -98,6 +98,6 @@ export default function MembersDashboard() {
             </main>
         </div>
 
-    </div>
+    // </div>
   )
 }
