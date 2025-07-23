@@ -2,15 +2,6 @@
 
 export default function Admin() {
 
-        const navs = [
-            { name: "Dashboard", icon: "X"},
-            { name: "Members", icon: "X"},
-            { name: "Classes", icon: "X"},
-            { name: "Trainers", icon: "X"},
-            { name: "Billing", icon: "X"},
-            { name: "Settings", icon: "X"}
-        ];
-
   return (
     <div>
 
