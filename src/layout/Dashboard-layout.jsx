@@ -7,7 +7,7 @@ export default function DashboardLayout() {
 
       <Sidebar />
 
-      <main className="flex-1 p-4">
+      <main className="flex-1 items-center justify-center p-4">
         <Outlet />
       </main>
 

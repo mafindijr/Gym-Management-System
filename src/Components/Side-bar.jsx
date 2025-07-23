@@ -10,12 +10,12 @@ import {
 export default function SideBar() {
 
     const navs = [
-            { to: "/admin",   name: "Dashboard", icon: <Home />},
-            { to: "/member",   name: "Members",   icon: <Users />},
-            { to: "/classes",  name: "Classes",   icon: <Calendar />},
-            { to: "/trainers", name: "Trainers",  icon: <Users />},
-            { to: "/billling", name: "Billing",   icon: <Wallet />},
-            { to: "/settings", name: "Settings",  icon: <Settings />}
+            { to: "/admin",   name: "Dashboard", icon: <Home size={20} />},
+            { to: "/member",   name: "Members",   icon: <Users size={20} />},
+            { to: "/classes",  name: "Classes",   icon: <Calendar size={20} />},
+            { to: "/trainers", name: "Trainers",  icon: <Users size={20} />},
+            { to: "/billling", name: "Billing",   icon: <Wallet size={20} />},
+            { to: "/settings", name: "Settings",  icon: <Settings size={20} />}
         ];
 
 
