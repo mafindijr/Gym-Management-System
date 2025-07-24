@@ -22,7 +22,7 @@ export default function MembersDashboard() {
 
                     <div className='flex gap-4 mt-4'>
                         <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
-                                <div className='flex justify-around items-center p-4 border-b-2'>
+                                <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
                                     <div><span>Name</span></div>
                                     <div><span>Membership</span></div>
                                     <div><span>Status</span></div>
@@ -30,16 +30,16 @@ export default function MembersDashboard() {
                                     <div><span>Action</span></div>
                                 </div>
                                 <div id="tableBody" className="">
-                                <div className='flex justify-around items-center p-4 border-b-1'>
+                                <div className='flex justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
                                     
-                                    <div className="w-[185px] text-center">
+                                    <div className="w-[185px] text-center text-[#e5e8eb]">
                                         <span>Abdulrazak mafindi</span>
                                     </div>
                                     <div className="w-[185px] text-center">
                                         <span>Premium</span>
                                     </div>
                                     <div className="w-[185px] text-center">
-                                        <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer">Active</span>
+                                        <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">Active</span>
                                     </div>
                                     <div className="w-[185px] text-center">
                                         <span>2 days ago</span>
