@@ -1,9 +1,9 @@
-import { UseState } from 'react'
+import { useState } from "react";
 import SearchBar from '../Components/search-input';
 
 export default function MembersDashboard() {
 
-        const [openModal, setOpenModal] = UseState();
+        const [addNewMember, setAddNewMember] = useState(false);
 
 
   return (
@@ -70,6 +70,6 @@ export default function MembersDashboard() {
             </main>
         </div>
 
-    // </div>
+    
   )
 }
