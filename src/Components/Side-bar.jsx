@@ -21,9 +21,9 @@ export default function SideBar() {
 
   return (
     <div>
-        <nav className='flex flex-col gap-4 pl-4 pt-4 w-64'>
+        <nav className='flex flex-col fixed left-0 gap-4 pl-4 pt-4 w-64'>
                 <div>
-                    <h2 className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</h2>
+                    <NavLink to='/' className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</NavLink>
                     <p className='text-[14px] leading-6 text-adminsmtext'>Admin</p>
                 </div>
                 <div>
@@ -31,7 +31,7 @@ export default function SideBar() {
                       {
                         navs.map((nav, index ) => {
                             return (
-                                <NavLink to={nav.to} className={({ isActive }) => `flex gap-2 w-full leading-5.4 text-[14px] text-center  font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#223649] ${isActive? "bg-[#223649]" : "" }`} key={index}>
+                                <NavLink to={nav.to} className={({ isActive }) => `flex gap-2 w-full leading-5.4 text-[14px] text-center  font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#22364973] ${isActive? "bg-[#223649]" : "" }`} key={index}>
                                     <span>{ nav.icon }</span>
                                     <span>{ nav.name }</span>
                                 </NavLink>
