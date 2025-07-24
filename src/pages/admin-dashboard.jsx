@@ -5,21 +5,21 @@ export default function Admin() {
   return (
     <div>
 
-            <main className='flex flex-col col-span-4 gap-8 w-full'>
-                <div>
+            <main className='flex flex-col col-span-4 justify-center  gap-8 w-full'>
+                <div className="">
                     <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Dashboard</h1>
                 </div>
 
-                <div className='flex gap-4 w-full'>
-                    <div className='w-[300px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                <div className='flex gap-4'>
+                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
                         <p className='font-semibold text-[16px] leading-[24px]'>Total Members</p>
                         <p className='font-bold text-[24px] leading-[30px]'>250</p>
                     </div>
-                    <div className='w-[300px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
                         <p className='font-semibold text-[16px] leading-[24px]'>Active Classes</p>
                         <p className='font-bold text-[24px] leading-[30px]'>15</p>
                     </div>
-                    <div className='w-[300px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
                         <p className='font-semibold text-[16px] leading-[24px]'>Trainers</p>
                         <p className='font-bold text-[24px] leading-[30px]'>8</p>
                     </div>
