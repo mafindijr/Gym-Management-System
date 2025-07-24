@@ -1,7 +1,6 @@
 import LandingPage from '../Components/landingPage';
 import Layout from '../layout/layout';
 import DashboardLayout from '../layout/Dashboard-layout';
-// import Modal from '../Components/modal';
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
 
         <LandingPage />
         <DashboardLayout />
-        {/* <Modal /> */}
     </Layout>
   )
 }
