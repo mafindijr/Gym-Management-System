@@ -10,7 +10,7 @@ import {
 export default function SideBar() {
 
     const navs = [
-            { to: "/admin",   name: "Dashboard", icon: <Home size={20} />},
+            { to: "/admin",    name: "Dashboard", icon: <Home size={20} />},
             { to: "/member",   name: "Members",   icon: <Users size={20} />},
             { to: "/classes",  name: "Classes",   icon: <Calendar size={20} />},
             { to: "/trainers", name: "Trainers",  icon: <Users size={20} />},
@@ -27,18 +27,18 @@ export default function SideBar() {
                     <p className='text-[14px] leading-6 text-adminsmtext'>Admin</p>
                 </div>
                 <div>
-                    <ul className='flex flex-col gap-4 items-center text-center justify-center'>
+                    <div className='flex flex-col gap-4 items-center text-center justify-center'>
                       {
                         navs.map((nav, index ) => {
                             return (
                                 <NavLink to={nav.to} className={({ isActive }) => `flex gap-2 w-full leading-5.4 text-[14px] text-center  font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#223649] ${isActive? "bg-[#223649]" : "" }`} key={index}>
                                     <span>{ nav.icon }</span>
-                                    <a href="#">{ nav.name }</a>
+                                    <span>{ nav.name }</span>
                                 </NavLink>
                             );
                         })
                       }  
-                    </ul>
+                    </div>
                 </div>
             </nav>
     </div>
