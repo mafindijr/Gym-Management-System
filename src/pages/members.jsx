@@ -1,41 +1,13 @@
-import React from 'react'
+import { UseState } from 'react'
 import SearchBar from '../Components/search-input';
 
 export default function MembersDashboard() {
 
-    
-        const navs = [
-            { name: "Dashboard", icon: "X"},
-            { name: "Members", icon: "X"},
-            { name: "Classes", icon: "X"},
-            { name: "Trainers", icon: "X"},
-            { name: "Billing", icon: "X"},
-            { name: "Settings", icon: "X"}
-        ];
+        const [openModal, setOpenModal] = UseState();
+
 
   return (
     <div>
-        {/* <div className='grid grid-cols-5 col-2-span-2 gap-8 m-4 w-full'>
-            <nav className='flex flex-col gap-4 pl-4'>
-                <div>
-                    <h2 className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</h2>
-                    <p className='text-[14px] leading-6 text-adminsmtext'>Admin</p>
-                </div>
-                <div>
-                    <ul className='flex flex-col gap-4'>
-                      {
-                        navs.map((nav, index ) => {
-                            return (
-                                <li className='flex gap-2 w-full leading-5.4 text-[14px]  font-montserrat bg-[#223649] p-2 rounded-full cursor-pointer' key={index}>
-                                    <span>{ nav.icon }</span>
-                                    <a href="#">{ nav.name }</a>
-                                </li>
-                            );
-                        })
-                      }  
-                    </ul>
-                </div>
-            </nav> */}
 
             <main className='flex flex-col col-span-4 gap-8 w-full'>
                 <div className='flex justify-between items-center'>
