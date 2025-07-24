@@ -39,13 +39,13 @@ export default function MembersDashboard() {
                                         <span>Premium</span>
                                     </div>
                                     <div className="w-[185px] text-center">
-                                        <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md">Active</span>
+                                        <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer">Active</span>
                                     </div>
                                     <div className="w-[185px] text-center">
                                         <span>2 days ago</span>
                                     </div>
                                     <div className="w-[185px] text-center">
-                                        <span>View</span>
+                                        <span className="font-semibold cursor-pointer">View</span>
                                     </div>
                                 </div>
                                 <div className='flex justify-around items-center p-4 border-b-1'>
