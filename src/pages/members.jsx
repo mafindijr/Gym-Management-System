@@ -15,6 +15,11 @@ export default function MembersDashboard() {
             }
         ];
 
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            
+        }
+
 
   return (
     <div>
@@ -93,7 +98,7 @@ export default function MembersDashboard() {
             </main>
 
                 <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-                    <form action="">
+                    <form onSubmit={handleSubmit}>
                         <div>
                             <div>
                                 {<label>Name</label>}
