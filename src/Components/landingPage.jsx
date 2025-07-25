@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import DashboardLayout from '../layout/Dashboard-layout'
 
 export default function LandingPage() {
   
@@ -37,7 +39,9 @@ export default function LandingPage() {
                 <button
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
                 >
-                  <span className="truncate">Student Login</span>
+                  <NavLink to="/admin">
+                    <span className="truncate">Student Login</span>
+                  </NavLink>
                 </button>
                 <button
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
