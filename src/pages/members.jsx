@@ -5,7 +5,15 @@ import Modal from "../Components/modal";
 export default function MembersDashboard() {
 
         const [openModal, setOpenModal] = useState(false);
-        const data = [];
+        const data = [
+            {
+                name: "Abdulrazak mafindi",
+                membership: "Premium",
+                status: "Active",
+                lastVisit: "2 days ago",
+                action: "View"
+            }
+        ];
 
 
   return (
@@ -85,7 +93,27 @@ export default function MembersDashboard() {
             </main>
 
                 <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-
+                    <form action="">
+                        <div>
+                            <div>
+                                {<label>Name</label>}
+                                <input className="p-2" type="text" placeholder="Enter Name" />
+                            </div>
+                            <div>
+                                {<label>Membership</label>}
+                                <input className="p-2" type="text" placeholder="Enter Name" />
+                            </div>
+                            <div>
+                                {<label>Status</label>}
+                                <input className="p-2" type="text" placeholder="Enter Name" />
+                            </div>
+                            <div>
+                                {<label>Last Seen</label>}
+                                <input className="p-2" type="text" placeholder="Enter Name" />
+                            </div>
+                            <button type="submit">Add Member</button>
+                        </div>
+                    </form>
                 </Modal>
 
         </div>
