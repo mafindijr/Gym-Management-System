@@ -38,8 +38,7 @@ export default function MembersDashboard() {
                 name: "",
                 membership: "",
                 status: "",
-                lastVisit: "",
-                action: ""
+                lastVisit: ""
             });
         }
 
@@ -128,27 +127,47 @@ export default function MembersDashboard() {
                                 <input 
                                 className="p-2" type="text" 
                                 placeholder="Enter Name"
-                                value={value} 
-                                onChange={(event) => setValue(event.target.value)}
+                                name="name"
+                                value={formData.name} 
+                                onChange={handleChange}
                                 />
-                                <p>{value}</p>
                             </div>
                             <div>
-                                {<label>Membership</label>}
+                                <label>
+                                    Membership
+
                                 <input 
                                 className="p-2" type="text" 
-                                placeholder="Enter Membership Type" 
-                                value={value}
-                                onChange={(event) => setValue(event.target.value)}
+                                placeholder="Enter Membership Type"
+                                name="membership" 
+                                value={formData.membership}
+                                onChange={handleChange}
                                 />
+                                </label>
                             </div>
                             <div>
-                                {<label>Status</label>}
-                                <input className="p-2" type="text" placeholder="Enter Name" />
+                                <label>
+                                    Status
+                                <input 
+                                className="p-2" type="text" 
+                                placeholder="Enter Name" 
+                                name="status"
+                                value={formData.status}
+                                onChange={handleChange}
+                                />
+                                </label>
                             </div>
                             <div>
-                                {<label>Last Seen</label>}
-                                <input className="p-2" type="text" placeholder="Enter Name" />
+                                <label>
+                                    Last Seen
+                                <input 
+                                className="p-2" type="text" 
+                                placeholder="Enter Name" 
+                                name="lastVisit"
+                                value={formData.lastVisit}
+                                onChange={handleChange}
+                                />
+                                </label>
                             </div>
                             <button type="submit">Add Member</button>
                         </div>
