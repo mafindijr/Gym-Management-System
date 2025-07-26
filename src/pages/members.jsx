@@ -5,9 +5,15 @@ import Modal from "../Components/modal";
 export default function MembersDashboard() {
 
         const [openModal, setOpenModal] = useState(false);
-        const [formData, setFormData] = useState("");
+        const [formData, setFormData] = useState({
+                name: "",
+                membership: "",
+                status: "",
+                lastVisit: "",
+                action: ""
+        });
 
-        const data = [
+        const [data, setData] = useState ([
             {
                 name: "Abdulrazak mafindi",
                 membership: "Premium",
@@ -15,14 +21,26 @@ export default function MembersDashboard() {
                 lastVisit: "2 days ago",
                 action: "View"
             }
-        ];
+        ]);
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
+        const handleChange = (e) => {
+
             const { name, value } = e.target;
             setFormData(prev => ({
             ...prev, [name]: value
-        }));
+             }));
+        }
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            setData(prev => [...prev, formData]);
+            setForm({ 
+                name: "",
+                membership: "",
+                status: "",
+                lastVisit: "",
+                action: ""
+            });
         }
 
 
