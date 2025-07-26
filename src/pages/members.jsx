@@ -5,7 +5,8 @@ import Modal from "../Components/modal";
 export default function MembersDashboard() {
 
         const [openModal, setOpenModal] = useState(false);
-        const [value, setValue] = useState("");
+        const [formData, setFormData] = useState("");
+
         const data = [
             {
                 name: "Abdulrazak mafindi",
@@ -18,6 +19,10 @@ export default function MembersDashboard() {
 
         const handleSubmit = (e) => {
             e.preventDefault();
+            const { name, value } = e.target;
+            setFormData(prev => ({
+            ...prev, [name]: value
+        }));
         }
 
 
@@ -141,63 +146,4 @@ export default function MembersDashboard() {
 
 
 
- // export default function UserForm() {
-//     const [formData, setFormData] = useState({
-//         name: "",
-//         email: "",
-//         age: ""
-//     });
-
-//     function handleChange(e) {
-//         const { name, value } = e.target;
-//         setFormData(prev => ({
-//             ...prev,
-//             [name]: value
-//         }));
-//     }
-
-//     return (
-//         <div>
-//             <h2>User Form</h2>
-
-//             <label>
-//                 Name:
-//                 <input
-//                     type="text"
-//                     name="name"
-//                     value={formData.name}
-//                     onChange={handleChange}
-//                 />
-//             </label>
-//             <br />
-
-//             <label>
-//                 Email:
-//                 <input
-//                     type="email"
-//                     name="email"
-//                     value={formData.email}
-//                     onChange={handleChange}
-//                 />
-//             </label>
-//             <br />
-
-//             <label>
-//                 Age:
-//                 <input
-//                     type="number"
-//                     name="age"
-//                     value={formData.age}
-//                     onChange={handleChange}
-//                 />
-//             </label>
-
-//             <hr />
-
-//             <h3>Live Preview:</h3>
-//             <p><strong>Name:</strong> {formData.name}</p>
-//             <p><strong>Email:</strong> {formData.email}</p>
-//             <p><strong>Age:</strong> {formData.age}</p>
-//         </div>
-//     );
- // }
+ 
