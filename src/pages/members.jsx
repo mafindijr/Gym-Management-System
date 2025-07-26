@@ -18,7 +18,6 @@ export default function MembersDashboard() {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            const value = e.target.value;
         }
 
 
@@ -107,13 +106,18 @@ export default function MembersDashboard() {
                                 className="p-2" type="text" 
                                 placeholder="Enter Name"
                                 value={value} 
-                                onChange={(Event) => setValue(value)}
+                                onChange={(event) => setValue(event.target.value)}
                                 />
                                 <p>{value}</p>
                             </div>
                             <div>
                                 {<label>Membership</label>}
-                                <input className="p-2" type="text" placeholder="Enter Name" />
+                                <input 
+                                className="p-2" type="text" 
+                                placeholder="Enter Membership Type" 
+                                value={value}
+                                onChange={(event) => setValue(event.target.value)}
+                                />
                             </div>
                             <div>
                                 {<label>Status</label>}
@@ -133,3 +137,67 @@ export default function MembersDashboard() {
     
   )
 }
+
+
+
+
+ // export default function UserForm() {
+//     const [formData, setFormData] = useState({
+//         name: "",
+//         email: "",
+//         age: ""
+//     });
+
+//     function handleChange(e) {
+//         const { name, value } = e.target;
+//         setFormData(prev => ({
+//             ...prev,
+//             [name]: value
+//         }));
+//     }
+
+//     return (
+//         <div>
+//             <h2>User Form</h2>
+
+//             <label>
+//                 Name:
+//                 <input
+//                     type="text"
+//                     name="name"
+//                     value={formData.name}
+//                     onChange={handleChange}
+//                 />
+//             </label>
+//             <br />
+
+//             <label>
+//                 Email:
+//                 <input
+//                     type="email"
+//                     name="email"
+//                     value={formData.email}
+//                     onChange={handleChange}
+//                 />
+//             </label>
+//             <br />
+
+//             <label>
+//                 Age:
+//                 <input
+//                     type="number"
+//                     name="age"
+//                     value={formData.age}
+//                     onChange={handleChange}
+//                 />
+//             </label>
+
+//             <hr />
+
+//             <h3>Live Preview:</h3>
+//             <p><strong>Name:</strong> {formData.name}</p>
+//             <p><strong>Email:</strong> {formData.email}</p>
+//             <p><strong>Age:</strong> {formData.age}</p>
+//         </div>
+//     );
+ // }
