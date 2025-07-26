@@ -5,6 +5,7 @@ import Modal from "../Components/modal";
 export default function MembersDashboard() {
 
         const [openModal, setOpenModal] = useState(false);
+        const [value, setValue] = useState("");
         const data = [
             {
                 name: "Abdulrazak mafindi",
@@ -17,7 +18,7 @@ export default function MembersDashboard() {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            
+            const value = e.target.value;
         }
 
 
@@ -102,7 +103,13 @@ export default function MembersDashboard() {
                         <div>
                             <div>
                                 {<label>Name</label>}
-                                <input className="p-2" type="text" placeholder="Enter Name" />
+                                <input 
+                                className="p-2" type="text" 
+                                placeholder="Enter Name"
+                                value={value} 
+                                onChange={(Event) => setValue(value)}
+                                />
+                                <p>{value}</p>
                             </div>
                             <div>
                                 {<label>Membership</label>}
