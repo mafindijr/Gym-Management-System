@@ -99,21 +99,26 @@ export default function MembersDashboard() {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <div>
-                                {<label>Name</label>}
+                                <label className="w-full">
+                                    Name
+                                
                                 <input 
-                                className="p-2" type="text" 
+                                className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                                type="text" 
                                 placeholder="Enter Name"
                                 name="name"
                                 value={formData.name} 
                                 onChange={handleChange}
                                 />
+                                </label>
                             </div>
                             <div>
                                 <label>
                                     Membership
 
                                 <input 
-                                className="p-2" type="text" 
+                                className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                                type="text" 
                                 placeholder="Enter Membership Type"
                                 name="membership" 
                                 value={formData.membership}
@@ -125,7 +130,8 @@ export default function MembersDashboard() {
                                 <label>
                                     Status
                                 <input 
-                                className="p-2" type="text" 
+                                className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                                type="text" 
                                 placeholder="Enter Name" 
                                 name="status"
                                 value={formData.status}
@@ -137,7 +143,8 @@ export default function MembersDashboard() {
                                 <label>
                                     Last Seen
                                 <input 
-                                className="p-2" type="text" 
+                                className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                                type="text" 
                                 placeholder="Enter Name" 
                                 name="lastVisit"
                                 value={formData.lastVisit}
@@ -145,7 +152,7 @@ export default function MembersDashboard() {
                                 />
                                 </label>
                             </div>
-                            <button type="submit" className="cursor-pointer">Add Member</button>
+                            <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
                         </div>
                     </form>
                 </Modal>
