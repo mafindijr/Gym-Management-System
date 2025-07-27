@@ -9,8 +9,7 @@ export default function MembersDashboard() {
                 name: "",
                 membership: "",
                 status: "",
-                lastVisit: "",
-                action: ""
+                lastVisit: ""
         });
 
         const [data, setData] = useState ([
@@ -29,17 +28,16 @@ export default function MembersDashboard() {
             setFormData(prev => ({
             ...prev, [name]: value
              }));
+             
         }
 
         const handleSubmit = (e) => {
             e.preventDefault();
             setData(prev => [...prev, formData]);
-            setForm({ 
+            setFormData({
                 name: "",
-                membership: "",
-                status: "",
-                lastVisit: ""
             });
+
         }
 
 
@@ -78,7 +76,7 @@ export default function MembersDashboard() {
                                         <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
                                     </div>
                                     <div className="w-[185px] text-center">
-                                        <span>2 days ago</span>
+                                        <span>{item.lastVisit}</span>
                                     </div>
                                     <div className="w-[185px] text-center">
                                         <span className="font-semibold cursor-pointer">View</span>
@@ -142,7 +140,7 @@ export default function MembersDashboard() {
                                 />
                                 </label>
                             </div>
-                            <button type="submit">Add Member</button>
+                            <button type="submit" className="cursor-pointer">Add Member</button>
                         </div>
                     </form>
                 </Modal>
