@@ -5,6 +5,7 @@ import Modal from "../Components/modal";
 export default function MembersDashboard() {
 
         const [openModal, setOpenModal] = useState(false);
+        const [openReview, setOpenReview] = useState(false);
         const [formData, setFormData] = useState({
                 name: "",
                 membership: "",
@@ -83,7 +84,7 @@ export default function MembersDashboard() {
                                     <div className="w-[185px] text-center">
                                         <span>{item.lastVisit}</span>
                                     </div>
-                                    <div className="w-[185px] text-center">
+                                    <div onClick={() => setOpenReview(true)} className="w-[185px] text-center">
                                         <span className="font-semibold cursor-pointer">View</span>
                                     </div>
                                 </div>))}
@@ -154,6 +155,16 @@ export default function MembersDashboard() {
                             </div>
                             <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
                         </div>
+                    </form>
+                </Modal>
+
+                <Modal isOpen={openReview} onClose={() => setOpenReview(false)}>
+                    <h2>
+                    Member Datails
+                    </h2>
+
+                    <form>
+
                     </form>
                 </Modal>
 
