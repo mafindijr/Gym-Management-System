@@ -36,7 +36,12 @@ export default function MembersDashboard() {
             setData(prev => [...prev, formData]);
             setFormData({
                 name: "",
+                membership: "",
+                status: "",
+                lastVisit: ""
             });
+
+            setOpenModal(false);
 
         }
 
@@ -153,82 +158,3 @@ export default function MembersDashboard() {
 
 
 
-// export default function UserFormList() {
-//     const [form, setForm] = useState({
-//         name: "",
-//         email: "",
-//         age: ""
-//     });
-
-//     const [data, setData] = useState([]);
-
-//     // Handle input changes for form
-//     function handleChange(e) {
-//         const { name, value } = e.target;
-//         setForm(prev => ({
-//             ...prev,
-//             [name]: value
-//         }));
-//     }
-
-//     // Add current form to data array
-//     function handleSubmit(e) {
-//         e.preventDefault();
-//         setData(prev => [...prev, form]);
-//         setForm({ name: "", email: "", age: "" }); // Reset form
-//     }
-
-//     return (
-//         <div>
-//             <h2>Form Submission List</h2>
-
-//             <form onSubmit={handleSubmit}>
-//                 <label>
-//                     Name:
-//                     <input
-//                         type="text"
-//                         name="name"
-//                         value={form.name}
-//                         onChange={handleChange}
-//                     />
-//                 </label><br />
-
-//                 <label>
-//                     Email:
-//                     <input
-//                         type="email"
-//                         name="email"
-//                         value={form.email}
-//                         onChange={handleChange}
-//                     />
-//                 </label><br />
-
-//                 <label>
-//                     Age:
-//                     <input
-//                         type="number"
-//                         name="age"
-//                         value={form.age}
-//                         onChange={handleChange}
-//                     />
-//                 </label><br />
-
-//                 <button type="submit">Add</button>
-//             </form>
-
-//             <hr />
-
-//             <h3>Submitted Data:</h3>
-//             {data.map((item, index) => (
-//                 <div key={index} className="entry">
-//                     <p><strong>Name:</strong> {item.name}</p>
-//                     <p><strong>Email:</strong> {item.email}</p>
-//                     <p><strong>Age:</strong> {item.age}</p>
-//                     <hr />
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// }
-
- 
