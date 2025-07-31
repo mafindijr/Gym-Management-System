@@ -7,6 +7,7 @@ export default function MembersDashboard() {
         const [openModal, setOpenModal] = useState(false);
         const [openReview, setOpenReview] = useState(false);
         const [formData, setFormData] = useState({
+                id: id++,
                 name: "",
                 membership: "",
                 status: "",
@@ -15,6 +16,7 @@ export default function MembersDashboard() {
 
         const [data, setData] = useState ([
             {
+                id: 1,
                 name: "Abdulrazak mafindi",
                 membership: "Premium",
                 status: "Active",
@@ -164,7 +166,10 @@ export default function MembersDashboard() {
                     </h2>
 
                     <form>
-
+                        <div>
+                            <button>Edit Member</button>
+                            <button>Delete Member</button>
+                        </div>
                     </form>
                 </Modal>
 
