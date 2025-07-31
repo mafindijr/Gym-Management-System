@@ -6,17 +6,17 @@ export default function MembersDashboard() {
 
         const [openModal, setOpenModal] = useState(false);
         const [openReview, setOpenReview] = useState(false);
+        const [selectedMember, setSelectedMember] = useState(null);
         const [formData, setFormData] = useState({
-                id: id++,
-                name: "",
-                membership: "",
-                status: "",
-                lastVisit: ""
+            name: "",
+            membership: "",
+            status: "",
+            lastVisit: ""
         });
+        const [isEditing, setIsEditing] = useState(false);
 
         const [data, setData] = useState ([
             {
-                id: 1,
                 name: "Abdulrazak mafindi",
                 membership: "Premium",
                 status: "Active",
@@ -72,24 +72,25 @@ export default function MembersDashboard() {
                                     <div><span>Action</span></div>
                                 </div>
                                 <div id="tableBody" className="">
-                                  {data.map((item, index) => ( <div key={index} className='flex justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
-                                
-                                    <div className="w-[185px] text-center text-[#e5e8eb]">
-                                        <span>{item.name}</span>
+                                  {data.map((item, index) => ( 
+                                    <div key={index} className='flex justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
+                                        <div className="w-[185px] text-center text-[#e5e8eb]">
+                                            <span>{item.name}</span>
+                                        </div>
+                                        <div className="w-[185px] text-center">
+                                            <span>{item.membership}</span>
+                                        </div>
+                                        <div className="w-[185px] text-center">
+                                            <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
+                                        </div>
+                                        <div className="w-[185px] text-center">
+                                            <span>{item.lastVisit}</span>
+                                        </div>
+                                        <div onClick={() => { setSelectedMember(item); setOpenReview(true); }} className="w-[185px] text-center">
+                                            <span className="font-semibold cursor-pointer">View</span>
+                                        </div>
                                     </div>
-                                    <div className="w-[185px] text-center">
-                                        <span>{item.membership}</span>
-                                    </div>
-                                    <div className="w-[185px] text-center">
-                                        <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
-                                    </div>
-                                    <div className="w-[185px] text-center">
-                                        <span>{item.lastVisit}</span>
-                                    </div>
-                                    <div onClick={() => setOpenReview(true)} className="w-[185px] text-center">
-                                        <span className="font-semibold cursor-pointer">View</span>
-                                    </div>
-                                </div>))}
+                                  ))}
                                 
                             </div>
                         </div>
@@ -160,17 +161,61 @@ export default function MembersDashboard() {
                     </form>
                 </Modal>
 
-                <Modal isOpen={openReview} onClose={() => setOpenReview(false)}>
-                    <h2>
-                    Member Datails
-                    </h2>
-
-                    <form>
-                        <div>
-                            <button>Edit Member</button>
-                            <button>Delete Member</button>
+                <Modal isOpen={openReview} onClose={() => { setOpenReview(false); setSelectedMember(null); setIsEditing(false); }}>
+                    <h2>Member Details</h2>
+                    {selectedMember && !isEditing && (
+                        <div className="p-4">
+                            <div className="mb-2"><strong>Name:</strong> {selectedMember.name}</div>
+                            <div className="mb-2"><strong>Membership:</strong> {selectedMember.membership}</div>
+                            <div className="mb-2"><strong>Status:</strong> {selectedMember.status}</div>
+                            <div className="mb-2"><strong>Last Visit:</strong> {selectedMember.lastVisit}</div>
+                            <div className="flex gap-4 mt-4">
+                                <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => {
+                                    setFormData({
+                                        name: selectedMember.name,
+                                        membership: selectedMember.membership,
+                                        status: selectedMember.status,
+                                        lastVisit: selectedMember.lastVisit
+                                    });
+                                    setIsEditing(true);
+                                }}>Edit Member</button>
+                                <button className="bg-red-600 text-white px-4 py-2 rounded" onClick={() => {
+                                    setData(prev => prev.filter(m => m !== selectedMember));
+                                    setOpenReview(false);
+                                    setSelectedMember(null);
+                                }}>Delete Member</button>
+                            </div>
                         </div>
-                    </form>
+                    )}
+                    {selectedMember && isEditing && (
+                        <form className="p-4" onSubmit={e => {
+                            e.preventDefault();
+                            setData(prev => prev.map(m => m === selectedMember ? { ...selectedMember, ...formData } : m));
+                            setSelectedMember(prev => ({ ...prev, ...formData }));
+                            setIsEditing(false);
+                        }}>
+                            <div className="mb-2">
+                                <label><strong>Name:</strong></label>
+                                <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="name" value={formData.name} onChange={handleChange} />
+                            </div>
+                            <div className="mb-2">
+                                <label><strong>Membership:</strong></label>
+                                <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="membership" value={formData.membership} onChange={handleChange} />
+                            </div>
+                            <div className="mb-2">
+                                <label><strong>Status:</strong></label>
+                                <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="status" value={formData.status} onChange={handleChange} />
+                            </div>
+                            <div className="mb-2">
+                                <label><strong>Last Visit:</strong></label>
+                                <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="lastVisit" value={formData.lastVisit} onChange={handleChange} />
+                            </div>
+                            <div className="flex gap-4 mt-4">
+                                <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">Save</button>
+                                <button type="button" className="bg-gray-600 text-white px-4 py-2 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
+                            </div>
+                        </form>
+                    )}
                 </Modal>
 
         </div>
