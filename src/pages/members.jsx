@@ -162,9 +162,9 @@ export default function MembersDashboard() {
                 </Modal>
 
                 <Modal isOpen={openReview} onClose={() => { setOpenReview(false); setSelectedMember(null); setIsEditing(false); }}>
-                    <h2>Member Details</h2>
+                    <h2 className="text-center font-montserrat font-[700] text-[32px]">Member Details</h2>
                     {selectedMember && !isEditing && (
-                        <div className="p-4">
+                        <div className="p-4 divide-y-2 divide-adminsmtext text-[18px] font-[400]">
                             <div className="mb-2"><strong>Name:</strong> {selectedMember.name}</div>
                             <div className="mb-2"><strong>Membership:</strong> {selectedMember.membership}</div>
                             <div className="mb-2"><strong>Status:</strong> {selectedMember.status}</div>
