@@ -170,7 +170,7 @@ export default function MembersDashboard() {
                             <div className="mb-2"><strong>Status:</strong> {selectedMember.status}</div>
                             <div className="mb-2"><strong>Last Visit:</strong> {selectedMember.lastVisit}</div>
                             <div className="flex gap-4 mt-4">
-                                <button className="bg-blue-600 text-white px-4 py-2 rounded" onClick={() => {
+                                <button className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer" onClick={() => {
                                     setFormData({
                                         name: selectedMember.name,
                                         membership: selectedMember.membership,
@@ -179,7 +179,7 @@ export default function MembersDashboard() {
                                     });
                                     setIsEditing(true);
                                 }}>Edit Member</button>
-                                <button className="bg-red-600 text-white px-4 py-2 rounded" onClick={() => {
+                                <button className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer" onClick={() => {
                                     setData(prev => prev.filter(m => m !== selectedMember));
                                     setOpenReview(false);
                                     setSelectedMember(null);
