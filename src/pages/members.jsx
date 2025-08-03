@@ -211,8 +211,8 @@ export default function MembersDashboard() {
                                 <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="lastVisit" value={formData.lastVisit} onChange={handleChange} />
                             </div>
                             <div className="flex gap-4 mt-4">
-                                <button type="submit" className="bg-green-600 text-white px-4 py-2 rounded">Save</button>
-                                <button type="button" className="bg-gray-600 text-white px-4 py-2 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
+                                <button type="submit" className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded">Save</button>
+                                <button type="button" className="bg-gray-600 cursor-pointer text-white px-4 py-2 rounded" onClick={() => setIsEditing(false)}>Cancel</button>
                             </div>
                         </form>
                     )}
