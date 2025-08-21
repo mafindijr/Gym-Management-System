@@ -1,11 +1,64 @@
 import React from 'react'
+import { useState } from "react";
+import SearchBar from '../Components/search-input';
+import Modal from "../Components/modal";
+
 
 export default function Classes() {
+
+            
+                    const [openModal, setOpenModal] = useState(false);
+                    const [openReview, setOpenReview] = useState(false);
+                    const [selectedMember, setSelectedMember] = useState(null);
+                    const [formData, setFormData] = useState({
+                        name: "",
+                        membership: "",
+                        status: "",
+                        lastVisit: ""
+                    });
+                    const [isEditing, setIsEditing] = useState(false);
+            
+                    const [data, setData] = useState ([
+                        {
+                            name: "Abdulrazak mafindi",
+                            membership: "Premium",
+                            status: "Active",
+                            lastVisit: "2 days ago",
+                            action: "View"
+                        }
+                    ]);
+            
+                    const handleChange = (e) => {
+            
+                        const { name, value } = e.target;
+                        setFormData(prev => ({
+                        ...prev, [name]: value
+                         }));
+                         
+                    }
+            
+                    const handleSubmit = (e) => {
+                        e.preventDefault();
+                        setData(prev => [...prev, formData]);
+                        setFormData({
+                            name: "",
+                            membership: "",
+                            status: "",
+                            lastVisit: ""
+                        });
+            
+                        setOpenModal(false);
+            
+                    }
+
   return (
     <div>
         <main className='flex flex-col col-span-4 gap-8 w-full'>
             <div className='flex justify-between items-center'>
-                <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Members</h1>
+                <div>
+                <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
+                <span>Manage and schedule your fitness classes and instructor assigments.</span>
+                </div>
                 <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
             </div>
 
