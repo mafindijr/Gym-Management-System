@@ -62,6 +62,12 @@ export default function Classes() {
                 <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
             </div>
 
+            <div className='inline-flex gap-4'>
+                <span>Upcoming</span>
+                <span>Past</span>
+                <span>All</span>
+            </div>
+
             <div className='flex gap-4 mt-4'>
                 <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
                         <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
