@@ -14,7 +14,7 @@ export default function Classes() {
                         name: "",
                         membership: "",
                         status: "",
-                        lastVisit: ""
+                        dateTime: ""
                     });
                     const [isEditing, setIsEditing] = useState(false);
             
@@ -23,7 +23,7 @@ export default function Classes() {
                             name: "Abdulrazak mafindi",
                             membership: "Premium",
                             status: "Active",
-                            lastVisit: "2 days ago",
+                            dateTime: "Mon, June 15, 2024, 9:00AM",
                             action: "View Details"
                         }
                     ]);
@@ -44,7 +44,7 @@ export default function Classes() {
                             name: "",
                             membership: "",
                             status: "",
-                            lastVisit: ""
+                            dateTime: ""
                         });
             
                         setOpenModal(false);
@@ -89,10 +89,10 @@ export default function Classes() {
                                     <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span>{item.lastVisit}</span>
+                                    <span>{item.dateTime}</span>
                                 </div>
                                 <div onClick={() => { setSelectedMember(item); setOpenReview(true); }} className="w-[185px] text-center">
-                                    <span className="font-semibold cursor-pointer">View</span>
+                                    <span className="font-semibold cursor-pointer">View Details</span>
                                 </div>
                             </div>
                             ))}
