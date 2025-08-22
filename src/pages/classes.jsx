@@ -12,7 +12,7 @@ export default function Classes() {
                     const [selectedMember, setSelectedMember] = useState(null);
                     const [formData, setFormData] = useState({
                         name: "",
-                        membership: "",
+                        instrucor: "",
                         status: "",
                         dateTime: ""
                     });
@@ -20,10 +20,11 @@ export default function Classes() {
             
                     const [data, setData] = useState ([
                         {
-                            name: "Abdulrazak mafindi",
-                            membership: "Premium",
-                            status: "Active",
+                            name: "Yoga flow",
+                            instrucor: "Sarah Miller",
                             dateTime: "Mon, June 15, 2024, 9:00AM",
+                            capacity: "",
+                            status: "Scheduled",
                             action: "View Details"
                         }
                     ]);
@@ -42,9 +43,10 @@ export default function Classes() {
                         setData(prev => [...prev, formData]);
                         setFormData({
                             name: "",
-                            membership: "",
-                            status: "",
-                            dateTime: ""
+                            instrucor: "",
+                            dateTime: "",
+                            capacity: "",
+                            status: ""
                         });
             
                         setOpenModal(false);
@@ -83,7 +85,7 @@ export default function Classes() {
                                     <span>{item.name}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span>{item.membership}</span>
+                                    <span>{item.instrucor}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
                                     <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
