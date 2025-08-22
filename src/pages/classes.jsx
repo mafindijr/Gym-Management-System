@@ -24,7 +24,7 @@ export default function Classes() {
                             membership: "Premium",
                             status: "Active",
                             lastVisit: "2 days ago",
-                            action: "View"
+                            action: "View Details"
                         }
                     ]);
             
@@ -53,28 +53,27 @@ export default function Classes() {
 
   return (
     <div>
-        <main className='flex flex-col col-span-4 gap-8 w-full'>
+        <main className='flex flex-col col-span-4 gap-4 w-full'>
             <div className='flex justify-between items-center'>
-                <div>
-                <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
-                <span>Manage and schedule your fitness classes and instructor assigments.</span>
+                <div className='flex flex-col gap-4'>
+                <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
+                <span className='text-[14px] leading-[21px] text-adminsmtext'>Manage and schedule your fitness classes and instructor assigments.</span>
                 </div>
                 <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
             </div>
 
-            <div className='inline-flex gap-4'>
-                <span>Upcoming</span>
-                <span>Past</span>
-                <span>All</span>
-            </div>
-
-            <div className='flex gap-4 mt-4'>
+            <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
+                <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
+                    <span className='border-b-2 pb-2'>Upcoming</span>
+                    <span className='border-b-2 pb-2'>Past</span>
+                    <span className='border-b-2 pb-2'>All</span>
+                </div>
                 <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
                         <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
-                            <div><span>Name</span></div>
-                            <div><span>Membership</span></div>
+                            <div><span>Class Name</span></div>
+                            <div><span>Instructor</span></div>
                             <div><span>Status</span></div>
-                            <div><span>Last Visit</span></div>
+                            <div><span>Date & Time</span></div>
                             <div><span>Action</span></div>
                         </div>
                         <div id="tableBody" className="">
