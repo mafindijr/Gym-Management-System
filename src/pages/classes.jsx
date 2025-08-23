@@ -23,7 +23,7 @@ export default function Classes() {
                             name: "Yoga flow",
                             instrucor: "Sarah Miller",
                             dateTime: "Mon, June 15, 2024, 9:00AM",
-                            capacity: "",
+                            capacity: <meter min="0" max="100" low="30" high="75" optinum="80" value="80"></meter>,
                             status: "Scheduled",
                             action: "View Details"
                         }
@@ -74,8 +74,9 @@ export default function Classes() {
                         <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
                             <div><span>Class Name</span></div>
                             <div><span>Instructor</span></div>
-                            <div><span>Status</span></div>
                             <div><span>Date & Time</span></div>
+                            <div><span>Capacity</span></div>
+                            <div><span>Status</span></div>
                             <div><span>Action</span></div>
                         </div>
                         <div id="tableBody" className="">
@@ -88,10 +89,13 @@ export default function Classes() {
                                     <span>{item.instrucor}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
+                                    <span>{item.dateTime}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span>{item.dateTime}</span>
+                                    <span>{item.capacity}</span>
+                                </div>
+                                <div className="w-[185px] text-center">
+                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
                                 </div>
                                 <div onClick={() => { setSelectedMember(item); setOpenReview(true); }} className="w-[185px] text-center">
                                     <span className="font-semibold cursor-pointer">View Details</span>
