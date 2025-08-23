@@ -23,7 +23,7 @@ export default function Classes() {
                             name: "Yoga flow",
                             instrucor: "Sarah Miller",
                             dateTime: "Mon, June 15, 2024, 9:00AM",
-                            capacity: <meter min="0" max="100" low="30" high="75" optinum="80" value="80"></meter>,
+                            capacity: <progress className='border-none w-[80px] rounded-full' min="0" max="100" low="30" high="75" optinum="80" value="80"></progress>,
                             status: "Scheduled",
                             action: "View Details"
                         }
@@ -173,28 +173,28 @@ export default function Classes() {
         </Modal>
 
         <Modal isOpen={openReview} onClose={() => { setOpenReview(false); setSelectedMember(null); setIsEditing(false); }}>
-            <h2 className="text-center font-montserrat font-[700] text-[32px]">Member Details</h2>
+            <h2 className="text-center font-montserrat font-[700] text-[32px]">Class Details</h2>
             {selectedMember && !isEditing && (
                 <div className="p-4 divide-y-2 divide-adminsmtext text-[18px] font-[400]">
-                    <div className="mb-2"><strong>Name:</strong> {selectedMember.name}</div>
-                    <div className="mb-2"><strong>Membership:</strong> {selectedMember.membership}</div>
+                    <div className="mb-2"><strong>Class Name:</strong> {selectedMember.name}</div>
+                    <div className="mb-2"><strong>Instructor:</strong> {selectedMember.instrucor}</div>
                     <div className="mb-2"><strong>Status:</strong> {selectedMember.status}</div>
-                    <div className="mb-2"><strong>Last Visit:</strong> {selectedMember.lastVisit}</div>
+                    <div className="mb-2"><strong>Date & Time:</strong> {selectedMember.dateTime}</div>
                     <div className="flex gap-4 mt-4">
                         <button className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer" onClick={() => {
                             setFormData({
                                 name: selectedMember.name,
-                                membership: selectedMember.membership,
+                                instrucor: selectedMember.instrucor,
                                 status: selectedMember.status,
-                                lastVisit: selectedMember.lastVisit
+                                dateTime: selectedMember.dateTime
                             });
                             setIsEditing(true);
-                        }}>Edit Member</button>
+                        }}>Edit Class</button>
                         <button className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer" onClick={() => {
                             setData(prev => prev.filter(m => m !== selectedMember));
                             setOpenReview(false);
                             setSelectedMember(null);
-                        }}>Delete Member</button>
+                        }}>Delete Class</button>
                     </div>
                 </div>
             )}
