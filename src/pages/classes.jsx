@@ -136,7 +136,7 @@ export default function Classes() {
                         type="text" 
                         placeholder="Enter Instructor's name"
                         name="instructor" 
-                        value={formData.instrucor}
+                        value={formData.instructor}
                         onChange={handleChange}
                         />
                         </label>
