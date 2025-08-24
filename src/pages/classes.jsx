@@ -12,7 +12,7 @@ export default function Classes() {
                     const [selectedMember, setSelectedMember] = useState(null);
                     const [formData, setFormData] = useState({
                         name: "",
-                        instrucor: "",
+                        instructor: "",
                         status: "",
                         dateTime: ""
                     });
@@ -21,7 +21,7 @@ export default function Classes() {
                     const [data, setData] = useState ([
                         {
                             name: "Yoga flow",
-                            instrucor: "Sarah Miller",
+                            instructor: "Sarah Miller",
                             dateTime: "Mon, June 15, 2024, 9:00AM",
                             capacity: <progress className='border-none w-[80px] rounded-full' min="0" max="100" low="30" high="75" optinum="80" value="80"></progress>,
                             status: "Scheduled",
@@ -43,10 +43,10 @@ export default function Classes() {
                         setData(prev => [...prev, formData]);
                         setFormData({
                             name: "",
-                            instrucor: "",
+                            instructor: "",
+                            status: "",
                             dateTime: "",
                             capacity: "",
-                            status: ""
                         });
             
                         setOpenModal(false);
@@ -86,7 +86,7 @@ export default function Classes() {
                                     <span>{item.name}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span>{item.instrucor}</span>
+                                    <span>{item.instructor}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
                                     <span>{item.dateTime}</span>
@@ -115,12 +115,12 @@ export default function Classes() {
                 <div>
                     <div>
                         <label className="w-full">
-                            Name
+                            Class Name
                         
                         <input 
                         className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                         type="text" 
-                        placeholder="Enter Name"
+                        placeholder="Enter Class Name"
                         name="name"
                         value={formData.name} 
                         onChange={handleChange}
@@ -134,8 +134,8 @@ export default function Classes() {
                         <input 
                         className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                         type="text" 
-                        placeholder="Enter Membership Type"
-                        name="membership" 
+                        placeholder="Enter Instructor's name"
+                        name="instructor" 
                         value={formData.instrucor}
                         onChange={handleChange}
                         />
@@ -161,7 +161,7 @@ export default function Classes() {
                         className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                         type="text" 
                         placeholder="Enter Name" 
-                        name="lastVisit"
+                        name="dateTime"
                         value={formData.dateTime}
                         onChange={handleChange}
                         />
@@ -177,14 +177,14 @@ export default function Classes() {
             {selectedMember && !isEditing && (
                 <div className="p-4 divide-y-2 divide-adminsmtext text-[18px] font-[400]">
                     <div className="mb-2"><strong>Class Name:</strong> {selectedMember.name}</div>
-                    <div className="mb-2"><strong>Instructor:</strong> {selectedMember.instrucor}</div>
+                    <div className="mb-2"><strong>Instructor:</strong> {selectedMember.instructor}</div>
                     <div className="mb-2"><strong>Status:</strong> {selectedMember.status}</div>
                     <div className="mb-2"><strong>Date & Time:</strong> {selectedMember.dateTime}</div>
                     <div className="flex gap-4 mt-4">
                         <button className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer" onClick={() => {
                             setFormData({
                                 name: selectedMember.name,
-                                instrucor: selectedMember.instrucor,
+                                instructor: selectedMember.instructor,
                                 status: selectedMember.status,
                                 dateTime: selectedMember.dateTime
                             });
@@ -206,20 +206,20 @@ export default function Classes() {
                     setIsEditing(false);
                 }}>
                     <div className="mb-2">
-                        <label><strong>Name:</strong></label>
+                        <label><strong>Class Name:</strong></label>
                         <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="name" value={formData.name} onChange={handleChange} />
                     </div>
                     <div className="mb-2">
-                        <label><strong>Membership:</strong></label>
-                        <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="membership" value={formData.membership} onChange={handleChange} />
+                        <label><strong>Instructor:</strong></label>
+                        <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="instructor" value={formData.instructor} onChange={handleChange} />
                     </div>
                     <div className="mb-2">
                         <label><strong>Status:</strong></label>
                         <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="status" value={formData.status} onChange={handleChange} />
                     </div>
                     <div className="mb-2">
-                        <label><strong>Last Visit:</strong></label>
-                        <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="lastVisit" value={formData.lastVisit} onChange={handleChange} />
+                        <label><strong>Date & Time:</strong></label>
+                        <input className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" type="text" name="dateTime" value={formData.dateTime} onChange={handleChange} />
                     </div>
                     <div className="flex gap-4 mt-4">
                         <button type="submit" className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded">Save</button>
