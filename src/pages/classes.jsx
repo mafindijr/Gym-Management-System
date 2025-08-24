@@ -61,7 +61,7 @@ export default function Classes() {
                 <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
                 <span className='text-[14px] leading-[21px] text-adminsmtext'>Manage and schedule your fitness classes and instructor assigments.</span>
                 </div>
-                <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
+                <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Schedule Class</button>
             </div>
 
             <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
@@ -129,14 +129,14 @@ export default function Classes() {
                     </div>
                     <div>
                         <label>
-                            Membership
+                            Instructor
 
                         <input 
                         className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                         type="text" 
                         placeholder="Enter Membership Type"
                         name="membership" 
-                        value={formData.membership}
+                        value={formData.instrucor}
                         onChange={handleChange}
                         />
                         </label>
@@ -156,18 +156,18 @@ export default function Classes() {
                     </div>
                     <div>
                         <label>
-                            Last Seen
+                            Date & Time
                         <input 
                         className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                         type="text" 
                         placeholder="Enter Name" 
                         name="lastVisit"
-                        value={formData.lastVisit}
+                        value={formData.dateTime}
                         onChange={handleChange}
                         />
                         </label>
                     </div>
-                    <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
+                    <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Schedule Class</button>
                 </div>
             </form>
         </Modal>
