@@ -6,52 +6,49 @@ import Modal from "../Components/modal";
 
 export default function Classes() {
 
-            
-                    const [openModal, setOpenModal] = useState(false);
-                    const [openReview, setOpenReview] = useState(false);
-                    const [selectedMember, setSelectedMember] = useState(null);
-                    const [formData, setFormData] = useState({
-                        name: "",
-                        instructor: "",
-                        status: "",
-                        dateTime: ""
-                    });
-                    const [isEditing, setIsEditing] = useState(false);
-            
-                    const [data, setData] = useState ([
-                        {
-                            name: "Yoga flow",
-                            instructor: "Sarah Miller",
-                            dateTime: "Mon, June 15, 2024, 9:00AM",
-                            capacity: <progress className='border-none w-[80px] rounded-full' min="0" max="100" low="30" high="75" optinum="80" value="80"></progress>,
-                            status: "Scheduled",
-                            action: "View Details"
-                        }
-                    ]);
-            
-                    const handleChange = (e) => {
-            
-                        const { name, value } = e.target;
-                        setFormData(prev => ({
-                        ...prev, [name]: value
-                         }));
-                         
-                    }
-            
-                    const handleSubmit = (e) => {
-                        e.preventDefault();
-                        setData(prev => [...prev, formData]);
-                        setFormData({
-                            name: "",
-                            instructor: "",
-                            status: "",
-                            dateTime: "",
-                            capacity: "",
-                        });
-            
-                        setOpenModal(false);
-            
-                    }
+    const [openModal, setOpenModal] = useState(false);
+    const [openReview, setOpenReview] = useState(false);
+    const [selectedMember, setSelectedMember] = useState(null);
+    const [formData, setFormData] = useState({
+        name: "",
+        instructor: "",
+        status: "",
+        dateTime: ""
+    });
+    const [isEditing, setIsEditing] = useState(false);
+
+    const [data, setData] = useState ([
+        {
+            name: "Yoga flow",
+            instructor: "Sarah Miller",
+            dateTime: "Mon, June 15, 2024, 9:00AM",
+            status: "Scheduled",
+            action: "View Details"
+        }
+    ]);
+
+    const handleChange = (e) => {
+
+        const { name, value } = e.target;
+        setFormData(prev => ({
+        ...prev, [name]: value
+         }));
+         
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setData(prev => [...prev, formData]);
+        setFormData({
+            name: "",
+            instructor: "",
+            status: "",
+            dateTime: "",
+        });
+
+        setOpenModal(false);
+
+    }
 
   return (
     <div>
@@ -75,7 +72,6 @@ export default function Classes() {
                             <div><span>Class Name</span></div>
                             <div><span>Instructor</span></div>
                             <div><span>Date & Time</span></div>
-                            <div><span>Capacity</span></div>
                             <div><span>Status</span></div>
                             <div><span>Action</span></div>
                         </div>
@@ -90,9 +86,6 @@ export default function Classes() {
                                 </div>
                                 <div className="w-[185px] text-center">
                                     <span>{item.dateTime}</span>
-                                </div>
-                                <div className="w-[185px] text-center">
-                                    <span>{item.capacity}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
                                     <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
@@ -232,3 +225,4 @@ export default function Classes() {
     </div>
   )
 }
+
