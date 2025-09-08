@@ -7,6 +7,9 @@ export default function TrainersPage() {
           <div>
             <h1>Traners</h1>
           </div>
+          <div>
+            <div></div>
+          </div>
         </div>
     </>
   )
