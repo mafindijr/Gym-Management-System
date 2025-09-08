@@ -88,7 +88,7 @@ export default function Classes() {
                                     <span>{item.dateTime}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">Schedule </span>
+                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status} </span>
                                 </div>
                                 <div onClick={() => { setSelectedMember(item); setOpenReview(true); }} className="w-[185px] text-center">
                                     <span className="font-semibold cursor-pointer">View Details</span>
