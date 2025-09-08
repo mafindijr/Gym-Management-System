@@ -3,7 +3,11 @@ import React from 'react'
 export default function TrainersPage() {
   return (
     <>
-        <div></div>
+        <div>
+          <div>
+            <h1>Traners</h1>
+          </div>
+        </div>
     </>
   )
 }
