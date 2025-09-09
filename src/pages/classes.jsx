@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from "react";
-import SearchBar from '../Components/search-input';
 import Modal from "../Components/modal";
 
 
