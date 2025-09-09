@@ -2,6 +2,7 @@ import DashboardLayout from "./layout/Dashboard-layout";
 import Admin from "./pages/admin-dashboard";
 import Classes from "./pages/classes";
 import MembersDashboard from "./pages/members";
+import TrainersPage from "./pages/trainers";
 import Home from "./views/Home"
 import { Routes, Route } from 'react-router-dom';
 
@@ -17,6 +18,7 @@ function App() {
           <Route  path="/admin" element={<Admin />} />
           <Route path="/member" element={<MembersDashboard />} />
           <Route path="/classes" element={<Classes />} />
+          <Route path="/trainers" element={<TrainersPage />} />
         </Route>
 
 
