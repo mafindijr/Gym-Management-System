@@ -31,9 +31,9 @@ export default function BillingPayment() {
         
                     <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
                         <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
-                            <span className='border-b-2 pb-2'>Upcoming</span>
-                            <span className='border-b-2 pb-2'>Past</span>
-                            <span className='border-b-2 pb-2'>All</span>
+                            <span className='border-b-2 pb-2'>Overview</span>
+                            <span className='border-b-2 pb-2'>Invoices</span>
+                            <span className='border-b-2 pb-2'>Payments</span>
                         </div>
                         <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
                                 <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
