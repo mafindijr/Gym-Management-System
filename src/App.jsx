@@ -1,5 +1,6 @@
 import DashboardLayout from "./layout/Dashboard-layout";
 import Admin from "./pages/admin-dashboard";
+import BillingPayment from "./pages/billing-payment";
 import Classes from "./pages/classes";
 import MembersDashboard from "./pages/members";
 import TrainersPage from "./pages/trainers";
@@ -19,6 +20,7 @@ function App() {
           <Route path="/member" element={<MembersDashboard />} />
           <Route path="/classes" element={<Classes />} />
           <Route path="/trainers" element={<TrainersPage />} />
+          <Route path="/billing" element={<BillingPayment />} />
         </Route>
 
 
