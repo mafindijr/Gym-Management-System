@@ -27,7 +27,6 @@ export default function BillingPayment() {
                         <div className='flex flex-col gap-4'>
                         <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Billing & Payments</h1>
                         </div>
-                        {/* Removed Schedule Class button */}
                     </div>
         
                     <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
