@@ -14,7 +14,7 @@ export default function SideBar() {
             { to: "/member",   name: "Members",   icon: <Users size={20} />},
             { to: "/classes",  name: "Classes",   icon: <Calendar size={20} />},
             { to: "/trainers", name: "Trainers",  icon: <Users size={20} />},
-            { to: "/billling", name: "Billing",   icon: <Wallet size={20} />},
+            { to: "/billing", name: "Billing",   icon: <Wallet size={20} />},
             { to: "/settings", name: "Settings",  icon: <Settings size={20} />}
         ];
 
