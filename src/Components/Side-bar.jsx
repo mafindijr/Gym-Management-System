@@ -28,7 +28,7 @@ export default function SideBar({ navs }) {
       <nav className='flex flex-col fixed left-0 gap-4 pl-4 pt-4 w-64'>
         <div>
           <NavLink to='/' className='font-poppins text-lg leading-tight tracking-[-0.015em]'>Nyame GymHall</NavLink>
-          <p className='text-[14px] leading-6 text-adminsmtext'>Admin</p>
+          <p className='text-[14px] leading-6 text-adminsmtext'>{dashboardName}</p>
         </div>
         <div>
           <div className='flex flex-col gap-4 items-center text-center justify-center'>
