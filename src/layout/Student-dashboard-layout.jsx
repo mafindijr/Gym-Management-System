@@ -3,6 +3,7 @@ import Sidebar from '../Components/Side-bar';
 import { Home, Calendar, Settings } from "lucide-react";
 
 export default function StudentDashboardLayout() {
+  
   const studentNavs = [
     { to: "/student", name: "Dashboard", icon: <Home size={20} /> },
     { to: "/student/classes", name: "My Classes", icon: <Calendar size={20} /> },
