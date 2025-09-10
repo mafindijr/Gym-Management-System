@@ -4,6 +4,12 @@ import Modal from "../Components/modal"
 export default function TrainersPage() {
 
   const [openModal, setOpenModal] = useState(false);
+  const [formData, setFormData] = useState({
+      trainer: "",
+      specialty: "",
+      contact: "",
+      status: ""
+  });
 
   const [data, setData] = useState([
     {
@@ -28,10 +34,10 @@ export default function TrainersPage() {
             e.preventDefault();
             setData(prev => [...prev, formData]);
             setFormData({
-                name: "",
-                membership: "",
-                status: "",
-                lastVisit: ""
+                trainer: "",
+                specialty: "",
+                contact: "",
+                status: ""
             });
 
             setOpenModal(false);
@@ -46,7 +52,7 @@ export default function TrainersPage() {
             <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Trainers</h1>
           </div>
           <div>
-            <button nClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Trainer</button>
+            <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Trainer</button>
           </div>
         </div>
 
