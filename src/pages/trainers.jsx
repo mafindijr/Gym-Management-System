@@ -14,6 +14,30 @@ export default function TrainersPage() {
     }
   ]);
 
+  
+        const handleChange = (e) => {
+
+            const { name, value } = e.target;
+            setFormData(prev => ({
+            ...prev, [name]: value
+             }));
+             
+        }
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            setData(prev => [...prev, formData]);
+            setFormData({
+                name: "",
+                membership: "",
+                status: "",
+                lastVisit: ""
+            });
+
+            setOpenModal(false);
+
+        }
+
   return (
     <>
       <main className='flex flex-col col-span-4 gap-4 w-full'>
