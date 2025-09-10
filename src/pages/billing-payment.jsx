@@ -5,18 +5,17 @@ export default function BillingPayment() {
 
       const [formData, setFormData] = useState({
           name: "",
-          instructor: "",
-          status: "",
-          dateTime: ""
+          amount: "",
+          date: "",
+          status: ""
       });
   
       const [data, setData] = useState ([
           {
               name: "Yoga flow",
-              instructor: "Sarah Miller",
-              dateTime: "Mon, June 15, 2024, 9:00AM",
-              status: "Scheduled",
-              action: "View Details"
+              amount: "$33",
+              date: "Mon, June 15, 2024, 9:00AM",
+              status: "Paid",
           }
       ]);
 
@@ -46,16 +45,16 @@ export default function BillingPayment() {
                                     {data.map((item, index) => ( 
                                         <div key={index} className='flex justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
                                             <div className="w-[185px] text-center text-[#e5e8eb]">
-                                                <span>{/* empty */}</span>
+                                                <span>{item.name}</span>
                                             </div>
                                             <div className="w-[185px] text-center">
-                                                <span>{/* empty */}</span>
+                                                <span>{item.amount}</span>
                                             </div>
                                             <div className="w-[185px] text-center">
-                                                <span>{/* empty */}</span>
+                                                <span>{item.date}</span>
                                             </div>
                                             <div className="w-[185px] text-center">
-                                                <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{/* empty */}</span>
+                                                <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
                                             </div>
                                         </div>
                                     ))}
