@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { NavLink } from "react-router-dom";
 import {
   Home,
@@ -8,6 +9,8 @@ import {
 } from "lucide-react";
 
 export default function SideBar({ navs }) {
+
+  const [dashboardName, StudentDashboardName] = useState("Admin")
   // Default to admin navs if none provided
   const defaultNavs = [
     { to: "/admin",    name: "Dashboard", icon: <Home size={20} />},
