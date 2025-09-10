@@ -103,21 +103,34 @@ export default function TrainersPage() {
                       type="text" 
                       placeholder="Enter Name"
                       name="name"
-                      value={formData.name} 
+                      value={formData.trainer} 
                       onChange={handleChange}
                       />
                       </label>
                   </div>
                   <div>
                       <label>
-                          Membership
+                          Specialty
 
                       <input 
                       className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                       type="text" 
                       placeholder="Enter Membership Type"
                       name="membership" 
-                      value={formData.membership}
+                      value={formData.specialty}
+                      onChange={handleChange}
+                      />
+                      </label>
+                  </div>
+                  <div>
+                      <label>
+                          contact
+                      <input 
+                      className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                      type="text" 
+                      placeholder="Enter Name" 
+                      name="status"
+                      value={formData.contact}
                       onChange={handleChange}
                       />
                       </label>
@@ -129,26 +142,13 @@ export default function TrainersPage() {
                       className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                       type="text" 
                       placeholder="Enter Name" 
-                      name="status"
+                      name="lastVisit"
                       value={formData.status}
                       onChange={handleChange}
                       />
                       </label>
                   </div>
-                  <div>
-                      <label>
-                          Last Seen
-                      <input 
-                      className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
-                      type="text" 
-                      placeholder="Enter Name" 
-                      name="lastVisit"
-                      value={formData.lastVisit}
-                      onChange={handleChange}
-                      />
-                      </label>
-                  </div>
-                  <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
+                  <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Trainer</button>
               </div>
           </form>
       </Modal>
