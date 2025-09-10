@@ -6,7 +6,7 @@ export default function TrainersPage() {
   const [openModal, setOpenModal] = useState(false);
   const [formData, setFormData] = useState({
       trainer: "",
-      specialty: "",
+      speciality: "",
       contact: "",
       status: ""
   });
@@ -14,7 +14,7 @@ export default function TrainersPage() {
   const [data, setData] = useState([
     {
       trainer: "John Doe",
-      specialty: "Strength Training",
+      speciality: "Strength Training",
       contact: "john.doe@email.com",
       status: "Active"
     }
@@ -35,7 +35,7 @@ export default function TrainersPage() {
             setData(prev => [...prev, formData]);
             setFormData({
                 trainer: "",
-                specialty: "",
+                speciality: "",
                 contact: "",
                 status: ""
             });
@@ -65,7 +65,7 @@ export default function TrainersPage() {
           <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
             <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
               <div><span>Trainer</span></div>
-              <div><span>Specialty</span></div>
+              <div><span>Speciality</span></div>
               <div><span>Contact</span></div>
               <div><span>Status</span></div>
             </div>
@@ -76,7 +76,7 @@ export default function TrainersPage() {
                     <span>{item.trainer}</span>
                   </div>
                   <div className="w-[185px] text-center">
-                    <span>{item.specialty}</span>
+                    <span>{item.speciality}</span>
                   </div>
                   <div className="w-[185px] text-center">
                     <span>{item.contact}</span>
@@ -102,7 +102,7 @@ export default function TrainersPage() {
                       className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                       type="text" 
                       placeholder="Enter Name"
-                      name="name"
+                      name="trainer"
                       value={formData.trainer} 
                       onChange={handleChange}
                       />
@@ -116,20 +116,20 @@ export default function TrainersPage() {
                       className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                       type="text" 
                       placeholder="Enter Membership Type"
-                      name="membership" 
-                      value={formData.specialty}
+                      name="speciality" 
+                      value={formData.speciality}
                       onChange={handleChange}
                       />
                       </label>
                   </div>
                   <div>
                       <label>
-                          contact
+                          Contact
                       <input 
                       className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                       type="text" 
                       placeholder="Enter Name" 
-                      name="status"
+                      name="contact"
                       value={formData.contact}
                       onChange={handleChange}
                       />
@@ -142,7 +142,7 @@ export default function TrainersPage() {
                       className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
                       type="text" 
                       placeholder="Enter Name" 
-                      name="lastVisit"
+                      name="status"
                       value={formData.status}
                       onChange={handleChange}
                       />
