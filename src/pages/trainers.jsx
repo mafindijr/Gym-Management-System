@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
+import Modal from "../Components/modal"
 
 export default function TrainersPage() {
+
+  const [openModal, setOpenModal] = useState(false);
+
   const [data, setData] = useState([
     {
       trainer: "John Doe",
@@ -16,6 +20,9 @@ export default function TrainersPage() {
         <div className='flex justify-between items-center'>
           <div className='flex flex-col gap-4'>
             <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Trainers</h1>
+          </div>
+          <div>
+            <button nClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Trainer</button>
           </div>
         </div>
 
@@ -53,6 +60,68 @@ export default function TrainersPage() {
           </div>
         </div>
       </main>
+      
+      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+          <form onSubmit={handleSubmit}>
+              <div>
+                  <div>
+                      <label className="w-full">
+                          Name
+                      
+                      <input 
+                      className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                      type="text" 
+                      placeholder="Enter Name"
+                      name="name"
+                      value={formData.name} 
+                      onChange={handleChange}
+                      />
+                      </label>
+                  </div>
+                  <div>
+                      <label>
+                          Membership
+
+                      <input 
+                      className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                      type="text" 
+                      placeholder="Enter Membership Type"
+                      name="membership" 
+                      value={formData.membership}
+                      onChange={handleChange}
+                      />
+                      </label>
+                  </div>
+                  <div>
+                      <label>
+                          Status
+                      <input 
+                      className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                      type="text" 
+                      placeholder="Enter Name" 
+                      name="status"
+                      value={formData.status}
+                      onChange={handleChange}
+                      />
+                      </label>
+                  </div>
+                  <div>
+                      <label>
+                          Last Seen
+                      <input 
+                      className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]" 
+                      type="text" 
+                      placeholder="Enter Name" 
+                      name="lastVisit"
+                      value={formData.lastVisit}
+                      onChange={handleChange}
+                      />
+                      </label>
+                  </div>
+                  <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
+              </div>
+          </form>
+      </Modal>
     </>
   )
 }
