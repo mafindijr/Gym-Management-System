@@ -38,8 +38,10 @@ export default function LandingPage() {
               <div className="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-4 py-3">
                 <button
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
-                >           
-                    <span className="truncate">Student Login</span> 
+                >
+                  <NavLink to="/student" className="w-full h-full flex items-center justify-center">
+                    <span className="truncate">Student Login</span>
+                  </NavLink>
                 </button>
                 <button
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
