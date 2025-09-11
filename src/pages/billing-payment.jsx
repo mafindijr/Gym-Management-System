@@ -34,6 +34,27 @@ export default function BillingPayment() {
                             <span className='border-b-2 pb-2'>Invoices</span>
                             <span className='border-b-2 pb-2'>Payments</span>
                         </div>
+                        <div>
+                            <div>
+                                <h4>Summary</h4>
+                            </div>
+                            <div>
+                                <div className='flex gap-4'>
+                                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                                        <p className='font-semibold text-[16px] leading-[24px]'>Total Members</p>
+                                        <p className='font-bold text-[24px] leading-[30px]'>250</p>
+                                    </div>
+                                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                                        <p className='font-semibold text-[16px] leading-[24px]'>Active Classes</p>
+                                        <p className='font-bold text-[24px] leading-[30px]'>15</p>
+                                    </div>
+                                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
+                                        <p className='font-semibold text-[16px] leading-[24px]'>Trainers</p>
+                                        <p className='font-bold text-[24px] leading-[30px]'>8</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
                                 <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
                                     <div><span>Member</span></div>
