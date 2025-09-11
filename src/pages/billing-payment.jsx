@@ -13,7 +13,7 @@ export default function BillingPayment() {
       const [data, setData] = useState ([
           {
               name: "Yoga flow",
-              amount: "$33",
+              amount: "#150,000",
               date: "Mon, June 15, 2024, 9:00AM",
               status: "Paid",
           }
