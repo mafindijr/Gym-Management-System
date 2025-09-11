@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { NavLink } from "react-router-dom";
 import {
   Home,
@@ -8,9 +7,7 @@ import {
   Calendar
 } from "lucide-react";
 
-export default function SideBar({ navs }) {
-
-  const [dashboardName, StudentDashboardName] = useState("Admin")
+export default function SideBar({ navs, name }) {
   // Default to admin navs if none provided
   const defaultNavs = [
     { to: "/admin",    name: "Dashboard", icon: <Home size={20} />},
@@ -22,6 +19,7 @@ export default function SideBar({ navs }) {
   ];
 
   const navLinks = navs || defaultNavs;
+  const dashboardName = name || "Admin";
 
   return (
     <div>
