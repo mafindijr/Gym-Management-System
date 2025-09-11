@@ -6,7 +6,7 @@ export default function Admin() {
     <div>
 
             <main className='flex flex-col col-span-4 justify-center  gap-8 w-full'>
-                <div className="">
+                <div>
                     <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Dashboard</h1>
                 </div>
 
