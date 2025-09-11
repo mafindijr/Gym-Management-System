@@ -36,7 +36,7 @@ export default function BillingPayment() {
                         </div>
                         <div>
                             <div>
-                                <h4>Summary</h4>
+                                <h2 className='my-[20px] font-poppins font-bold text-[22px] leading-[28px]'>Summary</h2>
                             </div>
                             <div className='w-[908px]'>
                                 <div className='flex gap-4'>
@@ -57,7 +57,7 @@ export default function BillingPayment() {
                         </div>
                         <div className='flex flex-col gap-4'>
                             <div>
-                                <h2>Recent Payments</h2>
+                                <h2 className='my-[20px] font-poppins font-bold text-[22px] leading-[28px]'>Recent Payments</h2>
                             </div>
                         <div className="w-[908px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
                                 <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
