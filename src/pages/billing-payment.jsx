@@ -28,7 +28,7 @@ export default function BillingPayment() {
                         </div>
                     </div>
         
-                    <div className='w-[902px] flex flex-col gap-4 text-[14px] leading-[21px]'>
+                    <div className='w-[902px] flex flex-col gap-4 mt-4 text-[14px] leading-[21px]'>
                         <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
                             <span className='border-b-2 pb-2'>Overview</span>
                             <span className='border-b-2 pb-2'>Invoices</span>
