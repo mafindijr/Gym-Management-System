@@ -7,6 +7,8 @@ import MembersDashboard from "./pages/members";
 import TrainersPage from "./pages/trainers";
 import Home from "./views/Home";
 import StudentDashboard from "./pages/student-dashboard";
+import StudentBilling from "./pages/student-billing";
+import StudentSettings from "./pages/student-settings";
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
 
         <Route path="/student" element={<StudentDashboardLayout />}>
           <Route index element={<StudentDashboard />} />
+          <Route path="billing" element={<StudentBilling />} />
+          <Route path="settings" element={<StudentSettings />} />
         </Route>
 
 
