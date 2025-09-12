@@ -1,12 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from '../Components/Side-bar';
-import { Home, Calendar, Settings } from "lucide-react";
+import { Home, Calendar, Settings, Wallet } from "lucide-react";
 
 export default function StudentDashboardLayout() {
   
   const studentNavs = [
     { to: "/student", name: "Dashboard", icon: <Home size={20} /> },
     { to: "/student/classes", name: "My Classes", icon: <Calendar size={20} /> },
+    { to: "/student/billing", name: "Billing & Payment", icon: <Wallet size={20} /> },
     { to: "/student/settings", name: "Settings", icon: <Settings size={20} /> }
   ];
 
