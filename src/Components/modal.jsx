@@ -12,7 +12,7 @@ export default function Modal({ isOpen, onClose, children }) {
                          onClick={onClose}
                         className='absolute cursor-pointer top-2 right-4'
                         >
-                        <X color='black' size={25}/>
+                        <X color='white' size={25}/>
                         </button>
                         {children}
                     </div>
