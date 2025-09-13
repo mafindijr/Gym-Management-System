@@ -11,11 +11,11 @@ export default function SideBar({ navs, name }) {
   // Default to admin navs if none provided
   const defaultNavs = [
     { to: "/admin",    name: "Dashboard", icon: <Home size={20} />},
-    { to: "/member",   name: "Members",   icon: <Users size={20} />},
-    { to: "/classes",  name: "Classes",   icon: <Calendar size={20} />},
-    { to: "/trainers", name: "Trainers",  icon: <Users size={20} />},
-    { to: "/billing",  name: "Billing",   icon: <Wallet size={20} />},
-    { to: "/settings", name: "Settings",  icon: <Settings size={20} />}
+    { to: "/admin/member",   name: "Members",   icon: <Users size={20} />},
+    { to: "/admin/classes",  name: "Classes",   icon: <Calendar size={20} />},
+    { to: "/admin/trainers", name: "Trainers",  icon: <Users size={20} />},
+    { to: "/admin/billing",  name: "Billing & Payment",   icon: <Wallet size={20} />},
+    { to: "/admin/settings", name: "Settings",  icon: <Settings size={20} />}
   ];
 
   const navLinks = navs || defaultNavs;
