@@ -21,7 +21,7 @@ export default function StudentSettingsForm() {
 
   return (
     <>    
-      <form onSubmit={handleSubmit} className="max-w-md items-center bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="max-w-xl items-center bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
         <h2 className="text-xl font-bold mb-2">Update Payment/Card Details</h2>
         <label className="flex flex-col gap-1 w-full">
             Cardholder Name
