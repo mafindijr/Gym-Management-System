@@ -10,7 +10,7 @@ import {
 export default function SideBar({ navs, name }) {
   // Default to admin navs if none provided
   const defaultNavs = [
-    { to: "/admin",    name: "Dashboard", icon: <Home size={20} />},
+    { to: "/admin",          name: "Dashboard", icon: <Home size={20} />},
     { to: "/admin/member",   name: "Members",   icon: <Users size={20} />},
     { to: "/admin/classes",  name: "Classes",   icon: <Calendar size={20} />},
     { to: "/admin/trainers", name: "Trainers",  icon: <Users size={20} />},
