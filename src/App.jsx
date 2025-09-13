@@ -19,12 +19,12 @@ function App() {
 
         <Route path="/" element={<Home />} />
 
-        <Route path="/" element={<DashboardLayout />}>
-          <Route  path="/admin" element={<Admin />} />
-          <Route path="/member" element={<MembersDashboard />} />
-          <Route path="/classes" element={<Classes />} />
-          <Route path="/trainers" element={<TrainersPage />} />
-          <Route path="/billing" element={<BillingPayment />} />
+        <Route path="/admin" element={<DashboardLayout />}>
+          <Route index element={<Admin />} />
+          <Route path="member" element={<MembersDashboard />} />
+          <Route path="classes" element={<Classes />} />
+          <Route path="trainers" element={<TrainersPage />} />
+          <Route path="billing" element={<BillingPayment />} />
         </Route>
 
         <Route path="/student" element={<StudentDashboardLayout />}>
