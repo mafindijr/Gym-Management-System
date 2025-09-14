@@ -46,8 +46,8 @@ export default function TrainersPage() {
 
   return (
     <>
-      <main className='flex flex-col col-span-4 gap-4 w-full'>
-        <div className='flex justify-between items-center'>
+      <main className='flex flex-col col-span-4 gap-4 w-[902px]'>
+        <div className='inline-flex justify-between'>
           <div className='flex flex-col gap-4'>
             <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Trainers</h1>
           </div>
@@ -56,13 +56,13 @@ export default function TrainersPage() {
           </div>
         </div>
 
-        <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
+        <div className='flex flex-col gap-4 text-[14px] leading-[21px] w-full'>
           <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
             <span className='border-b-2 pb-2'>All</span>
             <span className='border-b-2 pb-2'>Active</span>
             <span className='border-b-2 pb-2'>Inactive</span>
           </div>
-          <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
+          <div className="w-[902px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
             <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
               <div><span>Trainer</span></div>
               <div><span>Speciality</span></div>
