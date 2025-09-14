@@ -29,7 +29,7 @@ export default function StudentPaymentForm({ onSubmit }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="max-w-md bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
+      <form onSubmit={handleSubmit} className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
         <h2 className="text-xl font-bold mb-2">Make a Payment</h2>
         <label className="flex flex-col gap-1">
             Amount
