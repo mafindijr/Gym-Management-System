@@ -82,7 +82,7 @@ export default function StudentSettingsForm() {
 
         <div className="max-w-xl items-center bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
           <div>
-            <h2 className="text-xl font-bold mb-2">Payment Details</h1>
+            <h2 className="text-xl font-bold mb-2">Payment Details</h2>
           </div>
 
         </div>
