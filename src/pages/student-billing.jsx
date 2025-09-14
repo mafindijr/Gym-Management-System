@@ -36,7 +36,7 @@ export default function StudentBilling() {
             </div>
             <button
             onClick={() => setOpenModal(true)}
-            className="bg-btnsecondary text-white h-[40px] rounded-md py-2 px-6 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer"
+            className="bg-btnprimary text-white h-[40px] rounded-md py-2 px-6 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer"
             >
             Make Payment
             </button>
