@@ -6,7 +6,7 @@ export default function LoginPage() {
         <form>
             <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
                 <div>
-                    <h2 className='text-[28px] leading-[35px] font-bold text-center'>Welcome Back</h2>
+                    <h2 className='text-[28px] leading-[35px] font-bold text-center'>Welcome Back! Log In</h2>
                 </div>
                 <div>
                     <input 
