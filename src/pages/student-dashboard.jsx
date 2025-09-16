@@ -1,4 +1,5 @@
 import LoginPage from "../Components/Auth/login";
+import SignUpPage from "../Components/Auth/signUP";
 
 export default function StudentDashboard() {
   return (
@@ -11,6 +12,7 @@ export default function StudentDashboard() {
           <p className='text-[18px]'>Welcome, Student! Here you can view your classes, attendance, and more.</p>
 
           <LoginPage />
+          <SignUpPage />
         </div>
       </main>
     </div>
