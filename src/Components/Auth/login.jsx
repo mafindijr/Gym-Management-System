@@ -3,9 +3,8 @@ import { useState } from 'react'
 export default function LoginPage() {
 
     return (
-        <>
         <form>
-            <div className=" items-center bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
+            <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
                 <div>
                     <h2>Welcome Back</h2>
                 </div>
@@ -35,6 +34,5 @@ export default function LoginPage() {
                 
             </div>
          </form>    
-        </>
     );
 }
