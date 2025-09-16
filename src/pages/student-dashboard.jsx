@@ -1,3 +1,5 @@
+import LoginPage from "../Components/Auth/login";
+
 export default function StudentDashboard() {
   return (
     <div>
@@ -7,6 +9,8 @@ export default function StudentDashboard() {
         </div>
         <div>
           <p className='text-[18px]'>Welcome, Student! Here you can view your classes, attendance, and more.</p>
+
+          <LoginPage />
         </div>
       </main>
     </div>
