@@ -20,9 +20,9 @@ export default function LoginPage() {
                 <div>
                     <input 
                     type="password"
-                    name='email'
+                    name='password'
                     className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
-                    placeholder='Enter Email'
+                    placeholder='Enter Password'
                     required
                     />
                     <span className='text-[14px] leading-[21px] text-[#91adc9]'>Forgot Password</span>
