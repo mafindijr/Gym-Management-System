@@ -9,6 +9,7 @@ export default function ResetPassword() {
         <form>
             <input type="text" />
             <input type="text" />
+            <button>Create new password</button>
         </form>
     </div>
   )
