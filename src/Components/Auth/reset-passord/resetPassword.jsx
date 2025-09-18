@@ -4,6 +4,12 @@ export default function ResetPassword() {
 
       const [openResetPassword, setOpenResetPassword] = useState(false);
       const [isSubmitting, setIsSubmitting] = useState(false);
+      const [emailSent, setEmailSent] = useState(false);
+
+      const handleSubmit = (e) => {
+          e.preventDefault();
+          setEmailSent(false);
+      }
 
 
   return (
@@ -16,6 +22,10 @@ export default function ResetPassword() {
                 <p>We've sent a password reset link to your email address. Please check your inbox.</p>
             </div>
           )}
+
+          <form>
+
+          </form>
         </div>
       )
 }
