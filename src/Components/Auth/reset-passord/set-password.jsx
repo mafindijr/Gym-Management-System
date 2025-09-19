@@ -1,6 +1,11 @@
 import React from 'react'
 
 export default function SetPassword() {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  }
+
   return (
     <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
       <h2 className='font-montserrat font-bold text-[32px] leading-[44px] text-center hover:scale-105 transition-transform duration-300'>Set New Password</h2>
