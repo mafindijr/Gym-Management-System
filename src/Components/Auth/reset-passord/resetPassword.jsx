@@ -13,7 +13,7 @@ export default function ResetPassword() {
 
 
   return (
-        <div>
+        <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
             <h4 className='font-montserrat font-[700] text-[20px] leading-[30px] text-center mb-2 mt-2'>Reset Your Password</h4>
           <p className='font-montserrat font-[400] text-[18px] leading-[28px] text-center mb-4'>Enter your email to receive a reset link</p>
           {emailSent && (
@@ -32,7 +32,7 @@ export default function ResetPassword() {
                 placeholder='Enter Email'
                 required
              />
-            <button className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>Send a Reset link</button>
+            <button className='bg-btnprimary w-full mt-2 pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>Send a Reset link</button>
 
           </form>
         </div>

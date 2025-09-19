@@ -26,7 +26,7 @@ export default function SetPassword() {
               placeholder='Confirm New Password'
               required
               />
-            <button className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>Create new password</button>
+            <button className='bg-btnprimary w-full mt-2 pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>Create new password</button>
         </form>
     </div>
 
