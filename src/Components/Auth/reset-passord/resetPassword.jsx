@@ -23,6 +23,15 @@ export default function ResetPassword() {
             </div>
           )}
 
+          <input 
+              type="email"
+              name='email'
+              className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+              placeholder='Enter Email'
+              required
+              />
+            <button className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>Send a Reset link</button>
+
           <form>
 
           </form>
