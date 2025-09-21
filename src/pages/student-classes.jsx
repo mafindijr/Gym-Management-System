@@ -55,9 +55,8 @@ export default function StudentClasses() {
             <div className='flex justify-between items-center'>
                 <div className='flex flex-col gap-4'>
                 <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
-                <span className='text-[14px] leading-[21px] text-adminsmtext'>Manage and schedule your fitness classes and instructor assigments.</span>
+                <span className='text-[14px] leading-[21px] text-adminsmtext'>Find the perfect class to meet your fitness goals. Explore our diverse range of classes led by expert instructors.</span>
                 </div>
-                <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Schedule Class</button>
             </div>
 
             <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
