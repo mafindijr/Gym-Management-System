@@ -52,7 +52,7 @@ export default function TrainersPage() {
             <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Trainers</h1>
           </div>
           <div>
-            <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Trainer</button>
+            <button onClick={() => setOpenModal(true)} className='bg-btnprimary w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Trainer</button>
           </div>
         </div>
 
@@ -148,7 +148,7 @@ export default function TrainersPage() {
                       />
                       </label>
                   </div>
-                  <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Trainer</button>
+                  <button type="submit" className="bg-btnprimary w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Trainer</button>
               </div>
           </form>
       </Modal>

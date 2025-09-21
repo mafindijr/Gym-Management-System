@@ -55,7 +55,7 @@ export default function MembersDashboard() {
             <main className='flex flex-col col-span-4 gap-8 w-full'>
                 <div className='flex justify-between items-center'>
                     <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Members</h1>
-                    <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
+                    <button onClick={() => setOpenModal(true)} className='bg-btnprimary w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
                 </div>
 
                 <div className='flex gap-4 w-full'>
@@ -156,7 +156,7 @@ export default function MembersDashboard() {
                                 />
                                 </label>
                             </div>
-                            <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
+                            <button type="submit" className="bg-btnprimary w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Add Member</button>
                         </div>
                     </form>
                 </Modal>

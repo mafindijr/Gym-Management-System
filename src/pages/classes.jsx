@@ -57,7 +57,7 @@ export default function Classes() {
                 <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
                 <span className='text-[14px] leading-[21px] text-adminsmtext'>Manage and schedule your fitness classes and instructor assigments.</span>
                 </div>
-                <button onClick={() => setOpenModal(true)} className='bg-[#223649] w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Schedule Class</button>
+                <button onClick={() => setOpenModal(true)} className='bg-btnprimary w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Schedule Class</button>
             </div>
 
             <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
@@ -159,7 +159,7 @@ export default function Classes() {
                         />
                         </label>
                     </div>
-                    <button type="submit" className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Schedule Class</button>
+                    <button type="submit" className="bg-btnprimary w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer">Schedule Class</button>
                 </div>
             </form>
         </Modal>
