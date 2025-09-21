@@ -30,7 +30,7 @@ function App() {
 
         <Route path="/student" element={<StudentDashboardLayout />}>
           <Route index element={<StudentDashboard />} />
-          <Route path="my classes" element={<StudentClasses />} />
+          <Route path="classes" element={<StudentClasses />} />
           <Route path="billing" element={<StudentBilling />} />
           <Route path="settings" element={<StudentSettings />} />
         </Route>
