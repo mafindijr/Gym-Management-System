@@ -11,7 +11,7 @@ export default function StudentClasses() {
     const [formData, setFormData] = useState({
         name: "",
         instructor: "",
-        status: "",
+        capacity: "",
         dateTime: ""
     });
     const [isEditing, setIsEditing] = useState(false);
@@ -21,8 +21,8 @@ export default function StudentClasses() {
             name: "Yoga flow",
             instructor: "Sarah Miller",
             dateTime: "Mon, June 15, 2024, 9:00AM",
-            status: "Scheduled",
-            action: "View Details"
+            capacity: "20/25",
+            action: "Enroll"
         }
     ]);
 
@@ -41,7 +41,7 @@ export default function StudentClasses() {
         setFormData({
             name: "",
             instructor: "",
-            status: "",
+            capacity: "",
             dateTime: "",
         });
 
@@ -70,7 +70,7 @@ export default function StudentClasses() {
                             <div><span>Class Name</span></div>
                             <div><span>Instructor</span></div>
                             <div><span>Date & Time</span></div>
-                            <div><span>Status</span></div>
+                            <div><span>Capacity</span></div>
                             <div><span>Action</span></div>
                         </div>
                         <div id="tableBody" className="">
@@ -86,10 +86,10 @@ export default function StudentClasses() {
                                     <span>{item.dateTime}</span>
                                 </div>
                                 <div className="w-[185px] text-center">
-                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status} </span>
+                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.capacity} </span>
                                 </div>
-                                <div onClick={() => { setSelectedMember(item); setOpenReview(true); }} className="w-[185px] text-center">
-                                    <span className="font-semibold cursor-pointer">View Details</span>
+                                <div className="w-[185px] text-center">
+                                    <span className="font-semibold cursor-pointer">Enroll</span>
                                 </div>
                             </div>
                             ))}
