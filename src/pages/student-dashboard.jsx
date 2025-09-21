@@ -1,4 +1,4 @@
-import ResetPassword from "../Components/Auth/reset-passord/resetPassword";
+
 
 
 export default function StudentDashboard() {
@@ -11,7 +11,6 @@ export default function StudentDashboard() {
         <div>
           <p className='text-[18px]'>Welcome, Student! Here you can view your classes, attendance, and more.</p>
         </div>
-        <ResetPassword />
       </main>
     </div>
   );
