@@ -92,7 +92,6 @@ export default function StudentSettingsForm() {
                 type="text"
                 name="cardName"
                 value={form.cardName}
-                onChange={handleChange}
                 placeholder="Name on Card"
                 readOnly
                 />
@@ -104,7 +103,6 @@ export default function StudentSettingsForm() {
                 type="text"
                 name="cardNumber"
                 value={form.cardNumber}
-                onChange={handleChange}
                 placeholder="Card Number"
                 readOnly
                 />
@@ -117,7 +115,6 @@ export default function StudentSettingsForm() {
                     type="text"
                     name="expiry"
                     value={form.expiry}
-                    onChange={handleChange}
                     placeholder="MM/YY"
                     readOnly
                 />
@@ -129,7 +126,6 @@ export default function StudentSettingsForm() {
                     type="password"
                     name="cvv"
                     value={form.cvv}
-                    onChange={handleChange}
                     placeholder="CVV"
                     readOnly
                 />
