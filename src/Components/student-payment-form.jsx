@@ -93,7 +93,7 @@ export default function StudentPaymentForm({ onSubmit }) {
             />
             </label>
         </div>
-        <button type="submit" className="bg-btnprimary text-white font-bold py-2 px-4 rounded mt-2">
+        <button type="submit" className="bg-btnprimary text-white cursor-pointer font-bold py-2 px-4 rounded mt-2">
             Pay Now
         </button>
     </form>
