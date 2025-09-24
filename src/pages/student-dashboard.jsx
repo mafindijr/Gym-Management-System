@@ -9,7 +9,12 @@ export default function StudentDashboard() {
           <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Student Dashboard</h1>
         </div>
         <div>
-          <p className='text-[18px]'>Welcome, Student! Here you can view your classes, attendance, and more.</p>
+          <h4>Enroll Classes</h4>
+          <div className="inline-flex gap-8 p-8">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
         </div>
       </main>
     </div>
