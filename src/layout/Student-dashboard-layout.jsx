@@ -12,7 +12,7 @@ export default function StudentDashboardLayout() {
   ];
 
   return (
-    <div className="flex min-h-screen">
+    <div>
       <Sidebar navs={studentNavs} name="member" />
       <main className="relative flex ml-68 flex-1 items-center justify-center p-4">
         <Outlet />
