@@ -28,7 +28,7 @@ function App() {
           <Route path="billing" element={<BillingPayment />} />
         </Route>
 
-        <Route path="/student" element={<StudentDashboardLayout />}>
+        <Route path="/member" element={<StudentDashboardLayout />}>
           <Route index element={<StudentDashboard />} />
           <Route path="classes" element={<StudentClasses />} />
           <Route path="billing" element={<StudentBilling />} />
