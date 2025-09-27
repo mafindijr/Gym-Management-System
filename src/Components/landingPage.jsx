@@ -1,8 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Modal from "./modal"
+import LoginPage from './Auth/login'
 import DashboardLayout from '../layout/Dashboard-layout'
 
 export default function LandingPage() {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
   
   return (
     <>
@@ -38,6 +42,7 @@ export default function LandingPage() {
               <div className="flex flex-1 gap-3 max-w-[480px] flex-col items-stretch px-4 py-3">
                 <button
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
+                  onClick={setIsModalOpen(true)}
                 >
                   <NavLink to="/member" className="w-full h-full flex items-center justify-center">
                     <span className="truncate">Member Login</span>
@@ -54,6 +59,10 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
+
+        <Modal isOpen={setIsModalOpen(true)} onClose={setIsModalOpen(false)}>
+                <LoginPage />
+        </Modal>
      </>
   )
 }
