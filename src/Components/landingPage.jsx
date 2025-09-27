@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import Modal from "./modal"
 import LoginPage from './Auth/login'
-import SignUpPage from './Auth/signUp'
+
 
 export default function LandingPage() {
 
   const [openModal, setOpenModal] = useState(false);
+  
 
   
   return (
@@ -33,8 +34,9 @@ export default function LandingPage() {
                   </div>
                   <button
                     className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0b80ee] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal font-Poppins @[480px]:tracking-[0.015em]"
+                    onClick={() => setOpenModal(true)}
                   >
-                    <span className="truncate">Staff Login</span>
+                    <span className="truncate">Admin Login</span>
                   </button>
                 </div>
               </div>
@@ -51,18 +53,20 @@ export default function LandingPage() {
                 </button>
                 <button
                   className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223649] text-white text-sm font-Poppins font-bold leading-normal tracking-[0.015em] w-full"
+                  onClick={() => setOpenModal(true)}
                 >
-                  <NavLink to="/admin">
-                  <span className="truncate">Admin Login</span>
-                  </NavLink>
+                  {/* <NavLink to="/admin"> */}
+                  <span className="truncate">Staff Login</span>
+                  {/* </NavLink> */}
                 </button>
               </div>
             </div>
           </div>
-          <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-            <LoginPage />
-          </Modal>
         </div>
+
+        <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+          <LoginPage />
+        </Modal>
      </>
   )
 }
