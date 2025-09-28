@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 export default function SignUpPage() {
 
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    // const [isSubmitting, setIsSubmitting] = useState(false);
     const [form, setForm] = useState({
         fullName: "",
         email: "",
@@ -19,7 +19,8 @@ export default function SignUpPage() {
       const handleSubmit = e => {
         e.preventDefault();
         // Here you would handle updating payment/card details
-        alert("Payment details updated!");
+        alert("Sign Up Successfully");
+    
       };
 
   return (
