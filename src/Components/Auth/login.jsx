@@ -3,6 +3,16 @@ import { NavLink } from 'react-router-dom'
 
 export default function LoginPage() {
 
+    const [form, setForm] = useState({
+        email: "",
+        password: ""
+    });
+
+    const handleChange = e => {
+        const { name, value } = e.target;
+        setForm(prev => ({...prev, [name]: value }));
+    };
+
     return (
         <form>
             <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
