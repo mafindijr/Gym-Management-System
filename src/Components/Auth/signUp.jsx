@@ -18,7 +18,6 @@ export default function SignUpPage() {
     
       const handleSubmit = e => {
         e.preventDefault();
-        // Here you would handle updating payment/card details
         alert("Sign Up Successfully");
     
       };
