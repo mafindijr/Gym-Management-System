@@ -13,6 +13,11 @@ export default function LoginPage() {
         setForm(prev => ({...prev, [name]: value }));
     };
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        alert("login successfully");
+    }
+
     return (
         <form>
             <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
