@@ -19,7 +19,7 @@ export default function LoginPage() {
     }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
                 <div>
                     <h2 className='text-[28px] leading-[35px] font-bold text-center'>Welcome Back! Log In</h2>
@@ -28,6 +28,8 @@ export default function LoginPage() {
                     <input 
                     type="email"
                     name='email'
+                    value={form.email}
+                    onChange={handleChange}
                     className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
                     placeholder='Enter Email'
                     required
@@ -37,6 +39,8 @@ export default function LoginPage() {
                     <input 
                     type="password"
                     name='password'
+                    value={form.password}
+                    onChange={handleChange}
                     className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
                     placeholder='Enter Password'
                     required
