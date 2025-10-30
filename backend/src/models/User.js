@@ -38,6 +38,19 @@ const userSchema = new mongoose.Schema({
   refreshToken: {
     type: String,
     select: false
+  },
+  resetPasswordToken: {
+    type: String,
+    select: false
+  },
+  resetPasswordExpires: {
+    type: Date,
+    select: false
+  },
+  membership: {
+    type: String,
+    enum: ['Basic', 'Premium', 'VIP'],
+    default: 'Basic'
   }
 }, {
   timestamps: true

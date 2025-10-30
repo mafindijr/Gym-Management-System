@@ -1,13 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   Home,
   Users,
   Settings,
   Wallet,
-  Calendar
+  Calendar,
+  LogOut
 } from "lucide-react";
 
 export default function SideBar({ navs, name }) {
+  const navigate = useNavigate();
   // Default to admin navs if none provided
   const defaultNavs = [
     { to: "/admin",          name: "Dashboard", icon: <Home size={20} />},
@@ -41,6 +43,21 @@ export default function SideBar({ navs, name }) {
               })
             }  
           </div>
+        </div>
+        <div className='mt-4 pt-2 border-t border-[#334d66]'>
+          <button
+            onClick={() => {
+              try {
+                localStorage.removeItem('auth_token');
+                localStorage.removeItem('auth_user');
+              } catch (_) {}
+              navigate('/');
+            }}
+            className='flex gap-2 w-full leading-5.4 text-[14px] text-center font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#22364973] items-center justify-start'
+          >
+            <span><LogOut size={20} /></span>
+            <span>Logout</span>
+          </button>
         </div>
       </nav>
     </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export default function LoginPage() {
 
@@ -7,15 +7,46 @@ export default function LoginPage() {
         email: "",
         password: ""
     });
+    const [submitting, setSubmitting] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange = e => {
         const { name, value } = e.target;
         setForm(prev => ({...prev, [name]: value }));
     };
 
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault();
-        alert("login successfully");
+        if (submitting) return;
+        try {
+            setSubmitting(true);
+            const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: form.email, password: form.password })
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                alert(data?.message || 'Login failed');
+                return;
+            }
+
+            // Persist auth
+            localStorage.setItem('auth_token', data.token);
+            localStorage.setItem('auth_user', JSON.stringify(data.user));
+
+            // Redirect by role
+            const role = data.user?.role || 'member';
+            if (role === 'admin') {
+                navigate('/admin');
+            } else {
+                navigate('/member');
+            }
+        } catch (err) {
+            alert('Unable to login. Please try again.');
+        } finally {
+            setSubmitting(false);
+        }
     }
 
     return (
@@ -48,7 +79,9 @@ export default function LoginPage() {
                     <span className='text-[14px] leading-[21px] text-[#91adc9]'>Forgot Password</span>
                 </div>
                 <div className='flex flex-col items-center'>
-                    <button className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>Log In</button>
+                    <button disabled={submitting} className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>
+                        {submitting ? 'Logging In...' : 'Log In'}
+                    </button>
                     <span className='text-[14px] leading-[21px] text-[#91adc9]'>Don't have an account? Sign Up</span>
                 </div>
                 

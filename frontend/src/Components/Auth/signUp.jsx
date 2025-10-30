@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 export default function SignUpPage() {
 
@@ -10,16 +10,49 @@ export default function SignUpPage() {
         createPassword: "",
         confirmPassword: ""
       });
+      const [submitting, setSubmitting] = useState(false);
+      const navigate = useNavigate();
     
       const handleChange = e => {
         const { name, value } = e.target;
         setForm(prev => ({ ...prev, [name]: value }));
       };
     
-      const handleSubmit = e => {
+      const handleSubmit = async e => {
         e.preventDefault();
-        alert("Sign Up Successfully");
-    
+        if (submitting) return;
+        if (form.createPassword !== form.confirmPassword) {
+          alert('Passwords do not match');
+          return;
+        }
+        try {
+          setSubmitting(true);
+          const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/auth/register`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ fullName: form.fullName, email: form.email, password: form.createPassword })
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            alert(data?.message || 'Registration failed');
+            return;
+          }
+
+          localStorage.setItem('auth_token', data.token);
+          localStorage.setItem('auth_user', JSON.stringify(data.user));
+
+          const role = data.user?.role || 'member';
+          if (role === 'admin') {
+            navigate('/admin');
+          } else {
+            navigate('/member');
+          }
+        } catch (err) {
+          alert('Unable to sign up. Please try again.');
+        } finally {
+          setSubmitting(false);
+        }
+
       };
 
   return (
@@ -76,7 +109,8 @@ export default function SignUpPage() {
                     <button 
                      type='submit'
                      className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'
-                     >Sign Up</button>
+                     disabled={submitting}
+                     >{submitting ? 'Signing Up...' : 'Sign Up'}</button>
                     <span className='text-[14px] leading-[21px] text-[#91adc9]'>Already have an account? Log In</span>
                 </div>
                 

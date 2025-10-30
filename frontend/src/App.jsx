@@ -9,10 +9,38 @@ import Home from "./views/Home";
 import StudentDashboard from "./pages/student-dashboard";
 import StudentBilling from "./pages/student-billing";
 import StudentSettings from "./pages/student-settings";
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import StudentClasses from "./pages/student-classes";
 
 function App() {
+
+  const RequireAuth = ({ children, role }) => {
+    let token;
+    let user;
+    try {
+      token = localStorage.getItem('auth_token');
+      user = JSON.parse(localStorage.getItem('auth_user'));
+    } catch (_) {
+      token = null;
+      user = null;
+    }
+
+    if (!token || !user) {
+      return <Navigate to="/" replace />;
+    }
+
+    if (role) {
+      const userRole = user?.role;
+      if (role === 'admin' && userRole !== 'admin') {
+        return <Navigate to="/member" replace />;
+      }
+      if (role === 'member' && !(userRole === 'member' || userRole === 'admin')) {
+        return <Navigate to="/" replace />;
+      }
+    }
+
+    return children;
+  };
 
   return (
     <>
@@ -20,7 +48,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
 
-        <Route path="/admin" element={<DashboardLayout />}>
+        <Route path="/admin" element={<RequireAuth role="admin"><DashboardLayout /></RequireAuth>}>
           <Route index element={<Admin />} />
           <Route path="member" element={<MembersDashboard />} />
           <Route path="classes" element={<Classes />} />
@@ -28,7 +56,7 @@ function App() {
           <Route path="billing" element={<BillingPayment />} />
         </Route>
 
-        <Route path="/member" element={<StudentDashboardLayout />}>
+        <Route path="/member" element={<RequireAuth role="member"><StudentDashboardLayout /></RequireAuth>}>
           <Route index element={<StudentDashboard />} />
           <Route path="classes" element={<StudentClasses />} />
           <Route path="billing" element={<StudentBilling />} />
