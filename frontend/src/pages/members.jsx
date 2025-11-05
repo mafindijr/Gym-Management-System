@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from '../Components/search-input';
 import Modal from "../Components/modal";
 
@@ -15,15 +15,25 @@ export default function MembersDashboard() {
         });
         const [isEditing, setIsEditing] = useState(false);
 
-        const [data, setData] = useState ([
-            {
-                name: "Abdulrazak mafindi",
-                membership: "Premium",
-                status: "Active",
-                lastVisit: "2 days ago",
-                action: "View"
-            }
-        ]);
+        const [data, setData] = useState ([]);
+
+        useEffect(() => {
+            const fetchMembers = async () => {
+                try {
+                    const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/members`, {
+                        headers: { 'Authorization': `Bearer ${localStorage.getItem('auth_token')}` }
+                    });
+                    const result = await res.json();
+                    if (res.ok) {
+                        setData(result.members);
+                    }
+                } catch (error) {
+                    console.error('Failed to fetch members', error);
+                }
+            };
+
+            fetchMembers();
+        }, []);
 
         const handleChange = (e) => {
 
@@ -75,13 +85,13 @@ export default function MembersDashboard() {
                                   {data.map((item, index) => ( 
                                     <div key={index} className='flex justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
                                         <div className="w-[185px] text-center text-[#e5e8eb]">
-                                            <span>{item.name}</span>
+                                            <span>{item.fullName}</span>
                                         </div>
                                         <div className="w-[185px] text-center">
                                             <span>{item.membership}</span>
                                         </div>
                                         <div className="w-[185px] text-center">
-                                            <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.status}</span>
+                                            <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.isActive ? 'Active' : 'Inactive'}</span>
                                         </div>
                                         <div className="w-[185px] text-center">
                                             <span>{item.lastVisit}</span>
@@ -165,16 +175,16 @@ export default function MembersDashboard() {
                     <h2 className="text-center font-montserrat font-[700] text-[32px]">Member Details</h2>
                     {selectedMember && !isEditing && (
                         <div className="p-4 divide-y-2 divide-adminsmtext text-[18px] font-[400]">
-                            <div className="mb-2"><strong>Name:</strong> {selectedMember.name}</div>
+                            <div className="mb-2"><strong>Name:</strong> {selectedMember.fullName}</div>
                             <div className="mb-2"><strong>Membership:</strong> {selectedMember.membership}</div>
-                            <div className="mb-2"><strong>Status:</strong> {selectedMember.status}</div>
+                            <div className="mb-2"><strong>Status:</strong> {selectedMember.isActive ? 'Active' : 'Inactive'}</div>
                             <div className="mb-2"><strong>Last Visit:</strong> {selectedMember.lastVisit}</div>
                             <div className="flex gap-4 mt-4">
                                 <button className="bg-[#223649] w-[135px] h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer" onClick={() => {
                                     setFormData({
-                                        name: selectedMember.name,
+                                        name: selectedMember.fullName,
                                         membership: selectedMember.membership,
-                                        status: selectedMember.status,
+                                        status: selectedMember.isActive ? 'Active' : 'Inactive',
                                         lastVisit: selectedMember.lastVisit
                                     });
                                     setIsEditing(true);

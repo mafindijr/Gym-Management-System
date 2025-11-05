@@ -1,6 +1,33 @@
 
 
+import { useEffect, useState } from 'react';
+
 export default function Admin() {
+  const [stats, setStats] = useState({
+    totalMembers: 0,
+    activeClasses: 0,
+    totalTrainers: 0,
+    memberGrowth: 0,
+    classAttendance: 0
+  });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/dashboard/admin`, {
+          headers: { 'Authorization': `Bearer ${localStorage.getItem('auth_token')}` }
+        });
+        const data = await res.json();
+        if (res.ok) {
+          setStats(data);
+        }
+      } catch (error) {
+        console.error('Failed to fetch dashboard stats', error);
+      }
+    };
+
+    fetchStats();
+  }, []);
 
   return (
     <div>
@@ -13,15 +40,15 @@ export default function Admin() {
                 <div className='flex gap-4'>
                     <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
                         <p className='font-semibold text-[16px] leading-[24px]'>Total Members</p>
-                        <p className='font-bold text-[24px] leading-[30px]'>250</p>
+                        <p className='font-bold text-[24px] leading-[30px]'>{stats.totalMembers}</p>
                     </div>
                     <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
                         <p className='font-semibold text-[16px] leading-[24px]'>Active Classes</p>
-                        <p className='font-bold text-[24px] leading-[30px]'>15</p>
+                        <p className='font-bold text-[24px] leading-[30px]'>{stats.activeClasses}</p>
                     </div>
                     <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
                         <p className='font-semibold text-[16px] leading-[24px]'>Trainers</p>
-                        <p className='font-bold text-[24px] leading-[30px]'>8</p>
+                        <p className='font-bold text-[24px] leading-[30px]'>{stats.totalTrainers}</p>
                     </div>
                 </div>
 
@@ -40,8 +67,8 @@ export default function Admin() {
                         <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
                             <div>
                                 <h2 className=''>Member Growth</h2>
-                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>+15%</h2>
-                                <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Month <span className='text-percentage font-bold'>+15%</span></p>
+                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>{stats.memberGrowth}%</h2>
+                                <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Month <span className='text-percentage font-bold'>{stats.memberGrowth}%</span></p>
                             </div>
 
                             <div>
@@ -77,8 +104,8 @@ export default function Admin() {
                         <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
                             <div>
                                 <h2>Class Attendance</h2>
-                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>+10%</h2>
-                                <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Week <span className='text-percentage font-bold'>+10%</span></p>
+                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>{stats.classAttendance}%</h2>
+                                <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Week <span className='text-percentage font-bold'>{stats.classAttendance}%</span></p>
                             </div>
 
                             <div>
