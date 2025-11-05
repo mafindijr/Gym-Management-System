@@ -14,10 +14,24 @@ export default function StudentPaymentForm({ onSubmit }) {
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    if (onSubmit) onSubmit(form);
-    alert("Payment submitted!");
+    try {
+      if (onSubmit) onSubmit(form);
+      const res = await fetch('your-api-endpoint', { // Replace with your actual API endpoint
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      const data = await res.json();
+      if (!res.ok) {
+          throw new Error(data.message || "Failed to submit payment");
+      }
+      // No alert on success, handle redirection or UI update as needed
+    } catch (err) {
+      console.error(err);
+      // Handle error state in UI
+    }
     setForm({
       amount: "",
       cardName: "",

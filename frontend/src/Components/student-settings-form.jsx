@@ -13,10 +13,24 @@ export default function StudentSettingsForm() {
     setForm(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    // Here you would handle updating payment/card details
-    alert("Payment details updated!");
+    try {
+      // Here you would handle updating payment/card details
+      const res = await fetch('your-api-endpoint', { // Replace with your actual API endpoint
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      const data = await res.json();
+      if (!res.ok) {
+          throw new Error(data.message || "Failed to update payment details");
+      }
+      // No alert on success, handle UI feedback in a less intrusive way
+    } catch (err) {
+      console.error(err);
+      // Handle error state in UI
+    }
   };
 
   return (
