@@ -373,94 +373,98 @@ export default function Admin() {
 
             {/* Schedule Class Modal */}
             <Modal isOpen={openClassModal} onClose={() => { setOpenClassModal(false); setError(""); }}>
-              <form onSubmit={handleCreateClass} className="space-y-4">
-                <h2 className="text-[24px] font-bold text-center">Schedule Class</h2>
-                {error && (
-                  <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm">
-                    {error}
+              <div className="flex flex-col h-full max-h-[80vh]">
+                <h2 className="text-[24px] font-bold text-center mb-4 flex-shrink-0">Schedule Class</h2>
+                <form onSubmit={handleCreateClass} className="flex flex-col h-full overflow-hidden">
+                  <div className="overflow-y-auto flex-1 pr-2 space-y-4">
+                    {error && (
+                      <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm flex-shrink-0">
+                        {error}
+                      </div>
+                    )}
+                    <label className="w-full flex flex-col gap-1">
+                      Class Name
+                      <input
+                        className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                        type="text"
+                        placeholder="Enter class name"
+                        name="name"
+                        value={classForm.name}
+                        onChange={handleClassFormChange}
+                        required
+                      />
+                    </label>
+                    <label className="w-full flex flex-col gap-1">
+                      Instructor
+                      <input
+                        className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                        type="text"
+                        placeholder="Enter instructor's name"
+                        name="instructor"
+                        value={classForm.instructor}
+                        onChange={handleClassFormChange}
+                        required
+                      />
+                    </label>
+                    <label className="w-full flex flex-col gap-1">
+                      Date & Time
+                      <input
+                        className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                        type="datetime-local"
+                        name="dateTime"
+                        value={classForm.dateTime}
+                        onChange={handleClassFormChange}
+                        required
+                      />
+                    </label>
+                    <label className="w-full flex flex-col gap-1">
+                      Status
+                      <select
+                        name="status"
+                        value={classForm.status}
+                        onChange={handleClassFormChange}
+                        className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                      >
+                        <option value="Scheduled">Scheduled</option>
+                        <option value="Ongoing">Ongoing</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                      </select>
+                    </label>
+                    <label className="w-full flex flex-col gap-1">
+                      Capacity
+                      <input
+                        className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                        type="number"
+                        placeholder="Enter capacity"
+                        name="capacity"
+                        value={classForm.capacity}
+                        onChange={handleClassFormChange}
+                        min="1"
+                        required
+                      />
+                    </label>
+                    <label className="w-full flex flex-col gap-1">
+                      Description (Optional)
+                      <textarea
+                        className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                        placeholder="Enter class description"
+                        name="description"
+                        value={classForm.description}
+                        onChange={handleClassFormChange}
+                        rows="3"
+                      />
+                    </label>
                   </div>
-                )}
-                <label className="w-full flex flex-col gap-1">
-                  Class Name
-                  <input
-                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
-                    type="text"
-                    placeholder="Enter class name"
-                    name="name"
-                    value={classForm.name}
-                    onChange={handleClassFormChange}
-                    required
-                  />
-                </label>
-                <label className="w-full flex flex-col gap-1">
-                  Instructor
-                  <input
-                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
-                    type="text"
-                    placeholder="Enter instructor's name"
-                    name="instructor"
-                    value={classForm.instructor}
-                    onChange={handleClassFormChange}
-                    required
-                  />
-                </label>
-                <label className="w-full flex flex-col gap-1">
-                  Date & Time
-                  <input
-                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
-                    type="datetime-local"
-                    name="dateTime"
-                    value={classForm.dateTime}
-                    onChange={handleClassFormChange}
-                    required
-                  />
-                </label>
-                <label className="w-full flex flex-col gap-1">
-                  Status
-                  <select
-                    name="status"
-                    value={classForm.status}
-                    onChange={handleClassFormChange}
-                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                  <button
+                    type="submit"
+                    disabled={classSubmitting}
+                    className="bg-btnprimary w-full h-[40px] rounded-md mt-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60 flex-shrink-0"
                   >
-                    <option value="Scheduled">Scheduled</option>
-                    <option value="Ongoing">Ongoing</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
-                  </select>
-                </label>
-                <label className="w-full flex flex-col gap-1">
-                  Capacity
-                  <input
-                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
-                    type="number"
-                    placeholder="Enter capacity"
-                    name="capacity"
-                    value={classForm.capacity}
-                    onChange={handleClassFormChange}
-                    min="1"
-                    required
-                  />
-                </label>
-                <label className="w-full flex flex-col gap-1">
-                  Description (Optional)
-                  <textarea
-                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
-                    placeholder="Enter class description"
-                    name="description"
-                    value={classForm.description}
-                    onChange={handleClassFormChange}
-                    rows="3"
-                  />
-                </label>
-                <button
-                  type="submit"
-                  disabled={classSubmitting}
-                  className="bg-btnprimary w-full h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
-                >
-                  {classSubmitting ? "Scheduling..." : "Schedule Class"}
-                </button>
-              </form>
+                    {classSubmitting ? "Scheduling..." : "Schedule Class"}
+                  </button>
+                </form>
+              </div>
             </Modal>
         
     </div>
