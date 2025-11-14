@@ -65,17 +65,21 @@ export const createPayment = async (req, res) => {
         let member;
         if(memberId) {
             member = await User.findById(memberId);
-            if(!member) {
+            if(!member || member.role !== 'member') {
                 return res.status(404).json({ message: "Member not found" });
             }
         } else if(memberName) {
-            // For admin creating payments
+            // For admin creating payments by member name
             member = await User.findOne({ fullName: memberName, role: 'member' });
         }
 
+        if(!member) {
+            return res.status(400).json({ message: "A valid member is required to record a payment" });
+        }
+
         const payment = await Payment.create({
-            memberId: member?._id || null,
-            memberName: memberName || member?.fullName || 'Unknown',
+            memberId: member._id,
+            memberName: member.fullName,
             classId: classId || null,
             className: className || null,
             amount,

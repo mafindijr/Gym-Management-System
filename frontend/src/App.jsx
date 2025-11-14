@@ -42,11 +42,30 @@ function App() {
     return children;
   };
 
+  const RedirectIfAuthenticated = ({ children }) => {
+    let token;
+    let user;
+    try {
+      token = localStorage.getItem('auth_token');
+      user = JSON.parse(localStorage.getItem('auth_user'));
+    } catch (_) {
+      token = null;
+      user = null;
+    }
+
+    if (token && user) {
+      const isAdmin = user?.role === 'admin';
+      return <Navigate to={isAdmin ? '/admin' : '/member'} replace />;
+    }
+
+    return children;
+  };
+
   return (
     <>
     <Routes>
 
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<RedirectIfAuthenticated><Home /></RedirectIfAuthenticated>} />
 
         <Route path="/admin" element={<RequireAuth role="admin"><DashboardLayout /></RequireAuth>}>
           <Route index element={<Admin />} />

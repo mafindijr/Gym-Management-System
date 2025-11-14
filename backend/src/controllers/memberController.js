@@ -1,5 +1,15 @@
 import User from "../models/User.js";
 
+const parseStatusToBoolean = (status) => {
+    if (typeof status === 'boolean') {
+        return status;
+    }
+    if (typeof status === 'string') {
+        return status.toLowerCase() === 'active';
+    }
+    return undefined;
+};
+
 export const getMembers = async (req, res) => {
     try {
         const { search } = req.query;
@@ -52,16 +62,21 @@ export const createMember = async (req, res) => {
             return res.status(400).json({ message: "User already exists" });
         }
 
+        const parsedStatus = parseStatusToBoolean(status);
+
         const member = await User.create({
             fullName,
             email,
             password,
             role: 'member',
             membership: membership || 'Basic',
-            isActive: status === 'Active' || true
+            isActive: typeof parsedStatus === 'boolean' ? parsedStatus : true
         });
 
-        res.status(201).json({ member });
+        const sanitizedMember = await User.findById(member._id)
+            .select('-password -refreshToken');
+
+        res.status(201).json({ member: sanitizedMember });
     }
     catch (error) {
         res.status(500).json({ message: error.message });
@@ -70,7 +85,7 @@ export const createMember = async (req, res) => {
 
 export const updateMember = async (req, res) => {
     try {
-        const { fullName, membership, status, lastVisit } = req.body;
+        const { fullName, membership, status, email, password } = req.body;
         const member = await User.findById(req.params.id);
 
         if(!member || member.role !== 'member') {
@@ -79,11 +94,30 @@ export const updateMember = async (req, res) => {
 
         if(fullName) member.fullName = fullName;
         if(membership) member.membership = membership;
-        if(status !== undefined) member.isActive = status === 'Active';
+
+        if(email && email !== member.email) {
+            const existingUser = await User.findOne({ email, _id: { $ne: member._id } });
+            if(existingUser) {
+                return res.status(400).json({ message: "Email already in use" });
+            }
+            member.email = email;
+        }
+
+        if(password) {
+            member.password = password;
+        }
+
+        const parsedStatus = parseStatusToBoolean(status);
+        if(typeof parsedStatus === 'boolean') {
+            member.isActive = parsedStatus;
+        }
 
         await member.save();
 
-        res.status(200).json({ member });
+        const updatedMember = await User.findById(member._id)
+            .select('-password -refreshToken');
+
+        res.status(200).json({ member: updatedMember });
     }
     catch (error) {
         res.status(500).json({ message: error.message });

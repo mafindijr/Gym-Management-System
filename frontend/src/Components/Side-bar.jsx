@@ -23,6 +23,17 @@ export default function SideBar({ navs, name }) {
   const navLinks = navs || defaultNavs;
   const dashboardName = name || "Admin";
 
+  const handleLogout = () => {
+    try {
+      localStorage.removeItem('auth_token');
+      localStorage.removeItem('auth_user');
+    } catch (_) {
+      // Ignore storage errors
+    } finally {
+      navigate('/', { replace: true });
+    }
+  };
+
   return (
     <div>
       <nav className='flex flex-col fixed left-0 gap-4 pl-4 pt-4 w-64'>
@@ -46,13 +57,7 @@ export default function SideBar({ navs, name }) {
         </div>
         <div className='mt-4 pt-2 border-t border-[#334d66]'>
           <button
-            onClick={() => {
-              try {
-                localStorage.removeItem('auth_token');
-                localStorage.removeItem('auth_user');
-              } catch (_) {}
-              navigate('/');
-            }}
+            onClick={handleLogout}
             className='flex gap-2 w-full leading-5.4 text-[14px] text-center font-montserrat p-2 rounded-full cursor-pointer transition hover:bg-[#22364973] items-center justify-start'
           >
             <span><LogOut size={20} /></span>
