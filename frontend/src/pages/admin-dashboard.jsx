@@ -1,6 +1,26 @@
 
 
 import { useEffect, useState } from 'react';
+import Modal from '../Components/modal';
+
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+const INITIAL_MEMBER_FORM = {
+  fullName: "",
+  email: "",
+  password: "",
+  membership: "Basic",
+  status: "Active"
+};
+
+const INITIAL_CLASS_FORM = {
+  name: "",
+  instructor: "",
+  dateTime: "",
+  status: "Scheduled",
+  capacity: 25,
+  description: ""
+};
 
 export default function Admin() {
   const [stats, setStats] = useState({
@@ -10,6 +30,13 @@ export default function Admin() {
     memberGrowth: 0,
     classAttendance: 0
   });
+  const [openMemberModal, setOpenMemberModal] = useState(false);
+  const [openClassModal, setOpenClassModal] = useState(false);
+  const [memberForm, setMemberForm] = useState(INITIAL_MEMBER_FORM);
+  const [classForm, setClassForm] = useState(INITIAL_CLASS_FORM);
+  const [memberSubmitting, setMemberSubmitting] = useState(false);
+  const [classSubmitting, setClassSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchStats = async () => {
@@ -35,6 +62,115 @@ export default function Admin() {
 
     fetchStats();
   }, []);
+
+  const handleMemberFormChange = (e) => {
+    const { name, value } = e.target;
+    setMemberForm(prev => ({ ...prev, [name]: value }));
+    setError("");
+  };
+
+  const handleClassFormChange = (e) => {
+    const { name, value } = e.target;
+    setClassForm(prev => ({ ...prev, [name]: value }));
+    setError("");
+  };
+
+  const handleCreateMember = async (e) => {
+    e.preventDefault();
+    if (memberSubmitting) return;
+
+    setMemberSubmitting(true);
+    setError("");
+
+    try {
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        throw new Error("You must be logged in to create members");
+      }
+
+      const payload = {
+        fullName: memberForm.fullName,
+        email: memberForm.email,
+        password: memberForm.password,
+        membership: memberForm.membership,
+        status: memberForm.status
+      };
+
+      const res = await fetch(`${API_BASE}/members`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data?.message || "Failed to create member");
+      }
+
+      setMemberForm(INITIAL_MEMBER_FORM);
+      setOpenMemberModal(false);
+      setStats(prev => ({ ...prev, totalMembers: prev.totalMembers + 1 }));
+      alert("Member created successfully");
+    } catch (err) {
+      setError(err.message || "Failed to create member");
+    } finally {
+      setMemberSubmitting(false);
+    }
+  };
+
+  const handleCreateClass = async (e) => {
+    e.preventDefault();
+    if (classSubmitting) return;
+
+    setClassSubmitting(true);
+    setError("");
+
+    try {
+      const token = localStorage.getItem('auth_token');
+      if (!token) {
+        throw new Error("You must be logged in to schedule classes");
+      }
+
+      if (!classForm.name || !classForm.instructor || !classForm.dateTime) {
+        throw new Error("Class name, instructor, and date/time are required");
+      }
+
+      const payload = {
+        name: classForm.name,
+        instructor: classForm.instructor,
+        dateTime: classForm.dateTime,
+        status: classForm.status || 'Scheduled',
+        capacity: classForm.capacity || 25,
+        description: classForm.description || ""
+      };
+
+      const res = await fetch(`${API_BASE}/classes`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data?.message || "Failed to schedule class");
+      }
+
+      setClassForm(INITIAL_CLASS_FORM);
+      setOpenClassModal(false);
+      setStats(prev => ({ ...prev, activeClasses: prev.activeClasses + 1 }));
+      alert("Class scheduled successfully");
+    } catch (err) {
+      setError(err.message || "Failed to schedule class");
+    } finally {
+      setClassSubmitting(false);
+    }
+  };
 
   return (
     <div>
@@ -64,8 +200,26 @@ export default function Admin() {
                         <h2 className='text-[22px] leading-[28px] font-bold pb-4'>Quick Actions</h2>
                     </div>
                     <div className='flex gap-2 py-2'>
-                        <button className='bg-btnprimary w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Add Member</button>
-                        <button className='bg-[#223649] w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'>Schedule Class</button>
+                        <button 
+                          onClick={() => {
+                            setMemberForm(INITIAL_MEMBER_FORM);
+                            setError("");
+                            setOpenMemberModal(true);
+                          }}
+                          className='bg-btnprimary w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
+                        >
+                          Add Member
+                        </button>
+                        <button 
+                          onClick={() => {
+                            setClassForm(INITIAL_CLASS_FORM);
+                            setError("");
+                            setOpenClassModal(true);
+                          }}
+                          className='bg-[#223649] w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
+                        >
+                          Schedule Class
+                        </button>
                     </div>
                     <div>
                         <h2 className='text-[22px] leading-[28px] font-bold py-4'>Gym Overview</h2>
@@ -135,6 +289,179 @@ export default function Admin() {
                     </div>
                 </div>
             </main>
+
+            {/* Add Member Modal */}
+            <Modal isOpen={openMemberModal} onClose={() => { setOpenMemberModal(false); setError(""); }}>
+              <form onSubmit={handleCreateMember} className="space-y-4">
+                <h2 className="text-[24px] font-bold text-center">Add Member</h2>
+                {error && (
+                  <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm">
+                    {error}
+                  </div>
+                )}
+                <label className="w-full flex flex-col gap-1">
+                  Full Name
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="text"
+                    placeholder="Enter full name"
+                    name="fullName"
+                    value={memberForm.fullName}
+                    onChange={handleMemberFormChange}
+                    required
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Email
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="email"
+                    placeholder="Enter email"
+                    name="email"
+                    value={memberForm.email}
+                    onChange={handleMemberFormChange}
+                    required
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Temporary Password
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="password"
+                    placeholder="Enter password"
+                    name="password"
+                    value={memberForm.password}
+                    onChange={handleMemberFormChange}
+                    required
+                    minLength={6}
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Membership Type
+                  <select
+                    name="membership"
+                    value={memberForm.membership}
+                    onChange={handleMemberFormChange}
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                  >
+                    <option value="Basic">Basic</option>
+                    <option value="Premium">Premium</option>
+                    <option value="VIP">VIP</option>
+                  </select>
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Status
+                  <select
+                    name="status"
+                    value={memberForm.status}
+                    onChange={handleMemberFormChange}
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                  >
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                </label>
+                <button
+                  type="submit"
+                  disabled={memberSubmitting}
+                  className="bg-btnprimary w-full h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
+                >
+                  {memberSubmitting ? "Saving..." : "Add Member"}
+                </button>
+              </form>
+            </Modal>
+
+            {/* Schedule Class Modal */}
+            <Modal isOpen={openClassModal} onClose={() => { setOpenClassModal(false); setError(""); }}>
+              <form onSubmit={handleCreateClass} className="space-y-4">
+                <h2 className="text-[24px] font-bold text-center">Schedule Class</h2>
+                {error && (
+                  <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm">
+                    {error}
+                  </div>
+                )}
+                <label className="w-full flex flex-col gap-1">
+                  Class Name
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="text"
+                    placeholder="Enter class name"
+                    name="name"
+                    value={classForm.name}
+                    onChange={handleClassFormChange}
+                    required
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Instructor
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="text"
+                    placeholder="Enter instructor's name"
+                    name="instructor"
+                    value={classForm.instructor}
+                    onChange={handleClassFormChange}
+                    required
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Date & Time
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="datetime-local"
+                    name="dateTime"
+                    value={classForm.dateTime}
+                    onChange={handleClassFormChange}
+                    required
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Status
+                  <select
+                    name="status"
+                    value={classForm.status}
+                    onChange={handleClassFormChange}
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                  >
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="Ongoing">Ongoing</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                  </select>
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Capacity
+                  <input
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    type="number"
+                    placeholder="Enter capacity"
+                    name="capacity"
+                    value={classForm.capacity}
+                    onChange={handleClassFormChange}
+                    min="1"
+                    required
+                  />
+                </label>
+                <label className="w-full flex flex-col gap-1">
+                  Description (Optional)
+                  <textarea
+                    className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                    placeholder="Enter class description"
+                    name="description"
+                    value={classForm.description}
+                    onChange={handleClassFormChange}
+                    rows="3"
+                  />
+                </label>
+                <button
+                  type="submit"
+                  disabled={classSubmitting}
+                  className="bg-btnprimary w-full h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
+                >
+                  {classSubmitting ? "Scheduling..." : "Schedule Class"}
+                </button>
+              </form>
+            </Modal>
         
     </div>
   )
