@@ -14,12 +14,19 @@ export default function Admin() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/dashboard/admin`, {
-          headers: { 'Authorization': `Bearer ${localStorage.getItem('auth_token')}` }
+        const token = localStorage.getItem('auth_token');
+        if (!token) {
+          console.error('No auth token found');
+          return;
+        }
+        const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000/api'}/dashboard/`, {
+          headers: { 'Authorization': `Bearer ${token}` }
         });
         const data = await res.json();
         if (res.ok) {
           setStats(data);
+        } else {
+          console.error('Failed to fetch dashboard stats:', data.message || 'Unknown error');
         }
       } catch (error) {
         console.error('Failed to fetch dashboard stats', error);

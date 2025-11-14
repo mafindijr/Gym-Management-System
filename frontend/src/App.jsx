@@ -9,6 +9,7 @@ import Home from "./views/Home";
 import StudentDashboard from "./pages/student-dashboard";
 import StudentBilling from "./pages/student-billing";
 import StudentSettings from "./pages/student-settings";
+import AdminSettings from "./pages/admin-settings";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import StudentClasses from "./pages/student-classes";
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="classes" element={<Classes />} />
           <Route path="trainers" element={<TrainersPage />} />
           <Route path="billing" element={<BillingPayment />} />
+          <Route path="settings" element={<AdminSettings />} />
         </Route>
 
         <Route path="/member" element={<RequireAuth role="member"><StudentDashboardLayout /></RequireAuth>}>
