@@ -66,13 +66,13 @@ export default function StudentBilling() {
           </div>
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-btnprimary text-white h-[40px] rounded-md py-2 px-6 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer"
+            className="bg-btnprimary text-white h-10 rounded-md py-2 px-6 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer"
           >
             Make Payment
           </button>
         </div>
         <div className='w-[902px] flex flex-col gap-4 mt-4 text-[14px] leading-[21px]'>
-          <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
+          <div className='inline-flex gap-4 border-b border-[#334d66]'>
             <span className='border-b-2 pb-2'>Overview</span>
             <span className='border-b-2 pb-2'>Payments</span>
           </div>
@@ -82,9 +82,9 @@ export default function StudentBilling() {
             </div>
           )}
           <div>
-            <h2 className='my-[20px] font-poppins font-bold text-[22px] leading-[28px]'>Recent Payments</h2>
-            <div className="w-[908px] min-h-[320px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
-              <div className='grid grid-cols-4 justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1 text-center font-semibold'>
+            <h2 className='my-5 font-poppins font-bold text-[22px] leading-7'>Recent Payments</h2>
+            <div className="w-[908px] min-h-80 flex flex-col border inset-1 border-[#334d66] rounded-xl">
+              <div className='grid grid-cols-4 justify-around items-center bg-bgtable p-4 border-bColor border-b text-center font-semibold'>
                 <div><span>Class</span></div>
                 <div><span>Amount</span></div>
                 <div><span>Date</span></div>
@@ -92,10 +92,10 @@ export default function StudentBilling() {
               </div>
               <div id="tableBody" className="">
                 {loading && (
-                  <div className="p-6 text-center text-[#8fadcc]">Loading payments...</div>
+                  <div className="p-6 text-center text-footertext">Loading payments...</div>
                 )}
                 {!loading && payments.length === 0 && (
-                  <div className="p-6 text-center text-[#8fadcc]">You have not made any payments yet.</div>
+                  <div className="p-6 text-center text-footertext">You have not made any payments yet.</div>
                 )}
                 {!loading && payments.map((item) => (
                   <div key={item._id} className='grid grid-cols-4 justify-around items-center text-footertext p-4 border-bColor border-b text-center'>
