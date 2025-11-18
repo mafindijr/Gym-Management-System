@@ -62,7 +62,7 @@ export default function StudentBilling() {
       <main className='flex flex-col col-span-4 gap-4 w-full items-center'>
         <div className='flex justify-between items-center w-[902px]'>
           <div className='flex flex-col gap-4'>
-            <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Billing & Payments</h1>
+            <h1 className='text-[32px] leading-10 font-bold font-montserrat'>Billing & Payments</h1>
           </div>
           <button
             onClick={() => setOpenModal(true)}
@@ -98,8 +98,8 @@ export default function StudentBilling() {
                   <div className="p-6 text-center text-[#8fadcc]">You have not made any payments yet.</div>
                 )}
                 {!loading && payments.map((item) => (
-                  <div key={item._id} className='grid grid-cols-4 justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1 text-center'>
-                    <div className="text-[#e5e8eb] font-semibold">
+                  <div key={item._id} className='grid grid-cols-4 justify-around items-center text-footertext p-4 border-bColor border-b text-center'>
+                    <div className="text-bColor font-semibold">
                       <span>{item.className || "Manual Payment"}</span>
                     </div>
                     <div>
@@ -109,7 +109,7 @@ export default function StudentBilling() {
                       <span>{formatDate(item.createdAt)}</span>
                     </div>
                     <div>
-                      <span className="bg-[#223649] px-4 py-2 font-semibold rounded-md cursor-default text-[#e5e8eb] inline-block">{item.status}</span>
+                      <span className="bg-[#223649] px-4 py-2 font-semibold rounded-md cursor-default text-bColor inline-block">{item.status}</span>
                     </div>
                   </div>
                 ))}

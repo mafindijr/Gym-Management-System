@@ -269,8 +269,8 @@ export default function MembersDashboard() {
         )}
 
         <div className='flex gap-4 mt-4'>
-          <div className="w-[928px] min-h-[320px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
-            <div className='grid grid-cols-6 items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1 text-sm font-semibold text-center'>
+          <div className="w-[928px] min-h-80 flex flex-col border inset-1 border-[#334d66] rounded-xl">
+            <div className='grid grid-cols-6 items-center bg-bgtable p-4 border-bColor border-b text-sm font-semibold text-center'>
               <span>Name</span>
               <span>Email</span>
               <span>Membership</span>
