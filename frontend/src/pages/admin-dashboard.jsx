@@ -23,6 +23,7 @@ const INITIAL_CLASS_FORM = {
 };
 
 export default function Admin() {
+
   const [stats, setStats] = useState({
     totalMembers: 0,
     activeClasses: 0,
@@ -30,6 +31,7 @@ export default function Admin() {
     memberGrowth: 0,
     classAttendance: 0
   });
+
   const [openMemberModal, setOpenMemberModal] = useState(false);
   const [openClassModal, setOpenClassModal] = useState(false);
   const [memberForm, setMemberForm] = useState(INITIAL_MEMBER_FORM);
@@ -177,27 +179,27 @@ export default function Admin() {
 
             <main className='flex flex-col col-span-4 justify-center  gap-8 w-full'>
                 <div>
-                    <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Dashboard</h1>
+                    <h1 className='text-[36px] leading-10 font-bold font-montserrat'>Dashboard</h1>
                 </div>
 
                 <div className='flex gap-4'>
-                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
-                        <p className='font-semibold text-[16px] leading-[24px]'>Total Members</p>
+                    <div className='w-[280px] h-[120] rounded-xl p-4 text-left bg-[#223649]'>
+                        <p className='font-semibold text-[16px] leading-6'>Total Members</p>
                         <p className='font-bold text-[24px] leading-[30px]'>{stats.totalMembers}</p>
                     </div>
-                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
-                        <p className='font-semibold text-[16px] leading-[24px]'>Active Classes</p>
+                    <div className='w-[280px] h-[120] rounded-xl p-4 text-left bg-[#223649]'>
+                        <p className='font-semibold text-[16px] leading-6'>Active Classes</p>
                         <p className='font-bold text-[24px] leading-[30px]'>{stats.activeClasses}</p>
                     </div>
-                    <div className='w-[280px] h-[120] rounded-[12px] p-4 text-left bg-[#223649]'>
-                        <p className='font-semibold text-[16px] leading-[24px]'>Trainers</p>
+                    <div className='w-[280px] h-[120] rounded-xl p-4 text-left bg-[#223649]'>
+                        <p className='font-semibold text-[16px] leading-6'>Trainers</p>
                         <p className='font-bold text-[24px] leading-[30px]'>{stats.totalTrainers}</p>
                     </div>
                 </div>
 
                 <div>
                     <div>
-                        <h2 className='text-[22px] leading-[28px] font-bold pb-4'>Quick Actions</h2>
+                        <h2 className='text-[22px] leading-7 font-bold pb-4'>Quick Actions</h2>
                     </div>
                     <div className='flex gap-2 py-2'>
                         <button 
@@ -206,7 +208,7 @@ export default function Admin() {
                             setError("");
                             setOpenMemberModal(true);
                           }}
-                          className='bg-btnprimary w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
+                          className='bg-btnprimary w-[135px] h-10 rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
                         >
                           Add Member
                         </button>
@@ -216,19 +218,19 @@ export default function Admin() {
                             setError("");
                             setOpenClassModal(true);
                           }}
-                          className='bg-[#223649] w-[135px] h-[40px] rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
+                          className='bg-[#223649] w-[135px] h-10 rounded-full pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
                         >
                           Schedule Class
                         </button>
                     </div>
                     <div>
-                        <h2 className='text-[22px] leading-[28px] font-bold py-4'>Gym Overview</h2>
+                        <h2 className='text-[22px] leading-7 font-bold py-4'>Gym Overview</h2>
                     </div>
                     <div className='flex gap-4 mt-4'>
-                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
+                        <div className="w-[430px] h-[394px] border inset-1 border-[#334d66] rounded-xl p-4">
                             <div>
                                 <h2 className=''>Member Growth</h2>
-                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>{stats.memberGrowth}%</h2>
+                                <h2 className='text-[36px] leading-10 font-bold py-2 font-montserrat'>{stats.memberGrowth}%</h2>
                                 <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Month <span className='text-percentage font-bold'>{stats.memberGrowth}%</span></p>
                             </div>
 
@@ -262,10 +264,10 @@ export default function Admin() {
                                 </div>
                             </div>
                         </div>
-                        <div className="w-[430px] h-[394px] border-1 inset-1 border-[#334d66] rounded-[12px] p-4">
+                        <div className="w-[430px] h-[394px] border inset-1 border-[#334d66] rounded-xl p-4">
                             <div>
                                 <h2>Class Attendance</h2>
-                                <h2 className='text-[36px] leading-[40px] font-bold py-2 font-montserrat'>{stats.classAttendance}%</h2>
+                                <h2 className='text-[36px] leading-10 font-bold py-2 font-montserrat'>{stats.classAttendance}%</h2>
                                 <p className='text-[14px] leading-6 text-adminsmtext font-montserrat'>Last Week <span className='text-percentage font-bold'>{stats.classAttendance}%</span></p>
                             </div>
 
@@ -364,7 +366,7 @@ export default function Admin() {
                 <button
                   type="submit"
                   disabled={memberSubmitting}
-                  className="bg-btnprimary w-full h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
+                  className="bg-btnprimary w-full h-10 rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
                 >
                   {memberSubmitting ? "Saving..." : "Add Member"}
                 </button>
@@ -374,11 +376,11 @@ export default function Admin() {
             {/* Schedule Class Modal */}
             <Modal isOpen={openClassModal} onClose={() => { setOpenClassModal(false); setError(""); }}>
               <div className="flex flex-col h-full max-h-[80vh]">
-                <h2 className="text-[24px] font-bold text-center mb-4 flex-shrink-0">Schedule Class</h2>
+                <h2 className="text-[24px] font-bold text-center mb-4 shrink-0">Schedule Class</h2>
                 <form onSubmit={handleCreateClass} className="flex flex-col h-full overflow-hidden">
                   <div className="overflow-y-auto flex-1 pr-2 space-y-4">
                     {error && (
-                      <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm flex-shrink-0">
+                      <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm shrink-0">
                         {error}
                       </div>
                     )}
@@ -459,7 +461,7 @@ export default function Admin() {
                   <button
                     type="submit"
                     disabled={classSubmitting}
-                    className="bg-btnprimary w-full h-[40px] rounded-md mt-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60 flex-shrink-0"
+                    className="bg-btnprimary w-full h-10 rounded-md mt-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60 shrink-0"
                   >
                     {classSubmitting ? "Scheduling..." : "Schedule Class"}
                   </button>
