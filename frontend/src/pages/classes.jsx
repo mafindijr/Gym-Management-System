@@ -8,6 +8,7 @@ export default function Classes() {
     const [openModal, setOpenModal] = useState(false);
     const [openReview, setOpenReview] = useState(false);
     const [selectedMember, setSelectedMember] = useState(null);
+    
     const [formData, setFormData] = useState({
         name: "",
         instructor: "",
