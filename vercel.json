@@ -15,5 +15,6 @@
       "dest": "frontend/index.html",
       "status": 200
     }
-  ]
+  ],
+  "ignore": ["backend/**"]
 }
