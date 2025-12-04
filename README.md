@@ -47,7 +47,7 @@ Gym Management System is a complete digital solution designed to streamline gym 
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/gym-management-system.git
+git clone https://github.com/mafindijr/gym-management-system.git
 cd gym-management-system
 ```
 
