@@ -1,20 +1,46 @@
 {
   "version": 2,
-  "builds": [
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
     {
-      "src": "frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "frontend/dist"
-      }
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
   ],
   "routes": [
     {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "frontend/index.html",
-      "status": 200
+      "dest": "/index.html"
     }
   ],
-  "ignore": ["backend/**"]
+  "ignore": [
+    "backend",
+    "backend/**",
+    ".git",
+    ".gitignore",
+    "node_modules",
+    "*.md"
+  ]
 }
