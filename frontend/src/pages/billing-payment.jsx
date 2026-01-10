@@ -75,12 +75,12 @@ export default function BillingPayment() {
       <main className='flex flex-col col-span-4 gap-4'>
         <div className='flex justify-between items-center'>
           <div className='flex flex-col gap-4'>
-            <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Billing & Payments</h1>
+            <h1 className='text-xl md:text-[32px] leading-[40px] font-bold font-montserrat'>Billing & Payments</h1>
           </div>
         </div>
 
-        <div className='w-[902px] flex flex-col gap-4 mt-4 text-[14px] leading-[21px]'>
-          <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
+        <div className='w-full max-w-4xl flex flex-col gap-4 mt-4 text-sm md:text-[14px] leading-[21px]'>
+          <div className='inline-flex gap-4 border-b-1 border-[#334d66] overflow-auto'>
             <span className='border-b-2 pb-2'>Overview</span>
             <span className='border-b-2 pb-2'>Invoices</span>
             <span className='border-b-2 pb-2'>Payments</span>
@@ -92,21 +92,21 @@ export default function BillingPayment() {
           )}
           <div>
             <div>
-              <h2 className='my-[20px] font-poppins font-bold text-[22px] leading-[28px]'>Summary</h2>
+              <h2 className='my-[20px] font-poppins font-bold text-lg md:text-[22px] leading-[28px]'>Summary</h2>
             </div>
-            <div className='w-[908px]'>
-              <div className='flex gap-4 flex-wrap'>
-                <div className='w-[280px] h-[120px] rounded-[12px] p-4 text-left bg-[#223649]'>
-                  <p className='font-semibold text-[16px] leading-[24px]'>Total Revenue</p>
-                  <p className='font-bold text-[24px] leading-[30px]'>{formatCurrency(stats.totalRevenue)}</p>
+            <div className='w-full'>
+              <div className='flex flex-col sm:flex-row gap-4'>
+                <div className='flex-1 rounded-[12px] p-4 bg-[#223649]'>
+                  <p className='font-semibold text-[16px]'>Total Revenue</p>
+                  <p className='font-bold text-[20px] md:text-[24px]'>{formatCurrency(stats.totalRevenue)}</p>
                 </div>
-                <div className='w-[280px] h-[120px] rounded-[12px] p-4 text-left bg-[#223649]'>
-                  <p className='font-semibold text-[16px] leading-[24px]'>Outstanding Balance</p>
-                  <p className='font-bold text-[24px] leading-[30px]'>{formatCurrency(stats.outstandingBalance)}</p>
+                <div className='flex-1 rounded-[12px] p-4 bg-[#223649]'>
+                  <p className='font-semibold text-[16px]'>Outstanding Balance</p>
+                  <p className='font-bold text-[20px] md:text-[24px]'>{formatCurrency(stats.outstandingBalance)}</p>
                 </div>
-                <div className='w-[280px] h-[120px] rounded-[12px] p-4 text-left bg-[#223649]'>
-                  <p className='font-semibold text-[16px] leading-[24px]'>Average Payment</p>
-                  <p className='font-bold text-[24px] leading-[30px]'>{formatCurrency(stats.averagePayment)}</p>
+                <div className='flex-1 rounded-[12px] p-4 bg-[#223649]'>
+                  <p className='font-semibold text-[16px]'>Average Payment</p>
+                  <p className='font-bold text-[20px] md:text-[24px]'>{formatCurrency(stats.averagePayment)}</p>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ export default function BillingPayment() {
             <div>
               <h2 className='my-[20px] font-poppins font-bold text-[22px] leading-[28px]'>Recent Payments</h2>
             </div>
-            <div className="w-[908px] min-h-[320px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
+            <div className="w-full max-w-4xl min-h-[320px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
               <div className='grid grid-cols-4 justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1 text-center font-semibold'>
                 <div><span>Member</span></div>
                 <div><span>Amount</span></div>

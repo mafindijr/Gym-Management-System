@@ -31,41 +31,41 @@ export default function StudentClasses() {
         <main className='flex flex-col col-span-4 gap-4 w-full'>
             <div className='flex justify-between items-center'>
                 <div className='flex flex-col gap-4'>
-                <h1 className='text-[32px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
-                <span className='text-[14px] leading-[21px] text-adminsmtext'>Find the perfect class to meet your fitness goals. Explore our diverse range of classes led by expert instructors.</span>
+                <h1 className='text-xl md:text-[32px] leading-[40px] font-bold font-montserrat'>Class Schedule</h1>
+                <span className='text-sm md:text-[14px] leading-[21px] text-adminsmtext'>Find the perfect class to meet your fitness goals. Explore our diverse range of classes led by expert instructors.</span>
                 </div>
             </div>
 
             <div className='flex flex-col gap-4 text-[14px] leading-[21px]'>
-                <div className='inline-flex gap-4 border-b-1 border-[#334d66]'>
+                <div className='inline-flex gap-4 border-b-1 border-[#334d66] overflow-x-auto'>
                     <span className='border-b-2 pb-2'>Upcoming</span>
                     <span className='border-b-2 pb-2'>Past</span>
                     <span className='border-b-2 pb-2'>All</span>
                 </div>
-                <div className="w-[928px] h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px]">
-                        <div className='flex justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
-                            <div><span>Class Name</span></div>
-                            <div><span>Instructor</span></div>
-                            <div><span>Date & Time</span></div>
-                            <div><span>Capacity</span></div>
-                            <div><span>Action</span></div>
+                <div className="w-full max-w-4xl h-auto md:h-[480px] flex flex-col border-1 inset-1 border-[#334d66] rounded-[12px] overflow-auto">
+                        <div className='flex flex-nowrap md:justify-around items-center bg-[#172633] p-4 border-[#e5e8eb] border-b-1'>
+                            <div className="min-w-[120px] text-center"><span>Class Name</span></div>
+                            <div className="min-w-[120px] text-center"><span>Instructor</span></div>
+                            <div className="min-w-[160px] text-center"><span>Date & Time</span></div>
+                            <div className="min-w-[120px] text-center"><span>Capacity</span></div>
+                            <div className="min-w-[100px] text-center"><span>Action</span></div>
                         </div>
                         <div id="tableBody" className="">
                             {data.map((item, index) => ( 
-                            <div key={index} className='flex justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
-                                <div className="w-[185px] text-center text-[#e5e8eb]">
+                            <div key={index} className='flex flex-nowrap md:justify-around items-center text-[#8fadcc] p-4 border-[#e5e8eb] border-b-1'>
+                                <div className="min-w-[120px] text-center text-[#e5e8eb] font-semibold">
                                     <span>{item.name}</span>
                                 </div>
-                                <div className="w-[185px] text-center">
+                                <div className="min-w-[120px] text-center">
                                     <span>{item.instructor}</span>
                                 </div>
-                                <div className="w-[185px] text-center">
+                                <div className="min-w-[160px] text-center">
                                     <span>{item.dateTime}</span>
                                 </div>
-                                <div className="w-[185px] text-center">
-                                    <span className="bg-[#223649] px-8 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.capacity} </span>
+                                <div className="min-w-[120px] text-center">
+                                    <span className="bg-[#223649] px-4 py-2 font-semibold rounded-md cursor-pointer text-[#e5e8eb]">{item.capacity} </span>
                                 </div>
-                                <div className="w-[185px] text-center">
+                                <div className="min-w-[100px] text-center">
                                     <span className="font-semibold">Enroll</span>
                                 </div>
                             </div>

@@ -57,9 +57,9 @@ export default function SignUpPage() {
 
   return (
     <form onSubmit={handleSubmit}>
-            <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
+            <div className="w-full bg-[#223649] p-4 sm:p-6 rounded-lg shadow flex flex-col gap-4">
                 <div>
-                    <h2 className='text-[28px] leading-[35px] font-bold text-center'>Welcome! Sign Up</h2>
+                    <h2 className='text-lg sm:text-xl md:text-2xl font-bold text-center'>Welcome! Sign Up</h2>
                 </div>
                 <div>
                     <input 
@@ -67,7 +67,7 @@ export default function SignUpPage() {
                     name='fullName'
                     value={form.fullName}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
                     placeholder='Full Name'
                     required
                     />
@@ -78,7 +78,7 @@ export default function SignUpPage() {
                     name='email'
                     value={form.email}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
                     placeholder='Enter Email'
                     required
                     />
@@ -89,7 +89,7 @@ export default function SignUpPage() {
                     name='createPassword'
                     value={form.createPassword}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
                     placeholder='Create Password'
                     required
                     />
@@ -100,18 +100,18 @@ export default function SignUpPage() {
                     name='confirmPassword'
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
                     placeholder='Confirm Password'
                     required
                     />
                 </div>
-                <div className='flex flex-col items-center'>
+                <div className='flex flex-col items-center gap-2'>
                     <button 
                      type='submit'
-                     className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'
+                     className='bg-btnprimary w-full px-4 rounded-[24px] text-sm sm:text-base font-bold font-poppins text-center cursor-pointer h-[40px] hover:bg-blue-700 transition'
                      disabled={submitting}
                      >{submitting ? 'Signing Up...' : 'Sign Up'}</button>
-                    <span className='text-[14px] leading-[21px] text-[#91adc9]'>Already have an account? Log In</span>
+                    <span className='text-xs sm:text-sm leading-[21px] text-[#91adc9]'>Already have an account? Log In</span>
                 </div>
                 
             </div>

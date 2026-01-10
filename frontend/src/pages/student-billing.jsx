@@ -60,19 +60,19 @@ export default function StudentBilling() {
   return (
     <> 
       <main className='flex flex-col col-span-4 gap-4 w-full items-center'>
-        <div className='flex justify-between items-center w-[902px]'>
+        <div className='flex justify-between items-center w-full max-w-4xl px-2 md:px-0'>
           <div className='flex flex-col gap-4'>
-            <h1 className='text-[32px] leading-10 font-bold font-montserrat'>Billing & Payments</h1>
+            <h1 className='text-xl md:text-[32px] leading-10 font-bold font-montserrat'>Billing & Payments</h1>
           </div>
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-btnprimary text-white h-10 rounded-md py-2 px-6 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer"
+            className="bg-btnprimary text-white h-10 rounded-md py-2 px-4 md:px-6 text-sm md:text-[13px] font-bold cursor-pointer"
           >
             Make Payment
           </button>
         </div>
-        <div className='w-[902px] flex flex-col gap-4 mt-4 text-[14px] leading-[21px]'>
-          <div className='inline-flex gap-4 border-b border-[#334d66]'>
+        <div className='w-full max-w-4xl flex flex-col gap-4 mt-4 text-sm md:text-[14px] leading-[21px]'>
+          <div className='inline-flex gap-4 border-b border-[#334d66] overflow-auto'>
             <span className='border-b-2 pb-2'>Overview</span>
             <span className='border-b-2 pb-2'>Payments</span>
           </div>
@@ -82,9 +82,9 @@ export default function StudentBilling() {
             </div>
           )}
           <div>
-            <h2 className='my-5 font-poppins font-bold text-[22px] leading-7'>Recent Payments</h2>
-            <div className="w-[908px] min-h-80 flex flex-col border inset-1 border-[#334d66] rounded-xl">
-              <div className='grid grid-cols-4 justify-around items-center bg-bgtable p-4 border-bColor border-b text-center font-semibold'>
+            <h2 className='my-5 font-poppins font-bold text-lg md:text-[22px] leading-7'>Recent Payments</h2>
+            <div className="w-full max-w-4xl min-h-80 flex flex-col border inset-1 border-[#334d66] rounded-xl overflow-auto">
+              <div className='grid grid-cols-4 text-center bg-bgtable p-4 border-bColor border-b text-sm md:text-base font-semibold'>
                 <div><span>Class</span></div>
                 <div><span>Amount</span></div>
                 <div><span>Date</span></div>

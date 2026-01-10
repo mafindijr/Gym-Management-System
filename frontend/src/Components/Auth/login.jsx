@@ -51,9 +51,9 @@ export default function LoginPage() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
+            <div className="w-full bg-[#223649] p-4 sm:p-6 rounded-lg shadow flex flex-col gap-4">
                 <div>
-                    <h2 className='text-[28px] leading-[35px] font-bold text-center'>Welcome Back! Log In</h2>
+                    <h2 className='text-lg sm:text-xl md:text-2xl font-bold text-center'>Welcome Back!</h2>
                 </div>
                 <div>
                     <input 
@@ -61,7 +61,7 @@ export default function LoginPage() {
                     name='email'
                     value={form.email}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
                     placeholder='Enter Email'
                     required
                     />
@@ -72,17 +72,20 @@ export default function LoginPage() {
                     name='password'
                     value={form.password}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px] text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
                     placeholder='Enter Password'
                     required
                     />
-                    <span className='text-[14px] leading-[21px] text-[#91adc9]'>Forgot Password</span>
                 </div>
-                <div className='flex flex-col items-center'>
-                    <button disabled={submitting} className='bg-btnprimary w-full pl-4 pr-4 rounded-[24px] text-[14px] font-bold font-poppins text-center cursor-pointer h-[40px]'>
+                <div className='flex flex-col items-center gap-2'>
+                    <button 
+                        type='submit'
+                        className='bg-btnprimary w-full px-4 rounded-[24px] text-sm sm:text-base font-bold font-poppins text-center cursor-pointer h-[40px] hover:bg-blue-700 transition'
+                        disabled={submitting}
+                    >
                         {submitting ? 'Logging In...' : 'Log In'}
                     </button>
-                    <span className='text-[14px] leading-[21px] text-[#91adc9]'>Don't have an account? Sign Up</span>
+                    <span className='text-xs sm:text-sm leading-[21px] text-[#91adc9]'>Don't have an account? Sign Up</span>
                 </div>
                 
             </div>
