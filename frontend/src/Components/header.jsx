@@ -26,7 +26,7 @@ export default function Header() {
 
         {/* Desktop Sign Up Button */}
         <div className='hidden md:block'>
-            <div className='bg-btnprimary w-[80px] text-center font-poppins text-text h-[40px] p-2 rounded-[20px]'>
+            <div className='bg-btnprimary w-20 text-center font-poppins text-text h-10 p-2 rounded-[20px]'>
                 <button 
                 className='cursor-pointer font-poppins text-[14px] leading-[21px] font-semibold'
                 onClick={() => setOpenSignUp(true)}
@@ -53,7 +53,7 @@ export default function Header() {
 
     {/* Mobile Navigation Menu */}
     {mobileMenuOpen && (
-        <nav className='md:hidden bg-[#172633] border-b border-[#334d66] px-4 py-4 z-40'>
+        <nav className='md:hidden bg-bgtable border-b border-[#334d66] px-4 py-4 z-40'>
             <div className='flex flex-col gap-4 font-montserrat text-sm font-medium'>
                 <a href="#" className='hover:text-btnprimary transition py-2'>Home</a>
                 <a href="#" className='hover:text-btnprimary transition py-2'>About</a>

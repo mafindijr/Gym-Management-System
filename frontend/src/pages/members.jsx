@@ -3,6 +3,7 @@ import SearchBar from '../Components/search-input';
 import Modal from "../Components/modal";
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const INITIAL_FORM = {
   fullName: "",
   email: "",
@@ -240,13 +241,13 @@ export default function MembersDashboard() {
     <div>
       <main className='flex flex-col col-span-4 gap-8 w-full'>
         <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4'>
-          <h1 className='text-2xl md:text-[36px] leading-[40px] font-bold font-montserrat'>Members</h1>
+          <h1 className='text-2xl md:text-[36px] leading-10 font-bold font-montserrat'>Members</h1>
           <button
             onClick={() => {
               setFormData(INITIAL_FORM);
               setOpenModal(true);
             }}
-            className='bg-btnprimary w-full sm:w-auto h-[40px] rounded-md px-6 text-xs sm:text-sm font-bold cursor-pointer hover:bg-blue-700 transition'
+            className='bg-btnprimary w-full sm:w-auto h-10 rounded-md px-6 text-xs sm:text-sm font-bold cursor-pointer hover:bg-blue-700 transition'
           >
             Add Member
           </button>
@@ -280,18 +281,18 @@ export default function MembersDashboard() {
             </div>
             <div id="tableBody" className="divide-y divide-[#334d66]">
               {loading && (
-                <div className="p-6 text-center text-[#8fadcc]">Loading members...</div>
+                <div className="p-6 text-center text-footertext">Loading members...</div>
               )}
               {!loading && members.length === 0 && (
-                <div className="p-6 text-center text-[#8fadcc]">No members found.</div>
+                <div className="p-6 text-center text-footertext">No members found.</div>
               )}
               {!loading && members.map((item) => (
-                <div key={item._id} className='grid grid-cols-6 items-center text-[#8fadcc] p-4 text-center text-sm md:text-base'>
-                  <div className="text-[#e5e8eb] font-semibold truncate">{item.fullName}</div>
+                <div key={item._id} className='grid grid-cols-6 items-center text-footertext p-4 text-center text-sm md:text-base'>
+                  <div className="text-footertext font-semibold truncate">{item.fullName}</div>
                   <div className="truncate">{item.email}</div>
                   <div>{item.membership}</div>
                   <div>
-                    <span className="bg-[#223649] px-3 py-1 md:px-4 md:py-2 font-semibold rounded-md cursor-default text-[#e5e8eb] inline-block text-xs md:text-sm">
+                    <span className="bg-[#223649] px-3 py-1 md:px-4 md:py-2 font-semibold rounded-md cursor-default text-bgColor inline-block text-xs md:text-sm">
                       {item.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </div>
@@ -402,13 +403,13 @@ export default function MembersDashboard() {
             <div className="mb-2"><strong>Last Login:</strong> {formatDate(selectedMember.lastLogin)}</div>
             <div className="flex gap-2 mt-4 flex-wrap">
               <button
-                className="bg-[#223649] w-full sm:w-[135px] h-[40px] rounded-md my-2 text-xs sm:text-sm font-bold cursor-pointer hover:bg-[#2a4659] transition"
+                className="bg-[#223649] w-full sm:w-[135px] h-10 rounded-md my-2 text-xs sm:text-sm font-bold cursor-pointer hover:bg-[#2a4659] transition"
                 onClick={() => setIsEditing(true)}
               >
                 Edit Member
               </button>
               <button
-                className="bg-red-600 w-full sm:w-[135px] h-[40px] rounded-md my-2 text-xs sm:text-sm font-bold cursor-pointer disabled:opacity-60 hover:bg-red-700 transition"
+                className="bg-red-600 w-full sm:w-[135px] h-10 rounded-md my-2 text-xs sm:text-sm font-bold cursor-pointer disabled:opacity-60 hover:bg-red-700 transition"
                 onClick={handleDeleteMember}
                 disabled={deleteSubmitting}
               >

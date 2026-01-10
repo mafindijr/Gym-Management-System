@@ -7,6 +7,7 @@ export default function LoginPage() {
         email: "",
         password: ""
     });
+
     const [submitting, setSubmitting] = useState(false);
     const navigate = useNavigate();
 
@@ -61,7 +62,7 @@ export default function LoginPage() {
                     name='email'
                     value={form.email}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-adminsmtext"
                     placeholder='Enter Email'
                     required
                     />
@@ -72,7 +73,7 @@ export default function LoginPage() {
                     name='password'
                     value={form.password}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-adminsmtext"
                     placeholder='Enter Password'
                     required
                     />
@@ -80,12 +81,12 @@ export default function LoginPage() {
                 <div className='flex flex-col items-center gap-2'>
                     <button 
                         type='submit'
-                        className='bg-btnprimary w-full px-4 rounded-[24px] text-sm sm:text-base font-bold font-poppins text-center cursor-pointer h-[40px] hover:bg-blue-700 transition'
+                        className='bg-btnprimary w-full px-4 rounded-3xl text-sm sm:text-base font-bold font-poppins text-center cursor-pointer h-10 hover:bg-blue-700 transition'
                         disabled={submitting}
                     >
                         {submitting ? 'Logging In...' : 'Log In'}
                     </button>
-                    <span className='text-xs sm:text-sm leading-[21px] text-[#91adc9]'>Don't have an account? Sign Up</span>
+                    <span className='text-xs sm:text-sm leading-[21px] text-adminsmtext'>Don't have an account? Sign Up</span>
                 </div>
                 
             </div>

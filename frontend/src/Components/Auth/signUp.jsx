@@ -67,7 +67,7 @@ export default function SignUpPage() {
                     name='fullName'
                     value={form.fullName}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-adminsmtext"
                     placeholder='Full Name'
                     required
                     />
@@ -78,7 +78,7 @@ export default function SignUpPage() {
                     name='email'
                     value={form.email}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-adminsmtext"
                     placeholder='Enter Email'
                     required
                     />
@@ -89,7 +89,7 @@ export default function SignUpPage() {
                     name='createPassword'
                     value={form.createPassword}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-adminsmtext"
                     placeholder='Create Password'
                     required
                     />
@@ -100,7 +100,7 @@ export default function SignUpPage() {
                     name='confirmPassword'
                     value={form.confirmPassword}
                     onChange={handleChange}
-                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-[#91adc9]"
+                    className="p-2 my-1 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm sm:text-base text-adminsmtext"
                     placeholder='Confirm Password'
                     required
                     />
@@ -108,10 +108,10 @@ export default function SignUpPage() {
                 <div className='flex flex-col items-center gap-2'>
                     <button 
                      type='submit'
-                     className='bg-btnprimary w-full px-4 rounded-[24px] text-sm sm:text-base font-bold font-poppins text-center cursor-pointer h-[40px] hover:bg-blue-700 transition'
+                     className='bg-btnprimary w-full px-4 rounded-3xl text-sm sm:text-base font-bold font-poppins text-center cursor-pointer h-10 hover:bg-blue-700 transition'
                      disabled={submitting}
                      >{submitting ? 'Signing Up...' : 'Sign Up'}</button>
-                    <span className='text-xs sm:text-sm leading-[21px] text-[#91adc9]'>Already have an account? Log In</span>
+                    <span className='text-xs sm:text-sm leading-[21px] text-adminsmtext'>Already have an account? Log In</span>
                 </div>
                 
             </div>

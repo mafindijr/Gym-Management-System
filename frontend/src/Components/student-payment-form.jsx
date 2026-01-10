@@ -3,6 +3,7 @@ import { useState } from "react";
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export default function StudentPaymentForm({ onSuccess }) {
+
   const [form, setForm] = useState({
     amount: "",
     cardName: "",
@@ -81,7 +82,7 @@ export default function StudentPaymentForm({ onSuccess }) {
         <label className="flex flex-col gap-1">
           Amount
           <input
-            className="p-2 rounded bg-[#172633] border border-[#334d66] text-white text-sm"
+            className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
             type="number"
             name="amount"
             value={form.amount}
@@ -94,7 +95,7 @@ export default function StudentPaymentForm({ onSuccess }) {
         <label className="flex flex-col gap-1">
           Cardholder Name
           <input
-            className="p-2 rounded bg-[#172633] border border-[#334d66] text-white text-sm"
+            className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
             type="text"
             name="cardName"
             value={form.cardName}
@@ -106,7 +107,7 @@ export default function StudentPaymentForm({ onSuccess }) {
         <label className="flex flex-col gap-1">
           Card Number
           <input
-            className="p-2 rounded bg-[#172633] border border-[#334d66] text-white text-sm"
+            className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
             type="text"
             name="cardNumber"
             value={form.cardNumber}
@@ -119,7 +120,7 @@ export default function StudentPaymentForm({ onSuccess }) {
           <label className="flex flex-col gap-1 flex-1">
             Expiry Date
             <input
-              className="p-2 rounded bg-[#172633] border border-[#334d66] text-white text-sm"
+              className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
               type="text"
               name="expiry"
               value={form.expiry}
@@ -131,7 +132,7 @@ export default function StudentPaymentForm({ onSuccess }) {
           <label className="flex flex-col gap-1 flex-1">
             CVV
             <input
-              className="p-2 rounded bg-[#172633] border border-[#334d66] text-white text-sm"
+              className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
               type="password"
               name="cvv"
               value={form.cvv}
