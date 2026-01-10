@@ -3,6 +3,7 @@ import SearchBar from '../Components/search-input';
 import Modal from "../Components/modal";
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
 const INITIAL_FORM = {
   fullName: "",
   email: "",
@@ -239,38 +240,38 @@ export default function MembersDashboard() {
   return (
     <div>
       <main className='flex flex-col col-span-4 gap-8 w-full'>
-        <div className='flex justify-between items-center'>
-          <h1 className='text-[36px] leading-[40px] font-bold font-montserrat'>Members</h1>
+        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4'>
+          <h1 className='text-2xl md:text-[36px] leading-10 font-bold font-montserrat'>Members</h1>
           <button
             onClick={() => {
               setFormData(INITIAL_FORM);
               setOpenModal(true);
             }}
-            className='bg-btnprimary w-[135px] h-[40px] rounded-md pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer'
+            className='bg-btnprimary w-full sm:w-auto h-10 rounded-md px-6 text-xs sm:text-sm font-bold cursor-pointer hover:bg-blue-700 transition'
           >
             Add Member
           </button>
         </div>
 
-        <div className='flex gap-4 w-full'>
+        <div className='flex flex-col sm:flex-row gap-4 w-full'>
           <SearchBar
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             onSubmit={handleSearchSubmit}
-            placeholder="Search by member name or email"
+            placeholder="Search by name or email"
             disabled={loading}
           />
         </div>
 
         {error && (
-          <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md">
+          <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-sm">
             {error}
           </div>
         )}
 
-        <div className='flex gap-4 mt-4'>
-          <div className="w-[928px] min-h-80 flex flex-col border inset-1 border-[#334d66] rounded-xl">
-            <div className='grid grid-cols-6 items-center bg-bgtable p-4 border-bColor border-b text-sm font-semibold text-center'>
+        <div className='flex gap-4 mt-4 w-full overflow-x-auto'>
+          <div className="w-full min-h-80 flex flex-col border inset-1 border-[#334d66] rounded-xl overflow-auto">
+            <div className='grid grid-cols-6 items-center bg-bgtable p-4 border-bColor border-b text-xs sm:text-sm font-semibold text-center'>
               <span>Name</span>
               <span>Email</span>
               <span>Membership</span>
@@ -280,18 +281,18 @@ export default function MembersDashboard() {
             </div>
             <div id="tableBody" className="divide-y divide-[#334d66]">
               {loading && (
-                <div className="p-6 text-center text-[#8fadcc]">Loading members...</div>
+                <div className="p-6 text-center text-footertext">Loading members...</div>
               )}
               {!loading && members.length === 0 && (
-                <div className="p-6 text-center text-[#8fadcc]">No members found.</div>
+                <div className="p-6 text-center text-footertext">No members found.</div>
               )}
               {!loading && members.map((item) => (
-                <div key={item._id} className='grid grid-cols-6 items-center text-[#8fadcc] p-4 text-center'>
-                  <div className="text-[#e5e8eb] font-semibold">{item.fullName}</div>
+                <div key={item._id} className='grid grid-cols-6 items-center text-footertext p-4 text-center text-sm md:text-base'>
+                  <div className="text-footertext font-semibold truncate">{item.fullName}</div>
                   <div className="truncate">{item.email}</div>
                   <div>{item.membership}</div>
                   <div>
-                    <span className="bg-[#223649] px-4 py-2 font-semibold rounded-md cursor-default text-[#e5e8eb] inline-block">
+                    <span className="bg-[#223649] px-3 py-1 md:px-4 md:py-2 font-semibold rounded-md cursor-default text-bgColor inline-block text-xs md:text-sm">
                       {item.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </div>
@@ -311,13 +312,18 @@ export default function MembersDashboard() {
         </div>
       </main>
 
-      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+      <Modal isOpen={openModal} onClose={() => { setOpenModal(false); setError(""); }}>
         <form onSubmit={handleCreateMember} className="space-y-4">
-          <h2 className="text-[24px] font-bold text-center">Add Member</h2>
+          <h2 className="text-lg sm:text-2xl font-bold text-center">Add Member</h2>
+          {error && (
+            <div className="bg-red-500/20 border border-red-400 text-red-200 px-4 py-2 rounded-md text-xs sm:text-sm">
+              {error}
+            </div>
+          )}
           <label className="w-full flex flex-col gap-1">
             Full Name
             <input
-              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
               type="text"
               placeholder="Enter full name"
               name="fullName"
@@ -329,7 +335,7 @@ export default function MembersDashboard() {
           <label className="w-full flex flex-col gap-1">
             Email
             <input
-              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
               type="email"
               placeholder="Enter email"
               name="email"
@@ -341,22 +347,23 @@ export default function MembersDashboard() {
           <label className="w-full flex flex-col gap-1">
             Temporary Password
             <input
-              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
               type="password"
               placeholder="Enter password"
               name="password"
               value={formData.password}
               onChange={handleCreateChange}
               required
+              minLength={6}
             />
           </label>
           <label className="w-full flex flex-col gap-1">
-            Membership
+            Membership Type
             <select
               name="membership"
               value={formData.membership}
               onChange={handleCreateChange}
-              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
             >
               <option value="Basic">Basic</option>
               <option value="Premium">Premium</option>
@@ -369,7 +376,7 @@ export default function MembersDashboard() {
               name="status"
               value={formData.status}
               onChange={handleCreateChange}
-              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+              className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
             >
               <option value="Active">Active</option>
               <option value="Inactive">Inactive</option>
@@ -378,7 +385,7 @@ export default function MembersDashboard() {
           <button
             type="submit"
             disabled={createSubmitting}
-            className="bg-btnprimary w-full h-[40px] rounded-md my-4 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
+            className="bg-btnprimary w-full h-10 rounded-md my-4 text-xs sm:text-sm font-bold text-center cursor-pointer disabled:opacity-60 hover:bg-blue-700 transition"
           >
             {createSubmitting ? "Saving..." : "Add Member"}
           </button>
@@ -386,27 +393,27 @@ export default function MembersDashboard() {
       </Modal>
 
       <Modal isOpen={openReview} onClose={handleCloseReview}>
-        <h2 className="text-center font-montserrat font-[700] text-[32px]">Member Details</h2>
+        <h2 className="text-center font-montserrat font-bold text-lg sm:text-2xl mb-4">Member Details</h2>
         {selectedMember && !isEditing && (
-          <div className="p-4 divide-y-2 divide-adminsmtext text-[18px] font-[400]">
+          <div className="p-4 divide-y-2 divide-adminsmtext text-sm sm:text-base">
             <div className="mb-2"><strong>Name:</strong> {selectedMember.fullName}</div>
             <div className="mb-2"><strong>Email:</strong> {selectedMember.email}</div>
             <div className="mb-2"><strong>Membership:</strong> {selectedMember.membership}</div>
             <div className="mb-2"><strong>Status:</strong> {selectedMember.isActive ? 'Active' : 'Inactive'}</div>
             <div className="mb-2"><strong>Last Login:</strong> {formatDate(selectedMember.lastLogin)}</div>
-            <div className="flex gap-4 mt-4 flex-wrap">
+            <div className="flex gap-2 mt-4 flex-wrap">
               <button
-                className="bg-[#223649] w-[135px] h-[40px] rounded-md my-2 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer"
+                className="bg-[#223649] w-full sm:w-[135px] h-10 rounded-md my-2 text-xs sm:text-sm font-bold cursor-pointer hover:bg-[#2a4659] transition"
                 onClick={() => setIsEditing(true)}
               >
                 Edit Member
               </button>
               <button
-                className="bg-red-600 w-[135px] h-[40px] rounded-md my-2 pl-4 pr-4 leading-5.4 text-[13px] font-bold font-poppins text-center cursor-pointer disabled:opacity-60"
+                className="bg-red-600 w-full sm:w-[135px] h-10 rounded-md my-2 text-xs sm:text-sm font-bold cursor-pointer disabled:opacity-60 hover:bg-red-700 transition"
                 onClick={handleDeleteMember}
                 disabled={deleteSubmitting}
               >
-                {deleteSubmitting ? "Deleting..." : "Delete Member"}
+                {deleteSubmitting ? "Deleting..." : "Delete"}
               </button>
             </div>
           </div>
@@ -414,9 +421,9 @@ export default function MembersDashboard() {
         {selectedMember && isEditing && (
           <form className="p-4 space-y-3" onSubmit={handleUpdateMember}>
             <label className="flex flex-col gap-1">
-              <strong>Name:</strong>
+              <strong className="text-sm">Name:</strong>
               <input
-                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
                 type="text"
                 name="fullName"
                 value={editForm.fullName}
@@ -425,9 +432,9 @@ export default function MembersDashboard() {
               />
             </label>
             <label className="flex flex-col gap-1">
-              <strong>Email:</strong>
+              <strong className="text-sm">Email:</strong>
               <input
-                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
                 type="email"
                 name="email"
                 value={editForm.email}
@@ -436,12 +443,12 @@ export default function MembersDashboard() {
               />
             </label>
             <label className="flex flex-col gap-1">
-              <strong>Membership:</strong>
+              <strong className="text-sm">Membership:</strong>
               <select
                 name="membership"
                 value={editForm.membership}
                 onChange={handleEditChange}
-                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
               >
                 <option value="Basic">Basic</option>
                 <option value="Premium">Premium</option>
@@ -449,39 +456,39 @@ export default function MembersDashboard() {
               </select>
             </label>
             <label className="flex flex-col gap-1">
-              <strong>Status:</strong>
+              <strong className="text-sm">Status:</strong>
               <select
                 name="status"
                 value={editForm.status}
                 onChange={handleEditChange}
-                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
               >
                 <option value="Active">Active</option>
                 <option value="Inactive">Inactive</option>
               </select>
             </label>
             <label className="flex flex-col gap-1">
-              <strong>Reset Password (optional):</strong>
+              <strong className="text-sm">Password (optional):</strong>
               <input
-                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-[16px]"
+                className="p-2 w-full outline-none border-[#334d66] border-2 bg-[#223649] rounded-md text-sm"
                 type="password"
                 name="password"
                 value={editForm.password}
                 onChange={handleEditChange}
-                placeholder="Leave blank to keep current password"
+                placeholder="Leave blank to keep current"
               />
             </label>
-            <div className="flex gap-4 mt-4 flex-wrap">
+            <div className="flex gap-2 mt-4 flex-col sm:flex-row">
               <button
                 type="submit"
                 disabled={editSubmitting}
-                className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded disabled:opacity-60"
+                className="bg-green-600 cursor-pointer text-white px-4 py-2 rounded text-sm font-bold hover:bg-green-700 transition disabled:opacity-60"
               >
                 {editSubmitting ? "Saving..." : "Save"}
               </button>
               <button
                 type="button"
-                className="bg-gray-600 cursor-pointer text-white px-4 py-2 rounded"
+                className="bg-gray-600 cursor-pointer text-white px-4 py-2 rounded text-sm font-bold hover:bg-gray-700 transition"
                 onClick={() => {
                   setIsEditing(false);
                   setEditForm({

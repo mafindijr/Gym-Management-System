@@ -3,6 +3,7 @@ import { useState } from "react";
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 export default function StudentPaymentForm({ onSuccess }) {
+
   const [form, setForm] = useState({
     amount: "",
     cardName: "",
@@ -71,17 +72,17 @@ export default function StudentPaymentForm({ onSuccess }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="w-full bg-[#223649] p-6 rounded-lg shadow flex flex-col gap-4">
-        <h2 className="text-xl font-bold mb-2">Make a Payment</h2>
+      <form onSubmit={handleSubmit} className="w-full bg-[#223649] p-4 sm:p-6 rounded-lg shadow flex flex-col gap-4">
+        <h2 className='text-lg sm:text-xl font-bold mb-2'>Make a Payment</h2>
         {error && (
-          <div className="bg-red-500/20 border border-red-400 text-red-200 px-3 py-2 rounded">
+          <div className="bg-red-500/20 border border-red-400 text-red-200 px-3 py-2 rounded text-xs sm:text-sm">
             {error}
           </div>
         )}
         <label className="flex flex-col gap-1">
           Amount
           <input
-            className="p-2 rounded bg-[#172633] border border-[#334d66] text-white"
+            className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
             type="number"
             name="amount"
             value={form.amount}
@@ -94,7 +95,7 @@ export default function StudentPaymentForm({ onSuccess }) {
         <label className="flex flex-col gap-1">
           Cardholder Name
           <input
-            className="p-2 rounded bg-[#172633] border border-[#334d66] text-white"
+            className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
             type="text"
             name="cardName"
             value={form.cardName}
@@ -106,7 +107,7 @@ export default function StudentPaymentForm({ onSuccess }) {
         <label className="flex flex-col gap-1">
           Card Number
           <input
-            className="p-2 rounded bg-[#172633] border border-[#334d66] text-white"
+            className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
             type="text"
             name="cardNumber"
             value={form.cardNumber}
@@ -115,11 +116,11 @@ export default function StudentPaymentForm({ onSuccess }) {
             required
           />
         </label>
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4">
           <label className="flex flex-col gap-1 flex-1">
             Expiry Date
             <input
-              className="p-2 rounded bg-[#172633] border border-[#334d66] text-white"
+              className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
               type="text"
               name="expiry"
               value={form.expiry}
@@ -131,7 +132,7 @@ export default function StudentPaymentForm({ onSuccess }) {
           <label className="flex flex-col gap-1 flex-1">
             CVV
             <input
-              className="p-2 rounded bg-[#172633] border border-[#334d66] text-white"
+              className="p-2 rounded bg-bgtable border border-[#334d66] text-white text-sm"
               type="password"
               name="cvv"
               value={form.cvv}
@@ -144,7 +145,7 @@ export default function StudentPaymentForm({ onSuccess }) {
         <button
           type="submit"
           disabled={submitting}
-          className="bg-btnprimary text-white cursor-pointer font-bold py-2 px-4 rounded mt-2 disabled:opacity-60"
+          className="bg-btnprimary text-white cursor-pointer font-bold py-2 px-4 rounded mt-2 text-sm sm:text-base hover:bg-blue-700 transition disabled:opacity-60"
         >
           {submitting ? "Processing..." : "Pay Now"}
         </button>
