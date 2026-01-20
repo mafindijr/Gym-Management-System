@@ -33,5 +33,9 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, '/api')
       }
     }
+  },
+
+  images: {
+    domains: ['example.com', 'another-domain.com']
   }
 })

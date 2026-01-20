@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <>
-    <header className='flex items-center justify-between py-2 px-4 sm:px-6 md:px-10 lg:px-20 border-b border-solid border-bColor z-50'>
+    <header className='fixed w-full bg-homebg flex items-center justify-between py-2 px-4 sm:px-6 md:px-10 lg:px-20 border-b border-solid border-bColor z-50'>
         <div className=''>
             <h1 className='font-poppins text-base sm:text-lg font-bold leading-tight tracking-[-0.015em]'>Nyame Fitness Hub</h1>
         </div>
