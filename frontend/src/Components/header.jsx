@@ -28,8 +28,8 @@ export default function Header() {
         <div className='hidden md:block'>
             <div className='bg-btnprimary w-20 text-center font-poppins text-text h-10 p-2 rounded-[20px]'>
                 <button 
-                className='cursor-pointer font-poppins text-[14px] leading-[21px] font-semibold'
-                onClick={() => setOpenSignUp(true)}
+                    className='cursor-pointer font-poppins text-[14px] leading-[21px] font-semibold'
+                    onClick={() => setOpenSignUp(true)}
                 >Sign Up</button>
             </div>
         </div>
