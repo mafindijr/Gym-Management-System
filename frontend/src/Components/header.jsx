@@ -15,6 +15,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
+
         <div className='hidden md:flex'>
             <div className='flex gap-4 sm:gap-6 md:gap-8 font-montserrat text-xs sm:text-sm font-medium leading-normal'>
                 <a href="#" className='hover:text-btnprimary transition'>Home</a>
@@ -25,6 +26,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Sign Up Button */}
+
         <div className='hidden md:block'>
             <div className='bg-btnprimary w-20 text-center font-poppins text-text h-10 p-2 rounded-[20px]'>
                 <button 
@@ -35,6 +37,7 @@ export default function Header() {
         </div>
 
         {/* Mobile Menu Toggle */}
+        
         <div className='md:hidden flex items-center gap-2'>
             <button
                 onClick={() => setOpenSignUp(true)}
